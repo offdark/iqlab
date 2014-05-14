@@ -65,94 +65,116 @@ function create_folder( $folder_name, $time = true ){
 
 
     function save_img( $user_id ){
-        
+
         $path = 'user_images';
 		$save_path = $path.'/u0/'.$user_id.'/1';
-        
+
         if( !file_exists($path) ){
-            
+
             create_folder( $path, $time = false );
             create_folder( $path. "/u0" );
             create_folder( $path. "/u0/" .$user_id );
             create_folder( $save_path );
             return $save_path;
-            
+
         }
-        
+
         $folder_check = folder_check( $user_id, $path );
         echo $folder_check;
-        
+
         if( !empty($folder_check) ){
-            
+
             return $folder_check;
         }else{
-            
-            foreach( glob( $path."/*" ) as $filename ){ 
-                
-                if( is_dir( $filename ) && count(glob( $filename. "/*")) < 3 ){
-                    
-                    return $filename;
-                    
-                }elseif( is_dir( count(glob($path)) ) < 3 ){
-                 //   create_folder($path. "/u");
-                   // create_folder($user_id);
-                  //  create_folder($user_id. "/0");
-                }else{
-                    
-                    echo "your done";
-                }
-                
+
+            foreach( glob( $path."/*" ) as $U ){
+
+                if( is_dir($U) ){
+
+                    if( count( glob($U. "/*")) < 3){
+
+                        echo "<br> still have space ";
+
+                    }
+                    else{
+
+                        if( !is_dir(++$U) ){ // if we dont have folder+1 we created it
+
+                            echo "creating new folder";
+                            create_folder($U);
+                            create_folder( "user_images/" .$U. "/" .$user_id );
+                            $path = "user_images/" .$U. "/" .$user_id;
+                            create_folder( $path. "/1" );
+                            return $save_path;
+
+                            //           echo "created new folder";
+                        }
+
+                    }
+
             }
         }
-        
+
     }
 
+    }
 
     function folder_check( $user_id, $folder_name ){
+    //    echo "<br>function";
         
         foreach( glob($folder_name."/*") as $filename ){ // checking if folder_name is not empty
-            
+
+        //    echo '<br>'.$filename;
             if( is_dir($filename) ){ // cheking if filename is a dir
                       
-                
-                if( $filename == $user_id ){
+           //     echo '<br> user_id: '.$user_id;
+
+                if( is_dir($filename."/".$user_id)){
                     
-                  echo '<br>last if : ' .$filename."/".$user_id.'<br>';  
-                  
-                  foreach( glob($filename."/".$user_id. "/*") as $file){ //checking last folder from 1 - 255
-                    
-                     if( count(glob( $file. "/*")) < 2 ){ // counting are we out of limit
-                        
+            //      echo '<br>last if : ' .$filename."/".$user_id.'<br>';
+                    $file = $filename."/".$user_id. "/".count(glob($filename."/".$user_id. "/*"));
+                    echo '<br>'.$file;
+
+                  if( count(glob($file."/*")) < 3){ //checking last folder from 1 - 255
+
+
+                         echo '<br>inside if ' .$file;
                          return $file;
                          
                      }else{
                         
-                        if( !is_dir(++$file) ){ // if we dont have folder+1 we created it
-                          
-                            create_folder($file);
-                            return $file;
+                        if( count( glob($filename. "/" .$user_id. "/*") ) < 3 ){
+                            echo 'new folder';
+
+                            if( !is_dir(++$file) ){ // if we dont have folder+1 we created it
+
+                                create_folder($file);
+                                return $file;
+                                //           echo "created new folder";
+                            }
+
                         }
-                        
+
+
+                        }
+
                      }
 
-        
-                   }
-                    
-                    
-                    
+
                    }
 
                     
                 }
             }
-        }
+
+
         
 
    
-  // $id = 0;
-  // $folder_name = 'user_images';
+
+   $folder_name = 'user_images';
    
- //  folder_check( $id, $folder_name );
+  folder_check( 'bbb', $folder_name );
    
    
 
