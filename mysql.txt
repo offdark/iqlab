@@ -1,0 +1,29 @@
+Тестовий север
+
+Magento student server
+00 - Використовуйте номер компютера, наліплений на кришці системного блока.
+
+Intro
+There are 50 users, numbered from 01 to 50 (e.g. 01, 02, 03 and not 1, 2, 3). 
+You can substitute   in the instructions below with any ID in this range. 00
+ 
+Server IP: 10.5.2.50
+ 
+Web access
+Apache is configured to serve content on NameVirtualHost named  magesite- .local 00
+You must write the following record to your hosts file:
+ 
+10.5.2.50 magesite-00.local
+ 
+FTP access
+FTP host: 10.5.2.50
+FTP username: ftp00
+FTP password: upl0ad3R
+Folder structure:
+ /htdocs: Website root. Full read+write access here.
+ /logs: Apache access+error logs, FTP transfer log. This folder is read-only. 
+MySQL database
+DB host: 10.5.2.1 (localhost can be used as well)
+DB username: dbuser00
+DB name: db00
+DB password: dbp4ss00
