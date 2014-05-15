@@ -21,7 +21,7 @@ if( $size > $limit_size ){
 else{
  if( in_array($type, $valid_extensions) ){
     
-    $location = save_img( 'bbb' );
+    $location = save_img('0');
     $uploadfile = $location. '/' .basename($name);
      
     if ( move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile) ) {
@@ -60,6 +60,8 @@ function create_folder( $folder_name, $time = true ){
         fclose( $open_file );
 
     }else{   copy( 'user_images/index.html', $folder_name. '/index.html');  }
+    
+    return $folder_name;
 
 }
 
@@ -80,35 +82,61 @@ function create_folder( $folder_name, $time = true ){
         }
 
         $folder_check = folder_check( $user_id, $path );
-        echo $folder_check;
+        echo "<br> result of folder_check : " .$folder_check;
 
         if( !empty($folder_check) ){
 
             return $folder_check;
+            
         }else{
 
             foreach( glob( $path."/*" ) as $U ){
 
                 if( is_dir($U) ){
+                    
+                    echo "<br>this is U: " .$U;
 
-                    if( count( glob($U. "/*")) < 3){
-
-                        echo "<br> still have space ";
-
+                    if( count( glob($U. "/*")) < 3 ){
+                        
+                        if( !is_dir($U. "/" .$user_id ) ){
+                            
+                            echo "<br> this is count U: " .count(glob($U. "/*")); 
+                            echo "<br> path to file : " .$U. "/" .$user_id. "/1";
+                            create_folder($U. "/" .$user_id);
+                            return create_folder($U. "/" .$user_id. "/1");
+                        
+                        }elseif( basename($U. "/" .$user_id) == '0' ){  
+                            
+                            if( count( glob($path. "/*") ) < 3 ){
+                            
+                            if( !is_dir(++$U) ){ // if we dont have folder+1 we created it
+    
+                                echo "creating new folder";
+                                create_folder($U);
+                                create_folder( $U. "/" .$user_id );
+                                return create_folder( $U. "/" .$user_id. "/1" );
+    
+                                //           echo "created new folder";
+                            }
+                        }else {     echo "we are done no more space in U directories: ";    }
+                            
+                          }
+                        
                     }
                     else{
-
-                        if( !is_dir(++$U) ){ // if we dont have folder+1 we created it
-
-                            echo "creating new folder";
-                            create_folder($U);
-                            create_folder( "user_images/" .$U. "/" .$user_id );
-                            $path = "user_images/" .$U. "/" .$user_id;
-                            create_folder( $path. "/1" );
-                            return $save_path;
-
-                            //           echo "created new folder";
-                        }
+                        
+                        if( count( glob($path. "/*") ) < 3 ){
+                            
+                            if( !is_dir(++$U) ){ // if we dont have folder+1 we created it
+    
+                                echo "creating new folder";
+                                create_folder($U);
+                                create_folder( $U. "/" .$user_id );
+                                return create_folder( $U. "/" .$user_id. "/1" );
+    
+                                //           echo "created new folder";
+                            }
+                        }else {     echo "we are done no more space in U directories: ";    }
 
                     }
 
@@ -124,18 +152,23 @@ function create_folder( $folder_name, $time = true ){
         
         foreach( glob($folder_name."/*") as $filename ){ // checking if folder_name is not empty
 
-        //    echo '<br>'.$filename;
+            echo '<br>'.$filename;
             if( is_dir($filename) ){ // cheking if filename is a dir
                       
-           //     echo '<br> user_id: '.$user_id;
+                echo '<br> user_id: '.$user_id;
 
                 if( is_dir($filename."/".$user_id)){
                     
-            //      echo '<br>last if : ' .$filename."/".$user_id.'<br>';
-                    $file = $filename."/".$user_id. "/".count(glob($filename."/".$user_id. "/*"));
-                    echo '<br>'.$file;
-
-                  if( count(glob($file."/*")) < 3){ //checking last folder from 1 - 255
+                 // echo '<br>last if : ' .$filename."/".$user_id.'<br>';
+                 //   $file = $filename."/".$user_id. "/".count(glob($filename."/".$user_id. "/*"));
+                 //   echo '<br> file looks like this: '.$file;
+                 //   echo '<br>after count '.count(glob($file));
+                    
+                    foreach( glob($filename. "/" .$user_id."/*") as $file ){
+                        
+                        if(is_dir($file)){
+                            
+                            if( count(glob($file."/*")) < 3 ){ //checking last folder from 1 - 255
 
 
                          echo '<br>inside if ' .$file;
@@ -144,19 +177,26 @@ function create_folder( $folder_name, $time = true ){
                      }else{
                         
                         if( count( glob($filename. "/" .$user_id. "/*") ) < 3 ){
-                            echo 'new folder';
+                            
+                            echo '<br>new folder';
 
                             if( !is_dir(++$file) ){ // if we dont have folder+1 we created it
 
                                 create_folder($file);
                                 return $file;
-                                //           echo "created new folder";
+                                           echo "<br>created new folder";
                             }
 
-                        }
+                        }else {  echo "<br>sory but no more space for user: " .$user_id;   }
 
 
                         }
+                            
+                        }
+
+                    }
+
+
 
                      }
 
@@ -172,9 +212,9 @@ function create_folder( $folder_name, $time = true ){
 
    
 
-   $folder_name = 'user_images';
+ //  $folder_name = 'user_images';
    
-  folder_check( 'bbb', $folder_name );
+ // folder_check( 'bbb', $folder_name );
    
    
 
