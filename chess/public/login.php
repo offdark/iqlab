@@ -4,36 +4,43 @@
  * @author Offdark
  * @copyright 2014
  */
+function __autoload($class_name) {
 
+    if( file_exists('../includes/' .$class_name. '.class.php') ) {
+        require_once( '../includes/' .$class_name. '.class.php' );
+    } else {
+        throw new Exception("Unable to load $class_name.");
+    }
+}
 
     if( isset($_POST['singIn']) ){ // START Cheking if Button was Sabmit 
 
-        $login_name = ( !empty($_POST['loginName']) ) ? trim( htmlspecialchars($_POST['loginName']) ) : null;
-        $password   = ( !empty($_POST['password']) )  ? trim( htmlspecialchars($_POST['password']) )  : null;
+        $login_name = ( !empty( $_POST['loginName']) ) ? trim( htmlspecialchars( $_POST['loginName'] ) ) : null;
+        $password   = ( !empty( $_POST['password']) )  ? trim( htmlspecialchars( $_POST['password'] ) )  : null;
                 
         $check_user = new User();
-        $check_user->setLoginName($login_name);
+        $check_user->login = $login_name;
         $check_user->setPassword($password);
         
         
         $dbService = new MYSQLDatabase(); 
-        $user = $dbService->login($check_user);
-        //Витягаємо всі поля користувача з БД
+        $dbUser = $dbService->login($check_user);
+        //Checking
 
-            if( $user->getLoginName()      == $check_user->getLoginName() && 
-                $user->getHeshedPassword() == $check_user->getHeshedPassword() && 
-                $user->getRole()           == 'admin'
+            if( $dbUser->login  == $check_user->login &&
+                $dbUser->role   == 'admin' &&
+                $dbUserser->getHashedPassword() == $check_user->getHashedPassword()
               ){    
                 
-                    $session->logged_in($user);
-                    header( 'Location: http://localhost/' );   
+                  //  $session->logged_in($dbUser);
+                    header( 'Location: http://http://localhost/test/chess/public/index.php' );
                              
-            }elseif( $user->getLoginName()      == $check_user->getLoginName() &&
-                     $user->getHeshedPassword() == $check_user->getHeshedPassword() && 
-                     $user->getRole()           == 'user'
+            }elseif( $dbUser->login  == $check_user->login &&
+                     $dbUser->role   == 'user' &&
+                     $dbUser->getHashedPassword() == $check_user->getHashedPassword()
                    ){
                              
-                        $session->logged_in($user);
+                     //   $session->logged_in($dbUser);
                         header( 'Location: http://localhost/' );   
                          
             }else{
@@ -63,8 +70,8 @@
 						
 		      <label>Prove you're not a robot <span class="mark-red">*</span></label>
 		      <span class="input">
-		      <span class="math"><img src="?image_pin=yes&r=8448726659" alt="" width="40" height="20" /></span>
-		      <input id="LPIN" class="" style="width: 310px;" type="text" name="LPIN" value="" placeholder="" /><br />								</span>
+		      <span class="math"><img src="" alt="" width="40" height="20" /></span>
+		      <input id="LPIN" class="" style="width: 310px;" type="text" name="LPIN" value="" placeholder="" /><br /></span>
 			
 				<input type="hidden" name="action" value="signin">
 				<input type="submit" name="singIn" class="btn-form" value="Sign In" style="width: 261px;" />
@@ -72,6 +79,6 @@
 						
 		</fieldset>
     </form>
-		
+
 </body>
 </html>
