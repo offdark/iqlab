@@ -62,10 +62,10 @@
             unset($this->role);
             unset($this->realName);
             session_destroy();
-            header( 'Location: http://localhost/chess/index.php' );
+            header( 'Location: http://localhost/test/chess/index.php' );
         }
         
     }
     
-   // $session = new Session();
+    $session = new Session();
 
