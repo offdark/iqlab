@@ -6,18 +6,12 @@
  * @copyright 2014
  */
 
-function __autoload($class_name) {
-
-    if( file_exists( $class_name. '.class.php' ) ) {
-        require_once( $class_name. '.class.php' );
-    } else {
-        throw new Exception("Unable to load $class_name.");
-    }
-}
 
     class MYSQLDatabase {
         
         private $DBH = null;
+        public $user = 'chess_admin';
+        public $pass = '123';
 
         function __construct(){
             $this->init_mysql_connection();   
@@ -26,7 +20,7 @@ function __autoload($class_name) {
         function init_mysql_connection(){
             //Connecting to DB
             try{
-                    $DBH = new PDO( 'mysql:host=localhost;dbname=chess',DB_USER, DB_PASS );
+                    $DBH = new PDO( 'mysql:host=localhost;dbname=chess', $this->user, $this->pass );
                     $DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
                     $this->DBH = $DBH;           
                }
@@ -37,9 +31,9 @@ function __autoload($class_name) {
         function login($user){
             //Getting all information from DB if user exists 
             try{                  
-                $STH = $this->DBH->prepare( 'SELECT * FROM user WHERE login_name = ?  AND hashed_password = ? ' );
+                $STH = $this->DBH->prepare( 'SELECT * FROM user WHERE login = ?  AND hashed_password = ? ' );
                 
-                 $data = array( $user->getLoginName(), $user->getHashedPassword() ); //creating query to placeholder
+                 $data = array( $user->login, $user->getHashedPassword() ); //creating query to placeholder
                  $STH->execute( $data );  
                  $STH->setFetchMode( PDO::FETCH_OBJ ); // FetchMODE Object
 
@@ -54,7 +48,7 @@ function __autoload($class_name) {
                             $user->points   = $row->points;
                             $user->edited   = $row->edited;
                             $user->role     = $row->role;
-                            $user->setLoginName = $row->login_name;
+                            $user->login = $row->login;
                             $user->setHashedPassword( $row->hashed_password );
                     }
                     return $user;
@@ -70,4 +64,3 @@ function __autoload($class_name) {
 
 
 
-?>

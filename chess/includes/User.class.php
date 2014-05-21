@@ -2,7 +2,7 @@
     
 /**
 * @author Offdark
-* @copyright 2013
+* @copyright 2014
 */
     
     class User {
@@ -45,4 +45,4 @@
 
     }
 
-?>
+

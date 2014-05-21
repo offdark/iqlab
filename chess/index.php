@@ -7,11 +7,9 @@
 
 
     echo "hello<br>";
-    $test = '123';
 
 
 
-    echo "<br>" .sha1($test);;
 
 ?>
 

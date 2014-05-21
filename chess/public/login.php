@@ -4,6 +4,8 @@
  * @author Offdark
  * @copyright 2014
  */
+ 
+ 
 function __autoload($class_name) {
 
     if( file_exists('../includes/' .$class_name. '.class.php') ) {
@@ -13,43 +15,44 @@ function __autoload($class_name) {
     }
 }
 
-    if( isset($_POST['singIn']) ){ // START Cheking if Button was Sabmit 
+    if( isset( $_POST['singIn'] ) ){ // START Cheking if Button was Sabmit 
 
-        $login_name = ( !empty( $_POST['loginName']) ) ? trim( htmlspecialchars( $_POST['loginName'] ) ) : null;
-        $password   = ( !empty( $_POST['password']) )  ? trim( htmlspecialchars( $_POST['password'] ) )  : null;
+        $login_name = ( !empty( $_POST['loginName']) ) ? trim( htmlspecialchars( $_POST['loginName'], ENT_QUOTES ) ) : null;
+        $password   = ( !empty( $_POST['password']) )  ? trim( htmlspecialchars( $_POST['password'], ENT_QUOTES ) )  : null;
                 
         $check_user = new User();
         $check_user->login = $login_name;
-        $check_user->setPassword($password);
-        
+        $check_user->setPassword($password);    
         
         $dbService = new MYSQLDatabase(); 
         $dbUser = $dbService->login($check_user);
         //Checking
 
-            if( $dbUser->login  == $check_user->login &&
-                $dbUser->role   == 'admin' &&
-                $dbUserser->getHashedPassword() == $check_user->getHashedPassword()
-              ){    
-                
-                  //  $session->logged_in($dbUser);
-                    header( 'Location: http://http://localhost/test/chess/public/index.php' );
-                             
-            }elseif( $dbUser->login  == $check_user->login &&
-                     $dbUser->role   == 'user' &&
-                     $dbUser->getHashedPassword() == $check_user->getHashedPassword()
-                   ){
-                             
-                     //   $session->logged_in($dbUser);
-                        header( 'Location: http://localhost/' );   
-                         
-            }else{
-                
-                header( 'Location: http://localhost/' );
+            if( $dbUser->login == $check_user->login &&
+                $dbUser->role  == 'admin' &&
+                $dbUser->getHashedPassword() == $check_user->getHashedPassword()
+              ){           
+                    $session = new Session();
+                    $session->logged_in($dbUser);
+                    header( 'Location: http://localhost/test/chess/public/index.php' );                  
+            }
+            elseif( $dbUser->login == $check_user->login &&
+                    $dbUser->role  == 'user' &&
+                    $dbUser->getHashedPassword() == $check_user->getHashedPassword()
+                   ){                
+                        $session = new Session();
+                        $session->logged_in($dbUser);
+                        header( 'Location: http://localhost/' );               
+            }
+            else{
+
+                header( 'Location: http://localhost/test/chess/public/login.php' );
             }
 
-    }else // END Cheking if Button was Sabmit 
+    }
+    else // END Cheking if Button was Sabmit 
     
+
 ?>
 
 <!DOCTYPE html>
