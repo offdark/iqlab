@@ -1,0 +1,1 @@
+http://www.phpro.org/tutorials/Design-Patterns.html
