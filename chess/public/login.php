@@ -60,7 +60,8 @@ function __autoload($class_name) {
     else // END Cheking if Button was Sabmit
     
 ?>
-      <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html>
 <head>
 

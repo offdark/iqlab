@@ -1,1 +1,4 @@
 http://www.phpro.org/tutorials/Design-Patterns.html
+
+
+http://code.tutsplus.com/tutorials/why-you-should-be-using-phps-pdo-for-database-access--net-12059

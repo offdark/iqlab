@@ -18,6 +18,7 @@
         public $points;
         public $edited;
         public $role;
+        public static  $table_name = 'user';
 
 
         function setHashedPassword($password){
@@ -59,8 +60,18 @@
                     }
              }
              catch ( PDOException $e ) {    echo '<br> cant get user  from  _DB: '. $e->getMessage(); DIE();    }
-        }  
+        }
 
+        public static function add( $object ){
+
+            // Inserting new USER to DB
+            try{
+
+                 MYSQLDb::insert( self::$table_name, $object  );
+
+            }
+            catch ( PDOException $e ) {    echo '<br> cant insert values to  _DB: '. $e->getMessage(); DIE();    }
+        }
     }
 
 

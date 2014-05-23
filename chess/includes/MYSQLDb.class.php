@@ -31,8 +31,35 @@
             
             return self::$DBH;       
         }
-        
-        
+
+
+        public static function insert( $table_name, $object ){
+            // make sql string
+            $sql = "INSERT INTO " .$table_name;
+            if(count($object) > 0){
+                $sql .= " SET ";
+                $fields = array();
+                $data = array();
+                foreach($object as $key => $v){
+                    $fields[] = $key."= ?";
+                    $data[] = $v;
+                }
+                $sql .= implode(', ',$fields);
+                try{
+                    $STH = MYSQLDb::getDBH()->prepare($sql);
+                    return $STH->execute( $data );
+                }catch (PDOException $e){
+                    echo var_dump($object).'<br> cant insert values to  _DB: '. $e->getMessage(); DIE();
+                }
+
+            }else{
+                return false;   // no fields for insert in object
+            }
+            return false;
+
+        }
+
+
         public static function close_connection(){
             self::$DBH = null;
         } 
