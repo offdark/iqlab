@@ -7,14 +7,7 @@
  
  
  
- function __autoload($class_name) {
 
-    if( file_exists( $class_name. '.class.php') ) {
-        require_once( $class_name. '.class.php' );
-    } else {
-        throw new Exception("Unable to load $class_name.");
-    }
-}
 
 
  class LogIn {
@@ -24,13 +17,23 @@
     private $check_user;
     private $dbService; 
     private $dbUser; 
-    public $role;
+    public  $role;
     
     function __construct( $login_name, $password ){
 
             $this->login_name = (!empty($login_name)) ? trim( htmlspecialchars( $login_name, ENT_QUOTES ) ) : null;
             $this->password   = (!empty($password))   ? trim( htmlspecialchars( $password, ENT_QUOTES ) )   : null;   
         }
+        
+    function __autoload($class_name) {
+
+        if( file_exists( $class_name. '.class.php') ) {
+            require_once( $class_name. '.class.php' );
+        } else {
+            throw new Exception("Unable to load $class_name.");
+        }
+    }    
+   
         
     function check_user(){
         

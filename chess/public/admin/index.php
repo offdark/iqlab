@@ -9,6 +9,12 @@
 
 include '../../includes/Session.class.php';
 
+    if( !$session->is_logged_in() || $session->role != 'admin'  ){
+
+        header( 'Location: http://localhost/test/chess/index.php' );
+    }else
+    
+
 if( isset($_GET['session']) == 'delete' ){
 
     $session->logout();
@@ -16,6 +22,8 @@ if( isset($_GET['session']) == 'delete' ){
 
 
 echo "you sign in like admin ";
+
+print_r($_SESSION);
 
 
 ?>

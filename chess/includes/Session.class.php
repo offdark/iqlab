@@ -9,8 +9,15 @@
     class Session {
             
         private $logged_in = false;
-        public $users_id;
-        public $realName;
+
+        private $id;
+        private $email;
+        private $login;
+        private $hashed_password;
+        private $status;
+        private $realName;
+        private $points;
+        private $edited;
         public $role;
           
         function __construct(){
@@ -20,17 +27,31 @@
             
         private function check_logged_in(){
             
-            if ( isset($_SESSION['users_id']) && isset($_SESSION['realName']) && isset($_SESSION['role']) ){    
+            if ( isset($_SESSION['id']) && isset($_SESSION['realName']) && isset($_SESSION['role']) ){    
                 
-                $this->users_id = $_SESSION['users_id'];
-                $this->role = $_SESSION['role'];
+                $this->id       = $_SESSION['id'];
+                $this->email    = $_SESSION['email'];
+                $this->login    = $_SESSION['login'];
+                $this->status   = $_SESSION['status'];
                 $this->realName = $_SESSION['realName'];
+                $this->points   = $_SESSION['points'];
+                $this->edited   = $_SESSION['edited'];
+                $this->role     = $_SESSION['role'];
+                $this->hashed_password = $_SESSION['hashed_password'];
+                
                 $this->logged_in = true;
             } 
             else {
-                unset($this->users_id);
-                unset($this->role);
-                unset($this->realName);
+                unset( $this->id );    
+                unset( $this->email);   
+                unset( $this->login );      
+                unset( $this->status );  
+                unset( $this->realName );
+                unset( $this->points );       
+                unset( $this->edited ); 
+                unset( $this->role );         
+                unset( $this->hashed_password );     
+                
                 $this->logged_in = false; 
             }
         }
@@ -45,22 +66,42 @@
             if( isset($user) ){
                 
                 session_regenerate_id(true);
-                $this->users_id  = $_SESSION['users_id'] = $user->id;
-                $this->role      = $_SESSION['role']     = $user->role;
-                $this->realName  = $_SESSION['realName'] = $user->realName;
+                
+                 $this->id       = $_SESSION['id']       = $user->id;
+                 $this->email    = $_SESSION['email']    = $user->email;
+                 $this->login    = $_SESSION['login']    = $user->login;
+                 $this->status   = $_SESSION['status']   = $user->status;
+                 $this->realName = $_SESSION['realName'] = $user->realName;
+                 $this->points   = $_SESSION['points']   = $user->points;
+                 $this->edited   = $_SESSION['edited']   = $user->edited;
+                 $this->role     = $_SESSION['role']     = $user->role;
+                 $this->hashed_password = $_SESSION['hashed_password'] = $user->getHashedPassword();
+
                 $this->logged_in = true;
             }
         }
         
         public function logout(){
             
-            unset($_SESSION['users_id']);
-            unset($_SESSION['role']);
-            unset($_SESSION['realName']);
-            unset($_SESSION['HTTP_USER_AGENT']);
-            unset($this->users_id);
-            unset($this->role);
-            unset($this->realName);
+            unset( $_SESSION['id'] );
+            unset( $_SESSION['email'] );
+            unset( $_SESSION['login'] );
+            unset( $_SESSION['status'] );
+            unset( $_SESSION['realName'] );
+            unset( $_SESSION['points'] );
+            unset( $_SESSION['edited'] );
+            unset( $_SESSION['role'] );
+            unset( $_SESSION['hashed_password'] );
+            unset( $_SESSION['HTTP_USER_AGENT'] );
+            unset( $this->id );    
+            unset( $this->email);   
+            unset( $this->login );      
+            unset( $this->status );  
+            unset( $this->realName );
+            unset( $this->points );       
+            unset( $this->edited ); 
+            unset( $this->role );         
+            unset( $this->hashed_password );     
             session_destroy();
             header( 'Location: http://localhost/test/chess/index.php' );
         }
