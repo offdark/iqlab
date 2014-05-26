@@ -11,23 +11,21 @@
         public $id;
         public $email;
         public $login;
-        private $hashed_password;
+        public $hashed_password;
         private $old_hashed_password;
         public $status;
         public $realName;
         public $points;
+        public $created;
         public $edited;
         public $role;
+        
+        public $secretQ = array( 'secretQ1', 'secretQA1', 'secretQ2', 'secretQA2' );
         public static  $table_name = 'user';
 
 
         function setHashedPassword($password){
             $this->hashed_password = sha1(sha1($password));
-        }
-        
-        public function getHashedPassword(){
-            
-            return $this->hashed_password;
         }
 
         function setOldPassword($old_password){
@@ -45,33 +43,43 @@
                  $STH->execute( $data );  
                  $STH->setFetchMode( PDO::FETCH_OBJ ); // FetchMODE Object
 
-                 // writing result to User class
-                    while( $row = $STH->fetch() ) {     
-                            $this->id       = $row->id;
-                            $this->email    = $row->email;
-                            $this->login    = $row->login;
-                            $this->status   = $row->status;
-                            $this->realName = $row->realName;
-                            $this->points   = $row->points;
-                            $this->edited   = $row->edited;
-                            $this->role     = $row->role;
-                            $this->login = $row->login;
-                            $this->hashed_password = $row->hashed_password;
-                    }
+                     // writing result to User class
+                     foreach( $STH->fetch() as $key => $value){
+                        
+                        $this->$key = $value;
+                     }
              }
-             catch ( PDOException $e ) {    echo '<br> cant get user  from  _DB: '. $e->getMessage(); DIE();    }
+             catch ( PDOException $e ) { echo '<br> cant get user  from  _DB: '. $e->getMessage(); DIE(); }
         }
 
         public static function add( $object ){
+            
+            $STH = MYSQLDb::getDBH()->prepare( 'SELECT login, email FROM user WHERE login = ?  OR email = ?' );   
+            $data = array( $object->login, $object->email ); //creating query to placeholder
+            $STH->execute( $data );          
+           
+                if( $STH->rowCount() == 0 ){
 
-            // Inserting new USER to DB
-            try{
-
-                 MYSQLDb::insert( self::$table_name, $object  );
-
-            }
-            catch ( PDOException $e ) {    echo '<br> cant insert values to  _DB: '. $e->getMessage(); DIE();    }
+                    try{
+                        MYSQLDb::insert( self::$table_name, $object  );  // Inserting new USER to DB
+                        $flag = true;
+                    }
+                    catch ( PDOException $e ) {  echo '<br> cant add value to  _DB: '. $e->getMessage(); DIE(); }
+                    
+                }else{
+                    $flag = false;
+                }    
+                
+            return $flag; 
         }
+        
+        public static function reset_password(){
+            
+            
+            
+        }
+    
+    
     }
 
 

@@ -17,6 +17,7 @@
         private $status;
         private $realName;
         private $points;
+        private $created;
         private $edited;
         public $role;
           
@@ -35,6 +36,7 @@
                 $this->status   = $_SESSION['status'];
                 $this->realName = $_SESSION['realName'];
                 $this->points   = $_SESSION['points'];
+                $this->created  = $_SESSION['created'];
                 $this->edited   = $_SESSION['edited'];
                 $this->role     = $_SESSION['role'];
                 $this->hashed_password = $_SESSION['hashed_password'];
@@ -47,7 +49,8 @@
                 unset( $this->login );      
                 unset( $this->status );  
                 unset( $this->realName );
-                unset( $this->points );       
+                unset( $this->points ); 
+                unset( $this->created );      
                 unset( $this->edited ); 
                 unset( $this->role );         
                 unset( $this->hashed_password );     
@@ -61,22 +64,17 @@
         }
         
             
-        public function logged_in($user){
+        public function logged_in( $user ){
            
-            if( isset($user) ){
+            if( isset( $user ) ){
                 
                 session_regenerate_id(true);
                 
-                 $this->id       = $_SESSION['id']       = $user->id;
-                 $this->email    = $_SESSION['email']    = $user->email;
-                 $this->login    = $_SESSION['login']    = $user->login;
-                 $this->status   = $_SESSION['status']   = $user->status;
-                 $this->realName = $_SESSION['realName'] = $user->realName;
-                 $this->points   = $_SESSION['points']   = $user->points;
-                 $this->edited   = $_SESSION['edited']   = $user->edited;
-                 $this->role     = $_SESSION['role']     = $user->role;
-                 $this->hashed_password = $_SESSION['hashed_password'] = $user->getHashedPassword();
-
+                    foreach( $user as $key => $value ){
+                        
+                        $this->key = $_SESSION[$key] = $value;                
+                    }
+                 
                 $this->logged_in = true;
             }
         }
@@ -88,6 +86,7 @@
             unset( $_SESSION['login'] );
             unset( $_SESSION['status'] );
             unset( $_SESSION['realName'] );
+            unset( $_SESSION['created'] );
             unset( $_SESSION['points'] );
             unset( $_SESSION['edited'] );
             unset( $_SESSION['role'] );
@@ -98,6 +97,7 @@
             unset( $this->login );      
             unset( $this->status );  
             unset( $this->realName );
+            unset( $this->created );
             unset( $this->points );       
             unset( $this->edited ); 
             unset( $this->role );         

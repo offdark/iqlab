@@ -16,5 +16,14 @@ function __autoload($class_name) {
  $user->login( $login_name, $hashed_password );
  
  
- echo $user->login;
- echo $user->hashed_password;
+
+   echo $user->id;
+       echo $user->email;
+        echo $user->login;
+        echo $user->status;
+        echo $user->realName;
+        echo $user->points;
+        echo $user->created;
+        echo $user->edited;
+        echo $user->role;
+        echo $user->hashed_password;

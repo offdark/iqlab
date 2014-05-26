@@ -5,37 +5,40 @@
  * @copyright 2014
  */
 
-function __autoload($class_name) {
+include '../includes/functions.php';
 
-    if( file_exists('../includes/' .$class_name. '.class.php') ) {
-        require_once( '../includes/' .$class_name. '.class.php' );
-    } else {
-        throw new Exception("Unable to load $class_name.");
-    }
-}
-
-
-    if( isset( $_POST['singUp'] ) ){ // START Cheking if Button was Sabmit
+    if( isset( $_POST['singUp'] ) 
+            && !empty( $_POST['login']) 
+            && !empty( $_POST['email'])
+            && !empty( $_POST['name'])
+            && !empty( $_POST['password'])
+            && !empty( $_POST['re_password']) ){ // START Cheking if Button was Sabmit
 
         $filds = new stdClass();
 
-        $filds->login              = ( !empty( $_POST['login']) )       ? trim( htmlspecialchars( $_POST['login'], ENT_QUOTES ) )                   : null;
-        $filds->email              = ( !empty( $_POST['email']) )       ? trim( filter_var( $_POST['email'], FILTER_VALIDATE_EMAIL ) )              : null;
-        $filds->realName           = ( !empty( $_POST['name']) )        ? trim( htmlspecialchars( $_POST['name'], ENT_QUOTES ) )                    : null;
-        $filds->hashed_password    = ( !empty( $_POST['password']) )    ? sha1(sha1(trim( htmlspecialchars( $_POST['password'], ENT_QUOTES ) )))    : null;
-        $filds->re_hashed_password = ( !empty( $_POST['re_password']) ) ? sha1(sha1(trim( htmlspecialchars( $_POST['re_password'], ENT_QUOTES ) ))) : null;
+        $filds->login           = trim( htmlspecialchars( $_POST['login'], ENT_QUOTES ) )                   ?: null;
+        $filds->email           = trim( filter_var( $_POST['email'], FILTER_VALIDATE_EMAIL ) )              ?: null;
+        $filds->realName        = trim( htmlspecialchars( $_POST['name'], ENT_QUOTES ) )                    ?: null;
+        $filds->hashed_password = sha1(sha1(trim( htmlspecialchars( $_POST['password'], ENT_QUOTES ) )))    ?: null;
+        $re_password            = sha1(sha1(trim( htmlspecialchars( $_POST['re_password'], ENT_QUOTES ) ))) ?: null;
+        $filds->role = 'user';        
 
-       if( $filds->hashed_password == $filds->re_hashed_password ){
-
-
-           User::add( $filds );
-       }
-       else{
-
-           echo "password not same";
-       }
-
-
+           if( $filds->hashed_password == $re_password ){
+    
+                if( User::add( $filds ) ){
+                    
+                     header( 'Location: secretQ.php' );
+                }
+                else{
+                    
+                    echo "ups... such email or login alread taken ";
+                }
+             
+           }
+           else{
+    
+               echo "password not same";
+           }
 }else
 
 ?>

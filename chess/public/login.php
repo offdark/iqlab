@@ -6,15 +6,7 @@
  */
 
 include '../includes/Session.class.php';
-
-function __autoload($class_name) {
-
-    if( file_exists('../includes/' .$class_name. '.class.php') ) {
-        require_once( '../includes/' .$class_name. '.class.php' );
-    } else {
-        throw new Exception("Unable to load $class_name.");
-    }
-}
+include '../includes/functions.php';
 
     if( $session->is_logged_in() && $session->role == 'admin'  ){
 
@@ -26,10 +18,10 @@ function __autoload($class_name) {
     }
 
 
-    if( isset( $_POST['singIn'] ) ){ // START Cheking if Button was Sabmit
+    if( isset( $_POST['singIn'] ) && !empty( $_POST['loginName']) && !empty( $_POST['password']) ){ // START Cheking if Button was Sabmit
 
-        $login_name      = ( !empty( $_POST['loginName']) ) ? trim( htmlspecialchars( $_POST['loginName'], ENT_QUOTES ) ) : null;
-        $hashed_password = ( !empty( $_POST['password']) )  ? sha1(sha1(trim( htmlspecialchars( $_POST['password'], ENT_QUOTES ) )))  : null;
+        $login_name      = trim( htmlspecialchars( $_POST['loginName'], ENT_QUOTES ) )            ?: null;
+        $hashed_password = sha1(sha1(trim( htmlspecialchars( $_POST['password'], ENT_QUOTES ) ))) ?: null;
 
         $user = new User();
         $user->login( $login_name, $hashed_password );
@@ -37,7 +29,7 @@ function __autoload($class_name) {
         //Checking
             if( $user->login == $login_name &&
                 $user->role  == 'admin' &&
-                $user->getHashedPassword() == $hashed_password
+                $user->hashed_password == $hashed_password
               ){
                 
                     $session->logged_in($user);
@@ -45,7 +37,7 @@ function __autoload($class_name) {
             }
             elseif( $user->login == $login_name &&
                     $user->role  == 'user' &&
-                    $user->getHashedPassword() == $hashed_password
+                    $user->hashed_password == $hashed_password
                    ){
                     
                         header( 'Location: http://localhost/test/chess/public/index.php' );
@@ -84,7 +76,7 @@ function __autoload($class_name) {
 
         <input type="hidden" name="action" value="signin">
         <input type="submit" name="singIn" class="btn-form" value="Sign In" style="width: 261px;" />
-        <a href="recover.php" class="link-forgot-password">Forgot Password?</a>
+        <a href="recover_password.php" class="link-forgot-password">Forgot Password?</a>
 
     </fieldset>
 </form>

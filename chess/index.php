@@ -16,12 +16,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link href="public/css/style.css" media="all" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <div id="main">
+        
+        <div class="container-center">
+        
+            <div class="header-top">
+                
+                <ul class="user-link">
+                    <li>
+                        <a class="sign-up" href="public/add.php">
+                    <span>Sign Up</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="sign-in" href="public/login.php">
+                    <span>Sign In</span>
+                    </a>
+                    </li>
+                </ul>
 
-<a href="public/login.php"> Sing in </a><br />
-<a href="public/add.php"> Sign up </a>
+            </div>
+            
+            
+        </div>
+
+
+
+    </div>
+
 
 
 
