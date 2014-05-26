@@ -16,12 +16,11 @@ include '../includes/functions.php';
 
         $filds = new stdClass();
 
-        $filds->login           = trim( htmlspecialchars( $_POST['login'], ENT_QUOTES ) )                   ?: null;
-        $filds->email           = trim( filter_var( $_POST['email'], FILTER_VALIDATE_EMAIL ) )              ?: null;
-        $filds->realName        = trim( htmlspecialchars( $_POST['name'], ENT_QUOTES ) )                    ?: null;
-        $filds->hashed_password = sha1(sha1(trim( htmlspecialchars( $_POST['password'], ENT_QUOTES ) )))    ?: null;
-        $re_password            = sha1(sha1(trim( htmlspecialchars( $_POST['re_password'], ENT_QUOTES ) ))) ?: null;
-        $filds->role = 'user';        
+        $filds->login           = trim( htmlspecialchars( $_POST['login'], ENT_QUOTES ) );
+        $filds->email           = trim( filter_var( $_POST['email'], FILTER_VALIDATE_EMAIL ) );
+        $filds->realName        = trim( htmlspecialchars( $_POST['name'], ENT_QUOTES ) );
+        $filds->hashed_password = sha1(sha1(trim( htmlspecialchars( $_POST['password'], ENT_QUOTES ) )));
+        $re_password            = sha1(sha1(trim( htmlspecialchars( $_POST['re_password'], ENT_QUOTES ) )));
 
            if( $filds->hashed_password == $re_password ){
     

@@ -51,36 +51,15 @@
                     self::getDBH()->beginTransaction();
                     $STH = self::getDBH()->prepare( $sql );
                     $STH->execute( $data );
-                    self::getDBH()->commit();                                                         
+                    $lastInsertId = self::getDBH()->lastInsertId();
+                    self::getDBH()->commit();
+
+                return $lastInsertId;
             }
-            catch ( PDOException $e ){  self::getDBH()->rollBack(); echo var_dump($object).'<br> cant insert values to  _DB: '. $e->getMessage(); DIE();  }                     
+            catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
         }
         
-        public static function select( $row, $table_name, $object ){
-            
-            $sql = "SELECT" .$row. " FROM " .$table_name. " WHERE ";  // generating sql string
-                
-            $fields = array(); // key -> value in sql string
-            $data = array(); // creating data to placeholder 
-                
-                foreach( $object as $key => $value ){
-                    
-                    $fields[] = $key." = ?";
-                    $data[]   = $value;
-                }            
-                $sql .= implode(', ',$fields); // comma_separated 
-                                
-            try{                     
-                    self::getDBH()->beginTransaction();
-                    $STH = self::getDBH()->prepare( $sql );
-                    $STH->execute( $data );
-                    self::getDBH()->commit();                                                         
-            }
-            catch ( PDOException $e ){  self::getDBH()->rollBack(); echo var_dump($object).'<br> cant insert values to  _DB: '. $e->getMessage(); DIE();  }                     
-        
-            
-        }
-        
+
 
         public static function close_connection(){
             self::$DBH = null;

@@ -6,9 +6,6 @@
  */
 
 
-    echo "hello<br>";
-
-
 
 
 ?>
@@ -39,11 +36,19 @@
                 </ul>
 
             </div>
-            
-            
+
         </div>
 
+        <div class="container-content">
 
+            content
+       </div>
+
+        <div class="container-footer">
+
+            footer
+
+        </div>
 
     </div>
 

@@ -53,24 +53,21 @@
         }
 
         public static function add( $object ){
-            
-            $STH = MYSQLDb::getDBH()->prepare( 'SELECT login, email FROM user WHERE login = ?  OR email = ?' );   
-            $data = array( $object->login, $object->email ); //creating query to placeholder
-            $STH->execute( $data );          
-           
-                if( $STH->rowCount() == 0 ){
 
-                    try{
-                        MYSQLDb::insert( self::$table_name, $object  );  // Inserting new USER to DB
-                        $flag = true;
-                    }
-                    catch ( PDOException $e ) {  echo '<br> cant add value to  _DB: '. $e->getMessage(); DIE(); }
-                    
-                }else{
+            try{
+
+                $lastInsertId = MYSQLDb::insert( self::$table_name, $object  );
+
+                if( $lastInsertId == 0 ){  // Inserting new USER to DB
                     $flag = false;
-                }    
-                
-            return $flag; 
+                }
+                else{
+                    $flag = true;
+                }
+            }
+            catch ( PDOException $e ) {  echo '<br> cant add value to  _DB: '. $e->getMessage(); DIE(); }
+
+           // return $flag;
         }
         
         public static function reset_password(){

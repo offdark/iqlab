@@ -2,10 +2,8 @@
 
 
 #main {
-    
-    background-color: #6686B5;
+
     margin: auto;
-    min-height: 100%;
     overflow: hidden;
     position: relative;
     width: 90%;
@@ -17,12 +15,15 @@
     content: "";
     display: block;
 }
+
 .container-center {
+    background-color: #6686B5;
     margin: 0 auto;
-    padding: 0 22px;
+    padding: 0 0px;
     position: relative;
     width: 1056px;
 }
+
 
 
 .header-top {
@@ -86,3 +87,19 @@
 }
 
 
+
+
+.container-content {
+    width: 90%;
+    background: red;
+    margin-top: 10px;
+    margin: auto;
+}
+
+.container-footer {
+    width: 90%;
+    height: 100px;
+    background: aquamarine;
+
+    margin: 10px auto;
+}
