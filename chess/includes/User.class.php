@@ -20,8 +20,8 @@
         public $edited;
         public $role;
         
-        public $secretQ = array( 'secretQ1', 'secretQA1', 'secretQ2', 'secretQA2' );
-        public static  $table_name = 'user';
+        public static $lastInsertId;
+        public static $table_name = 'user';
 
 
         function setHashedPassword($password){
@@ -56,24 +56,23 @@
 
             try{
 
-                $lastInsertId = MYSQLDb::insert( self::$table_name, $object  );
+                $result = MYSQLDb::insert( $object, self::$table_name );
 
-                if( $lastInsertId == 0 ){  // Inserting new USER to DB
+                if( $result == 0 ){  // Inserting new USER to DB
                     $flag = false;
                 }
                 else{
+                    self::$lastInsertId = $result;
                     $flag = true;
                 }
             }
             catch ( PDOException $e ) {  echo '<br> cant add value to  _DB: '. $e->getMessage(); DIE(); }
 
-           // return $flag;
+            return $flag;
         }
         
         public static function reset_password(){
-            
-            
-            
+    
         }
     
     

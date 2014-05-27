@@ -5,13 +5,13 @@
  * @author Offdark
  * @copyright 2014
  */
-    include 'Config.class.php';
 
     class MYSQLDb {  // single pattern
         
         private static $DBH = null;
         public $user = 'chess_admin';
         public $pass = '123';
+
 
         private function __construct(){ }
         
@@ -33,7 +33,7 @@
         }
 
 
-        public static function insert( $table_name, $object ){
+        public static function insert( $object, $table_name ){
             
             $sql = "INSERT INTO " .$table_name. " SET ";  // generating sql string
                 
@@ -46,6 +46,36 @@
                     $data[]   = $value;
                 }            
                 $sql .= implode(', ',$fields); // comma_separated 
+                                
+            try{                     
+                    self::getDBH()->beginTransaction();
+                    $STH = self::getDBH()->prepare( $sql );
+                    $STH->execute( $data );
+                    $lastInsertId = self::getDBH()->lastInsertId();
+                    self::getDBH()->commit();
+
+                return $lastInsertId;
+            }
+            catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
+        }
+        
+        public static function update( $object, $table_name ){
+            
+            $sql = "UPDATE " .$table_name. " SET ";  // generating sql string
+                
+            $fields = array(); // key -> value in sql string
+            $data = array(); // creating data to placeholder 
+                
+                foreach( $object as $key => $value ){
+                    
+                    $fields[] = $key." = ?";
+                    $data[]   = $value;
+                }            
+                $sql .= implode(', ',$fields); // comma_separated 
+                $sql .= " WHERE ";
+                
+                echo $sql;
+                DIE();
                                 
             try{                     
                     self::getDBH()->beginTransaction();

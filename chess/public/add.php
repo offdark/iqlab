@@ -25,8 +25,9 @@ include '../includes/functions.php';
            if( $filds->hashed_password == $re_password ){
     
                 if( User::add( $filds ) ){
-                    
-                     header( 'Location: secretQ.php' );
+                   
+                    $lastInsertId = User::$lastInsertId;
+                    header( 'Location: generate_secretQ.php?id='.$lastInsertId );
                 }
                 else{
                     

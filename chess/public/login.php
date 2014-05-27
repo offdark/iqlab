@@ -40,6 +40,7 @@ include '../includes/functions.php';
                     $user->hashed_password == $hashed_password
                    ){
                     
+                   
                         header( 'Location: http://localhost/test/chess/public/index.php' );
             }
             else{

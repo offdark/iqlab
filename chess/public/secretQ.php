@@ -8,7 +8,7 @@ include '../includes/functions.php';
 
 ?>
 
-<form action="recover_password.php" method="POST" >
+<form action="process_secretQ" method="POST" >
     <fieldset>
         
         <label>Security question 1:  </label>
