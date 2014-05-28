@@ -10,21 +10,21 @@ include '../includes/functions.php';
 
     $id = $_SERVER['QUERY_STRING'];
     
-     if( isset( $_POST['submit'] ) && !empty( $_POST['secretQA1']) && !empty( $_POST['secretQA1']) ){ // START Cheking if Button was Sabmit
-        
-        $parse_id = $_SERVER['QUERY_STRING'];
-        parse_str($parse_id);
-        
-        $filds = new stdClass();
-        $filds->user_id = $id;
-        $filds->secretQ1  = trim( htmlspecialchars( $_POST['secretQ1'], ENT_QUOTES ) );
-        $filds->secretQ2  = trim( htmlspecialchars( $_POST['secretQ2'], ENT_QUOTES ) );
-        $filds->secretQA1 = trim( htmlspecialchars( $_POST['secretQA1'], ENT_QUOTES ) );
-        $filds->secretQA2 = trim( htmlspecialchars( $_POST['secretQA2'], ENT_QUOTES ) );     
+     if( isset( $_POST['submit'] ) ){ // START Cheking if Button was Sabmit
 
-        //$table_name = 'password_reset';
-        User::$table_name = 'password_reset';
-        User::add( $filds );
+         unset ($_POST['submit']);
+
+         $parse_id = $_SERVER['QUERY_STRING'];
+         parse_str($parse_id);
+
+         $_POST['user_id'] = $id;
+
+        $user = new User();
+        $user->table_name = 'password_reset';
+        $user->saveQuestions( $_POST );
+
+
+         DIE();
         
                 header( 'Location: ../index.php' );
         
@@ -59,7 +59,7 @@ include '../includes/functions.php';
 ?>
 
 
-<form action="process_secretQ.php?<?php echo htmlspecialchars($id); ?>" method="POST" class="form">
+<form action="generate_secretQ.php?<?php echo htmlspecialchars($id); ?>" method="POST" class="form">
     <fieldset>
         
         <label>Security question 1: 

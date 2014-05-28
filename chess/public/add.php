@@ -23,10 +23,12 @@ include '../includes/functions.php';
         $re_password            = sha1(sha1(trim( htmlspecialchars( $_POST['re_password'], ENT_QUOTES ) )));
 
            if( $filds->hashed_password == $re_password ){
-    
-                if( User::add( $filds ) ){
+
+               $user = new User();
+
+                if( $user->save( $filds ) ){
                    
-                    $lastInsertId = User::$lastInsertId;
+                    $lastInsertId = $user->lastInsertId;
                     header( 'Location: generate_secretQ.php?id='.$lastInsertId );
                 }
                 else{

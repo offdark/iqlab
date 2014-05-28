@@ -20,8 +20,8 @@
         public $edited;
         public $role;
         
-        public static $lastInsertId;
-        public static $table_name = 'user';
+        public $lastInsertId;
+        public $table_name = 'user';
 
 
         function setHashedPassword($password){
@@ -52,17 +52,17 @@
              catch ( PDOException $e ) { echo '<br> cant get user  from  _DB: '. $e->getMessage(); DIE(); }
         }
 
-        public static function add( $object ){
+        public function save( $object ){
 
             try{
 
-                $result = MYSQLDb::save( $object, self::$table_name );
+                $result = MYSQLDb::save( $object, $this->table_name );
 
                 if( $result == 0 ){  // Inserting new USER to DB
                     $flag = false;
                 }
                 else{
-                    self::$lastInsertId = $result;
+                    $this->lastInsertId = $result;
                     $flag = true;
                 }
             }
@@ -70,7 +70,55 @@
 
             return $flag;
         }
-        
+
+
+        public function saveQuestions( $POST_arr  ){
+
+            $data_arr = array();
+
+            foreach( $POST_arr as $key => $value ){
+
+                $data_arr[$key] = trim( htmlspecialchars( $value, ENT_QUOTES ) );
+            }
+
+            try{
+
+                $lastId = MYSQLDb::save( $data_arr, $this->table_name );
+
+                if( $lastId != 0 ){  // Inserting new USER to DB
+
+
+                   $this->updateStatus( 'active', $lastId );
+                }
+            }
+            catch ( PDOException $e ) {  echo '<br> cant add value to  _DB: '. $e->getMessage(); DIE(); }
+        }
+
+
+        public function updateStatus( $status_str, $id_int ){
+
+            $sql = 'id = '.$id_int;
+            echo $sql;
+            DIE();
+            try{
+
+                $lastId = MYSQLDb::save( $status_str, $this->table_name, $sql );
+
+                if( $lastId == 0 ){  // Inserting new USER to DB
+
+                    $flag = false;
+                }
+                else{  $flag = true; }
+
+
+
+            }
+            catch ( PDOException $e ) {  echo '<br> cant add value to  _DB: '; echo $e->getMessage(); DIE(); }
+
+            return $flag;
+        }
+
+
         public static function reset_password(){
     
         }

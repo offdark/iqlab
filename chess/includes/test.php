@@ -14,16 +14,15 @@ function __autoload($class_name) {
 
  $user = new User();
  $user->login( $login_name, $hashed_password );
- 
- 
 
-   echo $user->id;
-       echo $user->email;
-        echo $user->login;
-        echo $user->status;
-        echo $user->realName;
-        echo $user->points;
-        echo $user->created;
-        echo $user->edited;
-        echo $user->role;
-        echo $user->hashed_password;
+
+    $filds = new stdClass();
+
+    $filds->email           = 'change@121212.com';
+    $filds->realName        = 'foo';
+
+
+
+        $id = 57;
+
+    MYSQLDb::update( $filds, 'user', 'id = 59' );

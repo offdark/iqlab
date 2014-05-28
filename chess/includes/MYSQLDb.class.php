@@ -26,9 +26,7 @@
                       self::$DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );          
                 }
                 catch ( PDOException $e ) { echo '<br> Cant connect to _DB: ' . $e->getMessage(); DIE(); }
-                
             }
-            
             return self::$DBH;       
         }
 
@@ -45,8 +43,8 @@
                     $fields[] = $key." = ?";
                     $data[]   = $value;
                 }            
-                $sql .= implode(', ',$fields); // comma_separated 
-                                
+                $sql .= implode(', ',$fields); // comma_separated
+
             try{                     
                     self::getDBH()->beginTransaction();
                     $STH = self::getDBH()->prepare( $sql );
@@ -59,46 +57,49 @@
             catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
         }
         
-        public static function update( $object, $table_name, $where = '' ){
-            
+        public static function update( $object, $table_name, $where ){
+
             $sql = "UPDATE " .$table_name. " SET ";  // generating sql string
-                
+
             $fields = array(); // key -> value in sql string
-            $data = array(); // creating data to placeholder 
-                
-                foreach( $object as $key => $value ){
-                    
-                    $fields[] = $key." = ?";
-                    $data[]   = $value;
-                }            
-                $sql .= implode(', ',$fields); // comma_separated 
-                $sql .= " WHERE ";
-                
-                echo $sql;
-                DIE();
-                                
-            try{                     
+            $data = array(); // creating data to placeholder
+
+            foreach( $object as $key => $value ){
+
+                $fields[] = $key." = ?";
+                $data[]   = $value;
+            }
+            $sql .= implode(', ',$fields); // comma_separated
+
+            if( !empty($where) ){
+
+                $sql .= " WHERE " .$where ;
+            }
+
+            try{
                     self::getDBH()->beginTransaction();
                     $STH = self::getDBH()->prepare( $sql );
                     $STH->execute( $data );
                     $lastInsertId = self::getDBH()->lastInsertId();
                     self::getDBH()->commit();
 
-                return $lastInsertId;
+               // return $lastInsertId;
             }
-            catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
+            catch ( PDOException $e ){  self::getDBH()->rollBack(); echo $e->getMessage(); DIE();  }
         }
-        
+
+
         public static function save( $object, $table_name, $where = '' ){
-            
-            if( !empty( $where ) ){
-                
+
+            if( !empty($where) ){
+
                 return self::update( $object, $table_name, $where );
             }
-            
-            return self::insert( $object, $table_name );
-        }
 
+            return self::insert( $object, $table_name );
+
+        }
+        
 
 
         public static function close_connection(){
