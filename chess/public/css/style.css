@@ -9,6 +9,7 @@
     width: 90%;
 }
 
+/*Header START */
 
 .container-center:after {
     clear: both;
@@ -29,7 +30,7 @@
 .header-top {
     margin: 0 0 11px;
     overflow: hidden;
-    padding: 36px 0 20px;
+    padding: 20px 0 15px;
 }
 
 .user-link {
@@ -40,6 +41,8 @@
     margin: 0;
     padding: 18px 4px 0 0;
 }
+
+/*Login, Register menu START */
 
 .user-link li a.sign-up span {
     background: url(../images/signUp.png) no-repeat scroll 0;
@@ -86,7 +89,8 @@
     text-decoration: none;
 }
 
-
+/*Login, Register menu END */
+/*Header END */
 
 
 .container-content {
@@ -95,6 +99,72 @@
     margin-top: 10px;
     margin: auto;
 }
+
+/* LogIn form START */
+
+
+.form label {
+    color: #999999;
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0 0 8px 15px;
+}
+
+/*SignIn button form START */
+
+.btn-form {
+    background: none repeat scroll 0 0 #00BEC5;
+    border: 0 none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+    height: 25px;
+    width: 200px;
+    line-height: 30px;
+    padding: 0 0 4px;
+    position: relative;
+     margin: 25px 0 0 0;
+     float:left;
+    transition: all 300ms ease 0s;
+}
+
+
+.btn-form:hover {
+    background: none repeat scroll 0 0 #424D50;
+    cursor: pointer;
+}
+
+.link-forgot-password {
+    color: #009AA8;
+    float: left;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 27px 33px 0;
+    text-decoration: none;
+}
+
+
+/*SignIn button form END */
+
+
+.mark-red {
+    color: #FF3333;
+}
+
+.input {
+    color: #999999;
+    font-size: 14px;
+    height: 24px;
+    line-height: 20px;
+    margin: 6px 0 0;
+    padding: 0;
+    width: 200px;
+}
+
+/* LogIn form START */
+
 
 .container-footer {
     width: 90%;

@@ -12,18 +12,18 @@ include '../includes/functions.php';
         $filds = new stdClass();
 
         $filds->login = trim( htmlspecialchars( $_POST['login'], ENT_QUOTES ) );
-
         
 }
-
+else
+ 
+    include 'html/header.inc';
 ?>
 
-<form action="recover_password.php" method="POST" >
+<form action="recover_password.php" method="POST" class="form" >
     <fieldset>
         
-        <label>Enter your Login </label>
-        <span class="input"><input type="text" name="login" value="" placeholder="" /></span><br /><br />
-        <input type="submit" name="submit" class="btn-form" value="Submit" style="width: 261px;" />
+        <label>Enter your Login <span class="mark-red">* </span><input type="text" name="login" class="input"  required /></label>
+        <input type="submit" name="submit" class="btn-form" value="Submit" />
 
     </fieldset>
 </form>

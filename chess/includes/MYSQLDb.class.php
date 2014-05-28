@@ -59,7 +59,7 @@
             catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
         }
         
-        public static function update( $object, $table_name ){
+        public static function update( $object, $table_name, $where = '' ){
             
             $sql = "UPDATE " .$table_name. " SET ";  // generating sql string
                 
@@ -89,6 +89,16 @@
             catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
         }
         
+        public static function save( $object, $table_name, $where = '' ){
+            
+            if( !empty( $where ) ){
+                
+                return self::update( $object, $table_name, $where );
+            }
+            
+            return self::insert( $object, $table_name );
+        }
+
 
 
         public static function close_connection(){

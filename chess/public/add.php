@@ -39,8 +39,10 @@ include '../includes/functions.php';
     
                echo "password not same";
            }
-}else
+}
+else
 
+    include 'html/header.inc';
 ?>
 
 <!DOCTYPE html>
@@ -50,26 +52,31 @@ include '../includes/functions.php';
 </head>
 <body>
 
-<form action="add.php" method="POST" >
+<form action="add.php" method="POST" class="form" >
     <fieldset>
 
-        <label>Login <span class="mark-red">*</span></label>
-        <span class="input"><input id="Username" type="text" name="login" value="" placeholder="" /></span><br />
+        <label>Login <span class="mark-red">*</span>
+        <input id="Username" class="input" type="text" name="login" required /><br />
+        </label>
 
-        <label>E-mail <span class="mark-red">*</span></label>
-        <span class="input"><input id="Password" class="" type="email" name="email" value="" placeholder="" /></span><br />
+        <label>E-mail <span class="mark-red">*</span>
+        <input id="Password" class="input" type="email" name="email" required /><br />
+        </label>
 
-        <label>Name <span class="mark-red">*</span></label>
-        <span class="input"><input id="Username" class="" style="" type="text" name="name" value="" placeholder="" /></span><br />
+        <label>Name <span class="mark-red">*</span>
+        <input id="Username" class="input" type="text" name="name" required /><br />
+        </label>
 
-        <label>Password <span class="mark-red">*</span></label>
-        <span class="input"><input id="Password" class="" style="" type="password" name="password" value="" placeholder="" /></span><br />
+        <label>Password <span class="mark-red">*</span>
+        <input id="Password" class="input" type="password" name="password" required /><br />
+        </label>
 
-        <label>Repeat Password <span class="mark-red">*</span></label>
-        <span class="input"><input id="Password" class="" style="" type="password" name="re_password" value="" placeholder="" /></span><br />
+        <label>Repeat Password <span class="mark-red">*</span>
+        <input id="Password" class="input" type="password" name="re_password" required /><br />
+        </label>
 
-        <input type="hidden" name="action" value="signin">
-        <input type="submit" name="singUp" class="btn-form" value="Sign Up" style="width: 261px;" />
+        <input type="hidden" name="action" value="signIn">
+        <input type="submit" name="singUp" class="btn-form" value="Sign Up" />
 
     </fieldset>
 </form>

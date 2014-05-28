@@ -25,7 +25,5 @@ echo "you sign in like admin ";
 
 print_r($_SESSION);
 
+include 'html/header.inc';
 
-?>
-
-<a href="index.php?session=delete"> logout </a>

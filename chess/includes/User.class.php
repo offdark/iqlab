@@ -56,7 +56,7 @@
 
             try{
 
-                $result = MYSQLDb::insert( $object, self::$table_name );
+                $result = MYSQLDb::save( $object, self::$table_name );
 
                 if( $result == 0 ){  // Inserting new USER to DB
                     $flag = false;

@@ -55,35 +55,40 @@ include '../includes/functions.php';
     }
     else // END Cheking if Button was Sabmit
 
-
+    include 'html/header.inc';
 ?>
 
 
-<form action="process_secretQ.php?<?php echo htmlspecialchars($id); ?>" method="POST" >
+<form action="process_secretQ.php?<?php echo htmlspecialchars($id); ?>" method="POST" class="form">
     <fieldset>
         
-        <label>Security question 1:  </label>
+        <label>Security question 1: 
         <select name="secretQ1" size="1">
         <?php $secretQuastions1 = secretQ( $id = 1 );
                 foreach( $secretQuastions1 as $value ){       
                     echo '<option value="' .htmlspecialchars($value). '" >' .$value. '</option>';   
                 } ?>
-        </select><br /><br />
-        <label>answer  <span class="mark-red">*</span></label>
-        <span class="input"><input id="secretQA1"  type="text" name="secretQA1" value="" placeholder="" /></span><br /><br />
+        </select>
+        </label>
         
-        <label>Security question 2:  </label>
+        <label>answer  <span class="mark-red">*</span>
+        <span class="input"><input id="secretQA1"  type="text" name="secretQA1" value="" placeholder="" /></span>
+        </label><br />
+        
+        <label>Security question 2:  
         <select name="secretQ2" size="1">
         <?php  $secretQuastions2 = secretQ( $id = 2 );
                 foreach( $secretQuastions2 as $value ){       
                     echo '<option value="' .htmlspecialchars($value). '" >' .$value. '</option>';   
                 } ?>
-        </select><br /><br />
-        <label>answer  <span class="mark-red">*</span></label>
-        <span class="input"><input id="secretQA2" type="text" name="secretQA2" value="" placeholder="" /></span><br />
-
-        <br />
-        <input type="submit" name="submit" value="Submit" style="width: 261px;" />
+        </select>
+        </label>
+        
+        <label>answer  <span class="mark-red">*</span>
+        <span class="input"><input id="secretQA2" type="text" name="secretQA2" value="" placeholder="" /></span>
+        </label>
+        
+        <input type="submit" name="submit" class="btn-form" value="Submit" />
 
     </fieldset>
 </form>

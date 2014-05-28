@@ -51,32 +51,27 @@ include '../includes/functions.php';
 
     }
     else // END Cheking if Button was Sabmit
+    include 'html/header.inc';
     
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
 
-</head>
-<body>
-
-<form action="login.php" method="POST" >
+<form action="login.php" method="POST" class="form" >
     <fieldset>
 
-        <label>Username <span class="mark-red">*</span></label>
-        <span class="input"><input id="Username" class="" style="" type="text" name="loginName" value="" placeholder="" /></span><br />
+        <label>Username <span class="mark-red">*</span>
+        <input id="Username" class="input" type="text" name="loginName" required />
+        </label>
 
-        <label>Password <span class="mark-red">*</span></label>
-        <span class="input"><input id="Password" class="" style="" type="password" name="password" value="" placeholder="" /></span><br />
+        <label>Password <span class="mark-red">*</span>
+        <input id="Password" class="input" type="password" name="password" required />
+        </label>
 
-        <label>Prove you're not a robot <span class="mark-red">*</span></label>
-		      <span class="input">
+        <label>Prove you're not a robot <span class="mark-red">*</span>
 		      <span class="math"><img src="" alt="" width="40" height="20" /></span>
-		      <input id="LPIN" class="" style="width: 310px;" type="text" name="LPIN" value="" placeholder="" /><br /></span>
-
-        <input type="hidden" name="action" value="signin">
-        <input type="submit" name="singIn" class="btn-form" value="Sign In" style="width: 261px;" />
+		      <input id="LPIN" class="input" style="width: 310px;" type="text" name="LPIN" value="" />
+        </label>
+        <input type="submit" name="singIn" class="btn-form" value="Sign In"  />
         <a href="recover_password.php" class="link-forgot-password">Forgot Password?</a>
 
     </fieldset>
