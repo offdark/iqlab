@@ -21,37 +21,13 @@ include '../includes/functions.php';
 
         $user = new User();
         $user->table_name = 'password_reset';
+        
+
         $user->saveQuestions( $_POST );
-
-
-         DIE();
+                   
         
-                header( 'Location: ../index.php' );
-        
-        
-        //$user = User::reset_password();
+        header( 'Location: ../index.php' );
 
-        //Checking
-        /**    if( $user->login == $login_name &&
-                $user->role  == 'admin' &&
-                $user->hashed_password == $hashed_password
-              ){
-                
-                    $session->logged_in($user);
-                    header( 'Location: http://localhost/test/chess/public/admin/index.php' );
-            }
-            elseif( $user->login == $login_name &&
-                    $user->role  == 'user' &&
-                    $user->hashed_password == $hashed_password
-                   ){
-                    
-                        header( 'Location: http://localhost/test/chess/public/index.php' );
-            }
-            else{
-
-                header( 'Location: http://localhost/test/chess/public/login.php' );
-            
-            } **/
     }
     else // END Cheking if Button was Sabmit
 

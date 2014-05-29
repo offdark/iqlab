@@ -37,7 +37,7 @@
             
             //Getting all information from DB if user exists 
             try{            
-                 $STH = MYSQLDb::getDBH()->prepare( 'SELECT * FROM user WHERE login = ?  AND hashed_password = ? ' );
+                 $STH = MYSQLDb::getDBH()->prepare( "SELECT * FROM user WHERE login = ?  AND hashed_password = ?" );
 
                  $data = array( $login, $hashed_password ); //creating query to placeholder
                  $STH->execute( $data );  
@@ -52,11 +52,18 @@
              catch ( PDOException $e ) { echo '<br> cant get user  from  _DB: '. $e->getMessage(); DIE(); }
         }
 
-        public function save( $object ){
+        public function save( $array ){
+            
+            $data_arr = array();
+
+            foreach( $array as $key => $value ){
+
+                $data_arr[$key] = trim( htmlspecialchars( $value, ENT_QUOTES ) );
+            }
 
             try{
 
-                $result = MYSQLDb::save( $object, $this->table_name );
+                $result = MYSQLDb::save( $data_arr, $this->table_name );
 
                 if( $result == 0 ){  // Inserting new USER to DB
                     $flag = false;
@@ -83,43 +90,29 @@
 
             try{
 
-                $lastId = MYSQLDb::save( $data_arr, $this->table_name );
-
-                if( $lastId != 0 ){  // Inserting new USER to DB
-
-
-                   $this->updateStatus( 'active', $lastId );
-                }
+                MYSQLDb::save( $data_arr, $this->table_name );
+                    $this->updateStatus( $data_arr['user_id'] );
+  
             }
-            catch ( PDOException $e ) {  echo '<br> cant add value to  _DB: '. $e->getMessage(); DIE(); }
+            catch ( PDOException $e ) {  echo '<br> cant save secretQuestions to  _DB: '. $e->getMessage(); DIE(); }
         }
 
 
-        public function updateStatus( $status_str, $id_int ){
+        public function updateStatus( $id_int ){
 
-            $sql = 'id = '.$id_int;
-            echo $sql;
-            DIE();
+            $sql = "id = ".$id_int;
+            $set = array( 'status' => 'active' );
+
             try{
 
-                $lastId = MYSQLDb::save( $status_str, $this->table_name, $sql );
-
-                if( $lastId == 0 ){  // Inserting new USER to DB
-
-                    $flag = false;
-                }
-                else{  $flag = true; }
-
-
+                MYSQLDb::save( $set, 'user', $sql );
 
             }
-            catch ( PDOException $e ) {  echo '<br> cant add value to  _DB: '; echo $e->getMessage(); DIE(); }
-
-            return $flag;
+            catch ( PDOException $e ) {  echo '<br> cant updateStatus  _DB: '; $e->getMessage(); DIE(); }
         }
 
 
-        public static function reset_password(){
+        public static function resetPassword(){
     
         }
     

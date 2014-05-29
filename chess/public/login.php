@@ -13,10 +13,10 @@ include '../includes/functions.php';
         header( 'Location: http://localhost/test/chess/public/admin/index.php' );
     }
     elseif( $session->is_logged_in() && $session->role == 'user' ){
-
-        header( 'Location: http://localhost/test/chess/public/index.php' );
-    }
-
+        
+       header( 'Location: http://localhost/test/chess/public/index.php' );
+ 
+        }
 
     if( isset( $_POST['singIn'] ) && !empty( $_POST['loginName']) && !empty( $_POST['password']) ){ // START Cheking if Button was Sabmit
 
@@ -40,7 +40,7 @@ include '../includes/functions.php';
                     $user->hashed_password == $hashed_password
                    ){
                     
-                   
+                        $session->logged_in($user);
                         header( 'Location: http://localhost/test/chess/public/index.php' );
             }
             else{

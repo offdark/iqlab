@@ -51,13 +51,13 @@
                     $STH->execute( $data );
                     $lastInsertId = self::getDBH()->lastInsertId();
                     self::getDBH()->commit();
-
+                    
                 return $lastInsertId;
             }
             catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
         }
         
-        public static function update( $object, $table_name, $where ){
+        public static function update( $object, $table_name, $where_str ){
 
             $sql = "UPDATE " .$table_name. " SET ";  // generating sql string
 
@@ -71,9 +71,9 @@
             }
             $sql .= implode(', ',$fields); // comma_separated
 
-            if( !empty($where) ){
+            if( !empty($where_str) ){
 
-                $sql .= " WHERE " .$where ;
+                $sql .= " WHERE " .$where_str;
             }
 
             try{
@@ -83,9 +83,9 @@
                     $lastInsertId = self::getDBH()->lastInsertId();
                     self::getDBH()->commit();
 
-               // return $lastInsertId;
+                return $lastInsertId;
             }
-            catch ( PDOException $e ){  self::getDBH()->rollBack(); echo $e->getMessage(); DIE();  }
+            catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
         }
 
 

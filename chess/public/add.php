@@ -7,26 +7,17 @@
 
 include '../includes/functions.php';
 
-    if( isset( $_POST['singUp'] ) 
-            && !empty( $_POST['login']) 
-            && !empty( $_POST['email'])
-            && !empty( $_POST['name'])
-            && !empty( $_POST['password'])
-            && !empty( $_POST['re_password']) ){ // START Cheking if Button was Sabmit
+    if( isset( $_POST['singUp'] ) ){ // START Cheking if Button was Sabmit
 
-        $filds = new stdClass();
+      if( $_POST['password'] == $_POST['re_password'] ){
+                
+                unset( $_POST['singUp']);
+                unset( $_POST['re_password']);
+                $_POST['hashed_password']  = sha1(sha1(trim( htmlspecialchars( $_POST['password'], ENT_QUOTES ) )));
+                unset($_POST['password']);
+                $user = new User();
 
-        $filds->login           = trim( htmlspecialchars( $_POST['login'], ENT_QUOTES ) );
-        $filds->email           = trim( filter_var( $_POST['email'], FILTER_VALIDATE_EMAIL ) );
-        $filds->realName        = trim( htmlspecialchars( $_POST['name'], ENT_QUOTES ) );
-        $filds->hashed_password = sha1(sha1(trim( htmlspecialchars( $_POST['password'], ENT_QUOTES ) )));
-        $re_password            = sha1(sha1(trim( htmlspecialchars( $_POST['re_password'], ENT_QUOTES ) )));
-
-           if( $filds->hashed_password == $re_password ){
-
-               $user = new User();
-
-                if( $user->save( $filds ) ){
+                if( $user->save( $_POST ) ){
                    
                     $lastInsertId = $user->lastInsertId;
                     header( 'Location: generate_secretQ.php?id='.$lastInsertId );
@@ -38,7 +29,7 @@ include '../includes/functions.php';
              
            }
            else{
-    
+                include 'html/header.inc';
                echo "password not same";
            }
 }
@@ -66,7 +57,7 @@ else
         </label>
 
         <label>Name <span class="mark-red">*</span>
-        <input id="Username" class="input" type="text" name="name" required /><br />
+        <input id="Username" class="input" type="text" name="realName" required /><br />
         </label>
 
         <label>Password <span class="mark-red">*</span>
@@ -77,7 +68,6 @@ else
         <input id="Password" class="input" type="password" name="re_password" required /><br />
         </label>
 
-        <input type="hidden" name="action" value="signIn">
         <input type="submit" name="singUp" class="btn-form" value="Sign Up" />
 
     </fieldset>

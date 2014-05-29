@@ -14,7 +14,7 @@
         private $email;
         private $login;
         private $hashed_password;
-        private $status;
+        public $status;
         private $realName;
         private $points;
         private $created;
