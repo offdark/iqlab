@@ -5,12 +5,13 @@
  * @copyright 2014
  */
 
-include '../includes/Session.class.php';
-include '../includes/functions.php';
+include 'includes/functions.php';
 
-    $id = $_SERVER['QUERY_STRING'];
+    $page = $_SERVER['QUERY_STRING'];
     
-     if( isset( $_POST['submit'] ) ){ // START Cheking if Button was Sabmit
+     if( $page )
+
+    if( isset( $_POST['submit'] ) ){ // START Cheking if Button was Sabmit
 
          unset ($_POST['submit']);
 
@@ -24,9 +25,8 @@ include '../includes/functions.php';
         
 
         $user->saveQuestions( $_POST );
-                   
-        
-        header( 'Location: ../index.php' );
+
+        header( 'Location: ../login.php' );
 
     }
     else // END Cheking if Button was Sabmit

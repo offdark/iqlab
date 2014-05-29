@@ -108,8 +108,25 @@
                 MYSQLDb::save( $set, 'user', $sql );
 
             }
-            catch ( PDOException $e ) {  echo '<br> cant updateStatus  _DB: '; $e->getMessage(); DIE(); }
+            catch ( PDOException $e ) {  echo '<br> cant updateStatus  _DB: '. $e->getMessage(); DIE(); }
         }
+
+
+        public function checkLogin(){
+
+            try{
+                $STH = MYSQLDb::getDBH()->prepare( "SELECT id FROM user WHERE  login = ?" );
+
+                $data = array( $this->login ); //creating query to placeholder
+                $STH->execute( $data );
+                $STH->setFetchMode( PDO::FETCH_OBJ ); // FetchMODE Object
+                $this->id = $STH->fetch();
+            }
+            catch ( PDOException $e ) { echo '<br> cant get id  from  _DB: '. $e->getMessage(); DIE(); }
+
+           return $this->id;
+        }
+
 
 
         public static function resetPassword(){

@@ -5,7 +5,8 @@
  * @copyright 2014
  */
 
-    include '../includes/Session.class.php';
+    include '../includes/functions.php';
+
 
 
     if( !$session->is_logged_in() || $session->role != 'user'  ){

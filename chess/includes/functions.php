@@ -6,11 +6,14 @@
  * Time: 5:04 PM
  */
 
+include 'Session.class.php';
+
     function my_autoloader( $class_name ) {
-        include '../includes/' . $class_name . '.class.php';
+        include 'includes/' . $class_name . '.class.php';
     }  
     spl_autoload_register('my_autoloader');
 
+define( 'URL', "http://localhost/test/chess/" );
 
     function secretQ( $id ){
         
@@ -29,7 +32,7 @@
                                     'What is the first name of the boy or girl that you first kissed?',
                                     'What was the last name of your third grade teacher?',
                                     'In what city does your nearest sibling live?',
-                                    'What is your oldest brother’s birthday month and year? (e.g., January 1900)' 
+                                    'What is your oldest brotherï¿½s birthday month and year? (e.g., January 1900)' 
                                   );
                                   
         if( $id == 1 ){  return $secretQuastions1;   }elseif( $id == 2 ){    return $secretQuastions2;   }

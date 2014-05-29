@@ -101,6 +101,31 @@
         }
         
 
+        public static function select( $object, $table_name, $where_str ){
+
+            $sql  = "SELECT ";  // generating sql string
+            $sql .= implode(', ',$object); // comma_separated
+            $sql .= "FROM " .$table_name;
+
+            if( !empty($where_str) ){
+
+                $sql .= " WHERE " .$where_str;
+            }
+
+            try{
+                self::getDBH()->beginTransaction();
+                $STH = self::getDBH()->prepare( $sql );
+                $STH->execute( $data );
+                $lastInsertId = self::getDBH()->lastInsertId();
+                self::getDBH()->commit();
+
+                return $lastInsertId;
+            }
+            catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
+
+
+        }
+
 
         public static function close_connection(){
             self::$DBH = null;

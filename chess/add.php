@@ -5,7 +5,7 @@
  * @copyright 2014
  */
 
-include '../includes/functions.php';
+include 'includes/functions.php';
 
     if( isset( $_POST['singUp'] ) ){ // START Cheking if Button was Sabmit
 

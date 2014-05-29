@@ -24,12 +24,12 @@
                 
                 <ul class="user-link">
                     <li>
-                        <a class="sign-up" href="public/add.php">
+                        <a class="sign-up" href="add.php">
                     <span>Sign Up</span>
                         </a>
                     </li>
                     <li>
-                        <a class="sign-in" href="public/login.php">
+                        <a class="sign-in" href="login.php">
                     <span>Sign In</span>
                     </a>
                     </li>

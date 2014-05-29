@@ -4,14 +4,20 @@
  * @author Offdark
  * @copyright 2014
  */
-include '../includes/functions.php';
+include 'includes/functions.php';
     
     
       if( isset( $_POST['submit'] ) && !empty( $_POST['login']) ){ // START Cheking if Button was Sabmit
 
-        $filds = new stdClass();
+          $user = new User();
+          $user->login = trim( htmlspecialchars( $_POST['login'], ENT_QUOTES ) );
 
-        $filds->login = trim( htmlspecialchars( $_POST['login'], ENT_QUOTES ) );
+          if( $user->checkLogin() !=  null ){
+
+                echo "good";
+              echo $_SERVER['REQUEST_URI'];
+              DIE();
+          }
         
 }
 else
@@ -19,7 +25,7 @@ else
     include 'html/header.inc';
 ?>
 
-<form action="recover_password.php" method="POST" class="form" >
+<form action="recPass_email.php" method="POST" class="form" >
     <fieldset>
         
         <label>Enter your Login <span class="mark-red">* </span><input type="text" name="login" class="input"  required /></label>

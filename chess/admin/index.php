@@ -7,7 +7,7 @@
  */
 
 
-include '../../includes/Session.class.php';
+include '../includes/Session.class.php';
 
     if( !$session->is_logged_in() || $session->role != 'admin'  ){
 
