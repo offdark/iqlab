@@ -7,49 +7,41 @@
 
 include 'includes/functions.php';
 
-    $page = $_SERVER['QUERY_STRING'];
-    
+
     if( empty($_SESSION['id']) || empty($_SESSION['fileName']) ){
-       header( 'Location: ../recPass_email.php' );
+       header( 'Location: ../index.php' );
     }
-     
-    $id = $_SESSION['id'];
+
     $fileName = $_SESSION['fileName'];
-    
-    if( isset( $_POST['submit'] ) ){ // START Cheking if Button was Sabmit
 
-         unset ($_POST['submit']);
-         
-          $query = MYSQLDb::select( $string, 'password_reset', $value );
-              
-              foreach( $query->fetch() as $key => $value){
-                
-                echo $key;
-                echo "<br>";
-                echo $value;
-              }
+        if( isset( $_POST['submit'] ) ){ // START Cheking if Button was Sabmit
 
-         $parse_id = $_SERVER['QUERY_STRING'];
-         parse_str($parse_id);
+            $user = new User();
 
-         $_POST['user_id'] = $id;
+            if( $fileName == 'recPass_email.php' ){
 
-        $user = new User();
-        $user->table_name = 'password_reset';
-        
+                echo "good";
+                $user->updatePassword( $_POST,  $id = array( 'id' => $_SESSION['id']->id ) );
+                DIE;
+                header( 'Location: newPass.php' );
 
-        $user->saveQuestions( $_POST );
+            }
+            elseif( $fileName == 'add.php' ){
 
-        header( 'Location: ../login.php' );
-
-    }
-    else // END Cheking if Button was Sabmit
+                $user->table_name = 'password_reset';
+                $user->saveQuestions( $_POST );
+                session_unset();
+                header( 'Location: login.php' );
+            }
+            else{ header( 'Location: secretQ.php' );  }
+        }
+        else // END Cheking if Button was Sabmit
 
     include 'html/header.inc';
 ?>
 
 
-<form action="generate_secretQ.php?<?php echo htmlspecialchars($id); ?>" method="POST" class="form">
+<form action="secretQ.php" method="POST" class="form">
     <fieldset>
         
         <label>Security question 1: 

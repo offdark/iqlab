@@ -80,18 +80,7 @@
         }
         
         public function logout(){
-            
-            unset( $_SESSION['id'] );
-            unset( $_SESSION['email'] );
-            unset( $_SESSION['login'] );
-            unset( $_SESSION['status'] );
-            unset( $_SESSION['realName'] );
-            unset( $_SESSION['created'] );
-            unset( $_SESSION['points'] );
-            unset( $_SESSION['edited'] );
-            unset( $_SESSION['role'] );
-            unset( $_SESSION['hashed_password'] );
-            unset( $_SESSION['HTTP_USER_AGENT'] );
+
             unset( $this->id );    
             unset( $this->email);   
             unset( $this->login );      
@@ -101,7 +90,8 @@
             unset( $this->points );       
             unset( $this->edited ); 
             unset( $this->role );         
-            unset( $this->hashed_password );     
+            unset( $this->hashed_password );
+            session_unset();
             session_destroy();
             header( 'Location: http://localhost/test/chess/index.php' );
         }

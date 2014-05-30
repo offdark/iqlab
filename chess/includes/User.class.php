@@ -81,7 +81,7 @@
             try{
 
                 MYSQLDb::save( $data, $this->table_name );
-                    $this->updateStatus( $data_arr['user_id'] );
+                    $this->updateStatus( $data['user_id'] );
   
             }
             catch ( PDOException $e ) {  echo '<br> cant save secretQuestions to  _DB: '. $e->getMessage(); DIE(); }
@@ -123,9 +123,32 @@
         }
 
 
+        public function updatePassword( $POST_arr, $id_int ){
 
-        public static function resetPassword(){
-    
+            unset($POST_arr['submit']);
+            $data = array();
+
+            foreach( $POST_arr as $key => $value ){
+
+                $data[$key] = trim( htmlspecialchars( $value ) );
+            }
+
+            print_r($data);
+            DIE();
+            try{
+
+                $STH = MYSQLDb::select( $data, $this->table_name, $id_int );
+                // writing result to User class
+                foreach( $STH->fetch() as $key => $value){
+
+                    $this->$key = $value;
+                }
+            }
+            catch ( PDOException $e ) { echo '<br> cant get id  from  _DB: '. $e->getMessage(); DIE(); }
+
+           // if( $data[])
+
+
         }
     
     

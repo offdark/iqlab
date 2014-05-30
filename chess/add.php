@@ -5,7 +5,8 @@
  * @copyright 2014
  */
 
-include 'includes/functions.php';
+    include 'includes/functions.php';
+    $fileName = basename( $_SERVER['REQUEST_URI'], '?'. $_SERVER['QUERY_STRING'] );
 
     if( isset( $_POST['singUp'] ) ){ // START Cheking if Button was Sabmit
 
@@ -19,8 +20,9 @@ include 'includes/functions.php';
 
                 if( $user->add( $_POST ) ){
                    
-                    $lastInsertId = $user->lastInsertId;
-                    header( 'Location: generate_secretQ.php?id='.$lastInsertId );
+                    $_SESSION['id'] = $user->lastInsertId;
+                    $_SESSION['fileName'] = $fileName;
+                    header( 'Location: secretQ.php' );
                 }
                 else{
                     

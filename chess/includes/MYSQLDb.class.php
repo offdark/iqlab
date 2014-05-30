@@ -92,37 +92,36 @@
         public static function save( $object, $table_name, $where = '' ){
 
             if( !empty($where) ){
-
                 return self::update( $object, $table_name, $where );
             }
-
             return self::insert( $object, $table_name );
-
         }
         
 
-        public static function select( $mixed, $table_name, $value_arr = '' ){
+        public static function select( $mixed, $table_name, $value_mixed = '' ){
             
             $data = array();
             $sql  = "SELECT ";  // generating sql string  
             $sql .= is_array( $mixed )? implode(', ',$mixed) : $mixed;              
             $sql .= " FROM " .$table_name;
 
-            if( !empty($value_arr) ){
+            if( !empty($value_mixed) && is_array($value_mixed) ){
 
                 $fields = array(); // key -> value in sql string
                 $data = array(); // creating data to placeholder
 
-                foreach( $value_arr as $key => $value ){
+                foreach( $value_mixed as $key => $value ){
     
                     $fields[] = $key." = ?";
                     $data[]   = $value;
                 }
                 $sql .= " WHERE ". implode(', ',$fields); // comma_separated;
             }
-           //     echo $sql;
-            //    print_r($data);
-            //    DIE();
+            else{  $sql .= " WHERE ". $value_mixed;  }
+
+                 echo $sql;
+                print_r($data);
+                DIE();
             try{
                 
                 $STH = self::getDBH()->prepare( $sql );
