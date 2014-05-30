@@ -4,18 +4,20 @@
  * @author Offdark
  * @copyright 2014
  */
-include 'includes/functions.php';
+ 
+    include 'includes/functions.php';
+    $fileName = basename( $_SERVER['REQUEST_URI'], '?'. $_SERVER['QUERY_STRING'] );
     
     
-      if( isset( $_POST['submit'] ) && !empty( $_POST['login']) ){ // START Cheking if Button was Sabmit
+      if( isset( $_POST['submit'] ) && !empty( $_POST['email']) ){ // START Cheking if Button was Sabmit
 
           $user = new User();
-          $user->login = trim( htmlspecialchars( $_POST['login'], ENT_QUOTES ) );
 
-          if( $user->checkLogin() !=  null ){
-
-                echo "good";
-              echo $_SERVER['REQUEST_URI'];
+          if( $user->emailCheck( 'user', $_POST ) !=  null ){
+            
+                $_SESSION['id'] = $user->id;
+                $_SESSION['fileName'] = $fileName;
+           
               DIE();
           }
         
@@ -28,7 +30,7 @@ else
 <form action="recPass_email.php" method="POST" class="form" >
     <fieldset>
         
-        <label>Enter your Login <span class="mark-red">* </span><input type="text" name="login" class="input"  required /></label>
+        <label>Enter your Email <span class="mark-red">* </span><input type="email" name="email" class="input"  required /></label>
         <input type="submit" name="submit" class="btn-form" value="Submit" />
 
     </fieldset>

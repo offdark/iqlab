@@ -5,8 +5,7 @@
  * @copyright 2014
  */
 
-    include '../includes/functions.php';
-
+    include '../includes/Session.class.php';
 
 
     if( !$session->is_logged_in() || $session->role != 'user'  ){
@@ -19,7 +18,7 @@
             case 'deleted':            
                 break;
             case 'inactive':
-                 header( 'Location: http://localhost/test/chess/secretQ.php' );
+                 header( 'Location: http://localhost/test/chess/public/generate_secretQ.php' );
                  break;
              case 'active':
                 

@@ -12,7 +12,6 @@
         public $email;
         public $login;
         public $hashed_password;
-        private $old_hashed_password;
         public $status;
         public $realName;
         public $points;
@@ -24,15 +23,6 @@
         public $table_name = 'user';
 
 
-        function setHashedPassword($password){
-            $this->hashed_password = sha1(sha1($password));
-        }
-
-        function setOldPassword($old_password){
-            $this->old_hashed_password = sha1(sha1($old_password));
-        }
-
-        
         public function login( $login, $hashed_password ){
             
             //Getting all information from DB if user exists 
@@ -52,18 +42,18 @@
              catch ( PDOException $e ) { echo '<br> cant get user  from  _DB: '. $e->getMessage(); DIE(); }
         }
 
-        public function save( $array ){
+        public function add( $array ){
             
-            $data_arr = array();
+            $data = array();
 
             foreach( $array as $key => $value ){
 
-                $data_arr[$key] = trim( htmlspecialchars( $value, ENT_QUOTES ) );
+                $data[$key] = trim( htmlspecialchars( $value, ENT_QUOTES ) );
             }
 
             try{
 
-                $result = MYSQLDb::save( $data_arr, $this->table_name );
+                $result = MYSQLDb::save( $data, $this->table_name );
 
                 if( $result == 0 ){  // Inserting new USER to DB
                     $flag = false;
@@ -81,16 +71,16 @@
 
         public function saveQuestions( $POST_arr  ){
 
-            $data_arr = array();
+            $data = array();
 
             foreach( $POST_arr as $key => $value ){
 
-                $data_arr[$key] = trim( htmlspecialchars( $value, ENT_QUOTES ) );
+                $data[$key] = trim( htmlspecialchars( $value, ENT_QUOTES ) );
             }
 
             try{
 
-                MYSQLDb::save( $data_arr, $this->table_name );
+                MYSQLDb::save( $data, $this->table_name );
                     $this->updateStatus( $data_arr['user_id'] );
   
             }
@@ -112,19 +102,24 @@
         }
 
 
-        public function checkLogin(){
+        public function emailCheck( $table_name, $POST_arr ){
+            
+            unset($POST_arr['submit']);
+            $select = array();
 
+            foreach( $POST_arr as $key => $value ){
+
+                $select[$key] = trim( filter_var( $value, FILTER_VALIDATE_EMAIL ) );
+            }
+            
             try{
-                $STH = MYSQLDb::getDBH()->prepare( "SELECT id FROM user WHERE  login = ?" );
-
-                $data = array( $this->login ); //creating query to placeholder
-                $STH->execute( $data );
-                $STH->setFetchMode( PDO::FETCH_OBJ ); // FetchMODE Object
+                
+                $STH = MYSQLDb::select( 'id', $table_name, $select );           
                 $this->id = $STH->fetch();
             }
             catch ( PDOException $e ) { echo '<br> cant get id  from  _DB: '. $e->getMessage(); DIE(); }
 
-           return $this->id;
+           return $this->id; //return user ID
         }
 
 

@@ -1,0 +1,105 @@
+
+
+
+#main {
+
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 90%;
+}
+
+
+.container-center:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.container-center {
+    background-color: #6686B5;
+    margin: 0 auto;
+    padding: 0 0px;
+    position: relative;
+    width: 1056px;
+}
+
+
+
+.header-top {
+    margin: 0 0 11px;
+    overflow: hidden;
+    padding: 20px 0 15px;
+}
+
+.user-link {
+    width: 280px;
+    float: right;
+    font-size: 16px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 18px 4px 0 0;
+}
+
+.user-link li a.account span {
+    background: url(../images/account.png) no-repeat scroll 0;
+    display: block;
+    padding: 0 0 0 23px;
+}
+
+.user-link li a.sign-out span {
+    background: url(../images/signOut.png) no-repeat scroll 0;
+    display: block;
+    padding: 0 0 0 23px;
+}
+
+.user-link li a {
+    border-radius: 20px;
+    color: #333333;
+    float: left;
+    min-width: 91px;
+    position: relative;
+    text-decoration: none;
+}
+
+.user-link li a.account:hover, .user-link li.active a.account {
+    border: 2px solid #333333;
+    color:#1FECFF;
+}
+
+.user-link li a.account {
+    border: 2px solid rgba(0, 0, 0, 0);
+    padding: 8px 5px 9px 14px;
+}
+
+.user-link li a.sign-out:hover, .user-link li.active a.sign-out {
+    border: 2px solid #333333;
+    color:#1FECFF;
+}
+
+.user-link li a.sign-out {
+    border: 2px solid rgba(0, 0, 0, 0);
+    padding: 8px 5px 9px 14px;
+}
+
+.user-link li a:hover {
+    text-decoration: none;
+}
+
+
+
+
+.container-content {
+    width: 90%;
+    background: red;
+    margin-top: 10px;
+    margin: auto;
+}
+
+.container-footer {
+    width: 90%;
+    height: 100px;
+    background: aquamarine;
+
+    margin: 10px auto;
+}

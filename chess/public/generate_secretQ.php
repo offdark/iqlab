@@ -5,29 +5,14 @@
  * @copyright 2014
  */
 
-include 'includes/functions.php';
+include '../includes/Session.class.php';
+include '../includes/functions.php';
 
-    $page = $_SERVER['QUERY_STRING'];
+    $id = $_SERVER['QUERY_STRING'];
     
-    if( empty($_SESSION['id']) || empty($_SESSION['fileName']) ){
-       header( 'Location: ../recPass_email.php' );
-    }
-     
-    $id = $_SESSION['id'];
-    $fileName = $_SESSION['fileName'];
-    
-    if( isset( $_POST['submit'] ) ){ // START Cheking if Button was Sabmit
+     if( isset( $_POST['submit'] ) ){ // START Cheking if Button was Sabmit
 
          unset ($_POST['submit']);
-         
-          $query = MYSQLDb::select( $string, 'password_reset', $value );
-              
-              foreach( $query->fetch() as $key => $value){
-                
-                echo $key;
-                echo "<br>";
-                echo $value;
-              }
 
          $parse_id = $_SERVER['QUERY_STRING'];
          parse_str($parse_id);
@@ -39,8 +24,9 @@ include 'includes/functions.php';
         
 
         $user->saveQuestions( $_POST );
-
-        header( 'Location: ../login.php' );
+                   
+        
+        header( 'Location: ../index.php' );
 
     }
     else // END Cheking if Button was Sabmit

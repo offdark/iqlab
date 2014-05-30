@@ -101,29 +101,36 @@
         }
         
 
-        public static function select( $object, $table_name, $where_str ){
+        public static function select( $mixed, $table_name, $value_arr = '' ){
+            
+            $data = array();
+            $sql  = "SELECT ";  // generating sql string  
+            $sql .= is_array( $mixed )? implode(', ',$mixed) : $mixed;              
+            $sql .= " FROM " .$table_name;
 
-            $sql  = "SELECT ";  // generating sql string
-            $sql .= implode(', ',$object); // comma_separated
-            $sql .= "FROM " .$table_name;
+            if( !empty($value_arr) ){
 
-            if( !empty($where_str) ){
+                $fields = array(); // key -> value in sql string
+                $data = array(); // creating data to placeholder
 
-                $sql .= " WHERE " .$where_str;
+                foreach( $value_arr as $key => $value ){
+    
+                    $fields[] = $key." = ?";
+                    $data[]   = $value;
+                }
+                $sql .= " WHERE ". implode(', ',$fields); // comma_separated;
             }
-
+           //     echo $sql;
+            //    print_r($data);
+            //    DIE();
             try{
-                self::getDBH()->beginTransaction();
+                
                 $STH = self::getDBH()->prepare( $sql );
                 $STH->execute( $data );
-                $lastInsertId = self::getDBH()->lastInsertId();
-                self::getDBH()->commit();
-
-                return $lastInsertId;
+                $STH->setFetchMode( PDO::FETCH_OBJ ); // FetchMODE Object
+                return $STH; // return OBJECT              
             }
-            catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
-
-
+            catch ( PDOException $e ){  return $e->getMessage(); DIE();  }
         }
 
 

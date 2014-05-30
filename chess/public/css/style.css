@@ -1,0 +1,175 @@
+
+
+
+#main {
+
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 90%;
+}
+
+/*Header START */
+
+.container-center:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.container-center {
+    background-color: #6686B5;
+    margin: 0 auto;
+    padding: 0 0px;
+    position: relative;
+    width: 1056px;
+}
+
+
+
+.header-top {
+    margin: 0 0 11px;
+    overflow: hidden;
+    padding: 20px 0 15px;
+}
+
+.user-link {
+    width: 280px;
+    float: right;
+    font-size: 16px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 18px 4px 0 0;
+}
+
+/*Login, Register menu START */
+
+.user-link li a.sign-up span {
+    background: url(../images/signUp.png) no-repeat scroll 0;
+    display: block;
+    padding: 0 0 0 23px;
+}
+
+.user-link li a.sign-in span {
+    background: url(../images/signIn.png) no-repeat scroll 0;
+    display: block;
+    padding: 0 0 0 23px;
+}
+
+.user-link li a {
+    border-radius: 20px;
+    color: #333333;
+    float: left;
+    min-width: 91px;
+    position: relative;
+    text-decoration: none;
+}
+
+.user-link li a.sign-up:hover, .user-link li.active a.sign-up {
+    border: 2px solid #333333;
+    color:#1FECFF;
+}
+
+.user-link li a.sign-up {
+    border: 2px solid rgba(0, 0, 0, 0);
+    padding: 8px 5px 9px 14px;
+}
+
+.user-link li a.sign-in:hover, .user-link li.active a.sign-in {
+    border: 2px solid #333333;
+    color:#1FECFF;
+}
+
+.user-link li a.sign-in {
+    border: 2px solid rgba(0, 0, 0, 0);
+    padding: 8px 5px 9px 14px;
+}
+
+.user-link li a:hover {
+    text-decoration: none;
+}
+
+/*Login, Register menu END */
+/*Header END */
+
+
+.container-content {
+    width: 90%;
+    background: red;
+    margin-top: 10px;
+    margin: auto;
+}
+
+/* LogIn form START */
+
+
+.form label {
+    color: #999999;
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0 0 8px 15px;
+}
+
+/*SignIn button form START */
+
+.btn-form {
+    background: none repeat scroll 0 0 #00BEC5;
+    border: 0 none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+    height: 30px;
+    width: 200px;
+    line-height: 30px;
+    padding: 0 0 4px;
+    position: relative;
+     margin: 25px 0 0 0;
+     float:left;
+    transition: all 300ms ease 0s;
+}
+
+
+.btn-form:hover {
+    background: none repeat scroll 0 0 #424D50;
+    cursor: pointer;
+}
+
+.link-forgot-password {
+    color: #009AA8;
+    float: left;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 27px 33px 0;
+    text-decoration: none;
+}
+
+
+/*SignIn button form END */
+
+
+.mark-red {
+    color: #FF3333;
+}
+
+.input {
+    color: #999999;
+    font-size: 14px;
+    height: 24px;
+    line-height: 20px;
+    margin: 6px 0 0;
+    padding: 0;
+    width: 200px;
+}
+
+/* LogIn form START */
+
+
+.container-footer {
+    width: 90%;
+    height: 100px;
+    background: aquamarine;
+
+    margin: 10px auto;
+}

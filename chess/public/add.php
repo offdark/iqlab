@@ -5,7 +5,7 @@
  * @copyright 2014
  */
 
-include 'includes/functions.php';
+include '../includes/functions.php';
 
     if( isset( $_POST['singUp'] ) ){ // START Cheking if Button was Sabmit
 
@@ -17,7 +17,7 @@ include 'includes/functions.php';
                 unset($_POST['password']);
                 $user = new User();
 
-                if( $user->add( $_POST ) ){
+                if( $user->save( $_POST ) ){
                    
                     $lastInsertId = $user->lastInsertId;
                     header( 'Location: generate_secretQ.php?id='.$lastInsertId );

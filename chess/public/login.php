@@ -5,17 +5,16 @@
  * @copyright 2014
  */
 
-include 'includes/functions.php';
-
-
+include '../includes/Session.class.php';
+include '../includes/functions.php';
 
     if( $session->is_logged_in() && $session->role == 'admin'  ){
 
-        header( 'Location: http://localhost/test/chess/admin/index.php' );
+        header( 'Location: http://localhost/test/chess/public/admin/index.php' );
     }
     elseif( $session->is_logged_in() && $session->role == 'user' ){
-
-       header( 'Location: http://localhost/test/chess/index.php' );
+        
+       header( 'Location: http://localhost/test/chess/public/index.php' );
  
         }
 
@@ -34,7 +33,7 @@ include 'includes/functions.php';
               ){
                 
                     $session->logged_in($user);
-                    header( 'Location: http://localhost/test/chess/admin/index.php' );
+                    header( 'Location: http://localhost/test/chess/public/admin/index.php' );
             }
             elseif( $user->login == $login_name &&
                     $user->role  == 'user' &&
@@ -42,11 +41,11 @@ include 'includes/functions.php';
                    ){
                     
                         $session->logged_in($user);
-                        header( 'Location: http://localhost/test/chess/index.php' );
+                        header( 'Location: http://localhost/test/chess/public/index.php' );
             }
             else{
 
-                header( 'Location: http://localhost/test/chess/login.php' );
+                header( 'Location: http://localhost/test/chess/public/login.php' );
             
             }
 
@@ -73,7 +72,7 @@ include 'includes/functions.php';
 		      <input id="LPIN" class="input" style="width: 310px;" type="text" name="LPIN" value="" />
         </label>
         <input type="submit" name="singIn" class="btn-form" value="Sign In"  />
-        <a href="recPass_email.php" class="link-forgot-password">Forgot Password?</a>
+        <a href="recover_password.php" class="link-forgot-password">Forgot Password?</a>
 
     </fieldset>
 </form>
