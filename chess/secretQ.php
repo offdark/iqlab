@@ -19,10 +19,18 @@ include 'includes/functions.php';
             if( $_SESSION['fileName'] == 'recPass_email.php' ){
 
              //   echo "good";
-                $user->resetPassword( $_POST, 'password_reset',  $id = array( 'user_id' => 93 ) );
-                DIE;
-                header( 'Location: chess/newPass.php' );
+                $_POST['user_id'] = $_SESSION['id']->id;
 
+                if ( $user->resetPassword( $_POST, 'password_reset' ) ){
+
+                   echo "good";
+                    DIE;
+                    header( 'Location: chess/newPass.php' );
+                }
+                else{
+                    echo "questions or answers do not match";
+                    DIE();
+                }
             }
             elseif( $_SESSION['fileName'] == 'add.php' ){
 
