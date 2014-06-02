@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="public/css/style.css" media="all" rel="stylesheet" type="text/css">
+<link href="css/style.css" media="all" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="main">
@@ -36,6 +36,15 @@
                 </ul>
 
             </div>
+            
+           <div id="nav">
+					<ul>
+						<li><a  class="active" href="https://">Home</a></li>
+						<li><a  href="module?pg-name=about">About Us</a></li>
+						<li><a  href="module?pg-name=faq">FAQ</a></li>
+						<li><a  href="module?pg-name=contact">Contact Us</a></li>
+					</ul>
+				</div>
 
         </div>
 

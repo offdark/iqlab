@@ -4,17 +4,16 @@
  * @author Offdark
  * @copyright 2014
  */
- 
-    include 'includes/functions.php';
-    $fileName = basename( $_SERVER['REQUEST_URI'], '?'. $_SERVER['QUERY_STRING'] );
-    session_unset();
 
-    
+    include 'includes/functions.php';
+    session_unset();    
+    $fileName = basename( $_SERVER['REQUEST_URI'], '?'. $_SERVER['QUERY_STRING'] );
+
       if( isset( $_POST['submit'] ) && !empty( $_POST['email']) ){ // START Cheking if Button was Sabmit
 
           $user = new User();
 
-          if( $user->emailCheck( 'user', $_POST ) !=  null ){
+          if( $user->emailCheck( $_POST ) !=  null ){
             
                 $_SESSION['id'] = $user->id;
                 $_SESSION['fileName'] = $fileName;

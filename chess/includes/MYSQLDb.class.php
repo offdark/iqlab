@@ -115,21 +115,21 @@
                     $fields[] = $key." = ?";
                     $data[]   = $value;
                 }
-                $sql .= " WHERE ". implode(', ',$fields); // comma_separated;
+                $sql .= " WHERE ". implode(', ',$fields); // comma_separated;           
             }
             else{  $sql .= " WHERE ". $value_mixed;  }
 
-                 echo $sql;
+                echo $sql;
                 print_r($data);
-                DIE();
+             //   DIE();
             try{
                 
                 $STH = self::getDBH()->prepare( $sql );
-                $STH->execute( $data );
-                $STH->setFetchMode( PDO::FETCH_OBJ ); // FetchMODE Object
-                return $STH; // return OBJECT              
+                ( !empty($data) ) ? $STH->execute( $data ) : $STH->execute();   
+                
+                return $STH;                    
             }
-            catch ( PDOException $e ){  return $e->getMessage(); DIE();  }
+            catch ( PDOException $e ){  echo $e->getMessage(); DIE();  }
         }
 
 

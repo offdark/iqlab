@@ -90,14 +90,58 @@
 }
 
 /*Login, Register menu END */
+
+
+/* Links */
+
+
+#nav {
+    font-size: 16px;
+    margin: auto;
+    padding-top: 20px;
+    height: 42px;
+    background: #C9D3DC;
+}
+
+
+#nav ul {
+    display: table;
+    list-style: none outside none;
+    margin: auto;
+
+    text-align: center;
+    width: 90%;
+}
+
+#nav li {
+    display: table-cell;
+    text-align: center;
+}
+
+
+#nav a.active, #nav a:hover {
+    border: 2px solid #333333;
+    text-decoration: none;
+}
+#nav a {
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 20px;
+    color: #333333;
+    padding: 8px 20px 9px;
+    position: relative;
+    transition: all 300ms ease 0s;
+}
+
+/* Links END */
+
 /*Header END */
 
 
 .container-content {
     width: 90%;
     background: red;
-    margin-top: 10px;
     margin: auto;
+    margin-top:10px;
 }
 
 /* LogIn form START */

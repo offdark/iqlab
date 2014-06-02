@@ -102,7 +102,7 @@
         }
 
 
-        public function emailCheck( $table_name, $POST_arr ){
+        public function emailCheck( $POST_arr ){
             
             unset($POST_arr['submit']);
             $select = array();
@@ -114,7 +114,8 @@
             
             try{
                 
-                $STH = MYSQLDb::select( 'id', $table_name, $select );           
+                $STH = MYSQLDb::select( 'id', $this->table_name, $select ); 
+                $STH->setFetchMode( PDO::FETCH_OBJ ); // FetchMODE Object          
                 $this->id = $STH->fetch();
             }
             catch ( PDOException $e ) { echo '<br> cant get id  from  _DB: '. $e->getMessage(); DIE(); }
@@ -123,30 +124,50 @@
         }
 
 
-        public function updatePassword( $POST_arr, $id_int ){
+        public function resetPassword( $POST_arr, $table_name, $id_mixed ){
 
             unset($POST_arr['submit']);
-            $data = array();
-
+             $fields = array(); // key -> value in sql string
+                
             foreach( $POST_arr as $key => $value ){
-
-                $data[$key] = trim( htmlspecialchars( $value ) );
-            }
-
-            print_r($data);
-            DIE();
+                
+                $fields[] = $key;        
+            }           
+         //   print_r($fields);
+         //   DIE();
             try{
+            $sql = "(user_id = '93') AND (secretQ1 = 'What is the middle name of your oldest child?') AND (secretQA1 = 'best')  AND (secretQ2 = 'In what city or town did your mother and father meet?') AND (secretQA2 = 'mee') ";
+                $STH = MYSQLDb::select( 'user_id', $table_name, $sql );
+                $STH->setFetchMode( PDO::FETCH_ASSOC ); // FetchMODE Array  
+                print_r($STH);
+               $data = array();
+               
+               foreach( $STH->fetch() as $key => $value ){
+                
+               $data[$key] = $value;
+               }      
+               echo "<br>";
+               print_R($data);
+               echo "<br>";
+               print_r($fields);
+               die();     
 
-                $STH = MYSQLDb::select( $data, $this->table_name, $id_int );
-                // writing result to User class
-                foreach( $STH->fetch() as $key => $value){
-
-                    $this->$key = $value;
-                }
             }
-            catch ( PDOException $e ) { echo '<br> cant get id  from  _DB: '. $e->getMessage(); DIE(); }
+            catch ( PDOException $e ) { echo '<br> cant get user_id  from  _DB: '; echo $e->getMessage(); DIE(); }
 
-           // if( $data[])
+            if( $fields == $data ){
+                
+            $string = 'abcdefghijklmnopqrstuvwxyz'.'0123456789!@#$%^&*()'.'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+            $newPassword = mb_substr( str_shuffle($string), 6, 7 );
+            
+            echo $newPassword;
+            DIE();
+
+            }
+            else{
+                
+                return false;
+            }
 
 
         }

@@ -6,34 +6,32 @@
  */
 
 include 'includes/functions.php';
-
+//print_r($_SESSION);
 
     if( empty($_SESSION['id']) || empty($_SESSION['fileName']) ){
-       header( 'Location: ../index.php' );
+       header( 'Location: index.php' );
     }
-
-    $fileName = $_SESSION['fileName'];
 
         if( isset( $_POST['submit'] ) ){ // START Cheking if Button was Sabmit
 
             $user = new User();
 
-            if( $fileName == 'recPass_email.php' ){
+            if( $_SESSION['fileName'] == 'recPass_email.php' ){
 
-                echo "good";
-                $user->updatePassword( $_POST,  $id = array( 'id' => $_SESSION['id']->id ) );
+             //   echo "good";
+                $user->resetPassword( $_POST, 'password_reset',  $id = array( 'user_id' => 93 ) );
                 DIE;
-                header( 'Location: newPass.php' );
+                header( 'Location: chess/newPass.php' );
 
             }
-            elseif( $fileName == 'add.php' ){
+            elseif( $_SESSION['fileName'] == 'add.php' ){
 
                 $user->table_name = 'password_reset';
                 $user->saveQuestions( $_POST );
                 session_unset();
                 header( 'Location: login.php' );
             }
-            else{ header( 'Location: secretQ.php' );  }
+            else{ header( 'Location: ../index.php' );  }
         }
         else // END Cheking if Button was Sabmit
 
@@ -46,8 +44,8 @@ include 'includes/functions.php';
         
         <label>Security question 1: 
         <select name="secretQ1" size="1">
-        <?php $secretQuastions1 = secretQ( $id = 1 );
-                foreach( $secretQuastions1 as $value ){       
+        <?php $secretQuestions1 = secretQ( $id = 1 );
+                foreach( $secretQuestions1 as $value ){       
                     echo '<option value="' .htmlspecialchars($value). '" >' .$value. '</option>';   
                 } ?>
         </select>
@@ -59,8 +57,8 @@ include 'includes/functions.php';
         
         <label>Security question 2:  
         <select name="secretQ2" size="1">
-        <?php  $secretQuastions2 = secretQ( $id = 2 );
-                foreach( $secretQuastions2 as $value ){       
+        <?php  $secretQuestions2 = secretQ( $id = 2 );
+                foreach( $secretQuestions2 as $value ){       
                     echo '<option value="' .htmlspecialchars($value). '" >' .$value. '</option>';   
                 } ?>
         </select>
