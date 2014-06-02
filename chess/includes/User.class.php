@@ -124,52 +124,52 @@
         }
 
 
-        public function resetPassword( $POST_arr, $table_name, $id_mixed ){
+        public function resetPassword( $POST_arr, $table_name ){
 
             unset($POST_arr['submit']);
+
              $fields = array(); // key -> value in sql string
-                
+             $data = array();
+
             foreach( $POST_arr as $key => $value ){
-                
-                $fields[] = $key;        
-            }           
-         //   print_r($fields);
-         //   DIE();
+
+                $fields[] = "(". $key ." = '". $value ."')";
+            }
+            $sql = implode(' AND ',$fields);
+
             try{
-            $sql = "(user_id = '93') AND (secretQ1 = 'What is the middle name of your oldest child?') AND (secretQA1 = 'best')  AND (secretQ2 = 'In what city or town did your mother and father meet?') AND (secretQA2 = 'mee') ";
-                $STH = MYSQLDb::select( 'user_id', $table_name, $sql );
-                $STH->setFetchMode( PDO::FETCH_ASSOC ); // FetchMODE Array  
-                print_r($STH);
-               $data = array();
-               
-               foreach( $STH->fetch() as $key => $value ){
-                
-               $data[$key] = $value;
-               }      
-               echo "<br>";
-               print_R($data);
-               echo "<br>";
-               print_r($fields);
-               die();     
+
+                $STH = MYSQLDb::select( 'user_id', $table_name, $sql);
+                $STH->setFetchMode( PDO::FETCH_ASSOC ); // FetchMODE Array
+                $result = $STH->fetch();
+                if( !empty( $result ) ){
+
+                    $string = 'abcdefghijklmnopqrstuvwxyz'.'0123456789!@#$%^&*()'.'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                    $newPassword = mb_substr( str_shuffle($string), 6, 7 );
+
+                    echo $newPassword;
+                    return true;
+                }
+                else
+                {
+                   return false;
+                }
 
             }
             catch ( PDOException $e ) { echo '<br> cant get user_id  from  _DB: '; echo $e->getMessage(); DIE(); }
+        }
 
-            if( $fields == $data ){
-                
-            $string = 'abcdefghijklmnopqrstuvwxyz'.'0123456789!@#$%^&*()'.'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
-            $newPassword = mb_substr( str_shuffle($string), 6, 7 );
-            
-            echo $newPassword;
-            DIE();
+        public function updatePassword( $password_str ){
+
+            $hashed_password = sha1( sha1( $password_str ) );
+
+            try{
+
+                MYSQLDb::save( $hashed_password, $this->table_name, $where );
+                $this->updateStatus( $data['user_id'] );
 
             }
-            else{
-                
-                return false;
-            }
-
-
+            catch ( PDOException $e ) {  echo '<br> cant save secretQuestions to  _DB: '. $e->getMessage(); DIE(); }
         }
     
     
