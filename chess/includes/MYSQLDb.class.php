@@ -61,19 +61,24 @@
 
             $sql = "UPDATE " .$table_name. " SET ";  // generating sql string
 
-            $fields = array(); // key -> value in sql string
-            $data = array(); // creating data to placeholder
+            if( !empty($object) && is_array($object) ){
 
-            foreach( $object as $key => $value ){
+                $fields = array(); // key -> value in sql string
+                $data = array(); // creating data to placeholder
 
-                $fields[] = $key." = ?";
-                $data[]   = $value;
+                foreach( $object as $key => $value ){
+
+                    $fields[] = $key." = ?";
+                    $data[]   = $value;
+                }
+                $sql .= implode(', ',$fields); // comma_separated
             }
-            $sql .= implode(', ',$fields); // comma_separated
+            else{  $sql .= " WHERE ". $value_mixed;  }
+
 
             if( !empty($where_str) ){
 
-                $sql .= " WHERE " .$where_str;
+                $sql .= $object;
             }
 
             try{
@@ -119,8 +124,8 @@
             }
             else{  $sql .= " WHERE ". $value_mixed;  }
 
-                echo $sql;
-                print_r($data);
+             //   echo $sql;
+             //   print_r($data);
              //   DIE();
             try{
                 
