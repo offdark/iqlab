@@ -21,8 +21,9 @@ function __autoload($class_name) {
     $filds->email           = 'change@121212.com';
     $filds->realName        = 'foo';
 
+    $filds = array ('email' => 'best', 'realname' => 'try');
+    $id = array('id' => 59);
 
+   
 
-        $id = 57;
-
-    MYSQLDb::update( $filds, 'user', 'id = 59' );
+    MYSQLDb::update( $filds, 'user', $id );
