@@ -5,6 +5,8 @@
  * @copyright 2014
  */
 
+include 'includes/functions.php';
+
 
 
 
@@ -40,9 +42,9 @@
            <div id="nav">
 					<ul>
 						<li><a  class="active" href="https://">Home</a></li>
-						<li><a  href="module?pg-name=about">About Us</a></li>
-						<li><a  href="module?pg-name=faq">FAQ</a></li>
-						<li><a  href="module?pg-name=contact">Contact Us</a></li>
+						<li><a  href="">About Us</a></li>
+						<li><a  href="">FAQ</a></li>
+						<li><a  href="">Contact Us</a></li>
 					</ul>
 				</div>
 

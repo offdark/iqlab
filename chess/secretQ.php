@@ -14,18 +14,18 @@ include 'includes/functions.php';
 
         if( isset( $_POST['submit'] ) ){ // START Cheking if Button was Sabmit
 
+            $_POST['user_id'] = $_SESSION['id']->id;
             $user = new User();
 
             if( $_SESSION['fileName'] == 'recPass_email.php' ){
 
              //   echo "good";
-                $_POST['user_id'] = $_SESSION['id']->id;
 
-                if ( $user->resetPassword( $_POST, 'password_reset' ) ){
-
-                   echo "good";
-                    DIE;
-                    header( 'Location: chess/newPass.php' );
+                if ( $user->resetPassword( $_POST, 'password_reset' ) != null ){
+                    
+                    $_SESSION['fileName'] = fileName();
+                    $_SESSION['new_password'] = $user->new_password;
+                    header( 'Location: newPass.php' );
                 }
                 else{
                     echo "questions or answers do not match";
@@ -39,7 +39,7 @@ include 'includes/functions.php';
                 session_unset();
                 header( 'Location: login.php' );
             }
-            else{ header( 'Location: ../index.php' );  }
+            else{ session_unset(); header( 'Location: ../index.php' );  }
         }
         else // END Cheking if Button was Sabmit
 

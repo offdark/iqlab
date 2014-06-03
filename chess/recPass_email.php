@@ -7,7 +7,6 @@
 
     include 'includes/functions.php';
     session_unset();    
-    $fileName = basename( $_SERVER['REQUEST_URI'], '?'. $_SERVER['QUERY_STRING'] );
 
       if( isset( $_POST['submit'] ) && !empty( $_POST['email']) ){ // START Cheking if Button was Sabmit
 
@@ -16,7 +15,7 @@
           if( $user->emailCheck( $_POST ) !=  null ){
             
                 $_SESSION['id'] = $user->id;
-                $_SESSION['fileName'] = $fileName;
+                $_SESSION['fileName'] = fileName();
                 header( 'Location: secretQ.php' );
           }
 }

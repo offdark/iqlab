@@ -8,14 +8,13 @@
 include 'includes/functions.php';
 
 
-
     if( $session->is_logged_in() && $session->role == 'admin'  ){
 
-        header( 'Location: http://localhost/test/chess/admin/index.php' );
+        header( 'Location: admin/index.php' );
     }
     elseif( $session->is_logged_in() && $session->role == 'user' ){
 
-       header( 'Location: http://localhost/test/chess/index.php' );
+       header( 'Location: home.php' );
  
         }
 
@@ -34,7 +33,7 @@ include 'includes/functions.php';
               ){
                 
                     $session->logged_in($user);
-                    header( 'Location: http://localhost/test/chess/admin/index.php' );
+                    header( 'Location: admin/index.php' );
             }
             elseif( $user->login == $login_name &&
                     $user->role  == 'user' &&
@@ -42,11 +41,11 @@ include 'includes/functions.php';
                    ){
                     
                         $session->logged_in($user);
-                        header( 'Location: http://localhost/test/chess/index.php' );
+                        header( 'Location: home.php' );
             }
             else{
 
-                header( 'Location: http://localhost/test/chess/login.php' );
+                header( 'Location: login.php' );
             
             }
 
