@@ -18,7 +18,7 @@
 }
 
 .container-center {
-    background-color: #6686B5;
+    background-color: #5E83B0;
     margin: 0 auto;
     padding: 0 0px;
     position: relative;
@@ -139,7 +139,7 @@
 
 .container-content {
     width: 90%;
-    background: red;
+    background:;
     margin: auto;
     margin-top:10px;
 }
