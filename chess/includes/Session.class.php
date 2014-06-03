@@ -93,7 +93,7 @@
             unset( $this->hashed_password );
             session_unset();
             session_destroy();
-            header( 'Location: http://localhost/test/chess/index.php' );
+            header( 'Location: index.php' );
         }
         
     }
