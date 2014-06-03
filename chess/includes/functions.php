@@ -13,7 +13,7 @@ include 'Session.class.php';
     }  
     spl_autoload_register('my_autoloader');
 
-define( 'URL', "http://localhost/test/chess/" );
+define( 'URL', "http://localhost/iqlab/chess/" );
 
     function secretQ( $id ){
         

@@ -18,8 +18,7 @@
                 <input id="LPIN" class="input" style="width: 310px;" type="text" name="LPIN" value="" />
             </label>
             <input type="submit" name="singIn" class="btn-form" value="Sign In"  />
-            <a href="recPass_email.php" class="link-forgot-password">Forgot Password?</a>
-
+            <a href="<?php echo URL; ?>?mod=recPass" class="link-forgot-password">Forgot Password?</a>
         </fieldset>
     </form>
 

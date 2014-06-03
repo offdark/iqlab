@@ -23,23 +23,18 @@
                    header( 'Location: secretQ.php' );
                    break;
                case 'active':
-                  
-              endswitch;  
- 
-            
+
+              endswitch;
+    $login = true;
+   include 'html/header.inc';
            
     
 
 
-    if( isset($_GET['session']) == 'delete' ){
+    if( isset($_GET['mod']) == 'del' ){
 
         $session->logout();
-    }else
+    }
 
 
-        echo "you sign in like user ";
 
-
-?>
-
-<a href="home.php?session=delete"> logout </a>

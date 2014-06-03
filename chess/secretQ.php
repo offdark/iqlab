@@ -14,15 +14,16 @@ include 'includes/functions.php';
 
         if( isset( $_POST['submit'] ) ){ // START Cheking if Button was Sabmit
 
-            $_POST['user_id'] = $_SESSION['id']->id;
+
             $user = new User();
 
             if( $_SESSION['fileName'] == 'recPass_email.php' ){
 
              //   echo "good";
+             $_POST['user_id'] = $_SESSION['id']->id;
 
                 if ( $user->resetPassword( $_POST, 'password_reset' ) != null ){
-                    
+
                     $_SESSION['fileName'] = fileName();
                     $_SESSION['new_password'] = $user->new_password;
                     header( 'Location: newPass.php' );
@@ -34,17 +35,21 @@ include 'includes/functions.php';
             }
             elseif( $_SESSION['fileName'] == 'add.php' ){
 
+                $_POST['user_id'] = $_SESSION['id'];
                 $user->table_name = 'password_reset';
                 $user->saveQuestions( $_POST );
                 session_unset();
-                header( 'Location: login.php' );
+                header( 'Location: '. URL .'?mod=signIn' );
             }
-            else{ session_unset(); header( 'Location: ../index.php' );  }
+            else{ session_unset(); header( 'Location: '. URL );  }
         }
         else // END Cheking if Button was Sabmit
 
     include 'html/header.inc';
 ?>
+<div class="container-content">
+
+
 
 
 <form action="secretQ.php" method="POST" class="form">
@@ -80,3 +85,5 @@ include 'includes/functions.php';
 
     </fieldset>
 </form>
+
+</div>

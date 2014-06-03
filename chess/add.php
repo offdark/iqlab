@@ -22,7 +22,7 @@
                    
                     $_SESSION['id'] = $user->lastInsertId;
                     $_SESSION['fileName'] = $fileName;
-                    header( 'Location: secretQ.php' );
+                    header( 'Location:'. URL .'secretQ.php' );
                 }
                 else{
                     
@@ -39,13 +39,10 @@ else
 
     include 'html/header.inc';
 ?>
+<div class="container-content">
 
-<!DOCTYPE html>
-<html>
-<head>
+    content
 
-</head>
-<body>
 
 <form action="add.php" method="POST" class="form" >
     <fieldset>
@@ -74,6 +71,8 @@ else
 
     </fieldset>
 </form>
+
+</div>
 
 </body>
 </html>

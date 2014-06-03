@@ -28,7 +28,7 @@
 
 
 .header-top {
-    margin: 0 0 11px;
+    margin: 0 0 5px;
     overflow: hidden;
     padding: 20px 0 15px;
 }
@@ -101,6 +101,7 @@
     padding-top: 20px;
     height: 42px;
     background: #C9D3DC;
+    width: 90%;
 }
 
 
@@ -191,7 +192,6 @@
 
 
 /*SignIn button form END */
-
 
 .mark-red {
     color: #FF3333;

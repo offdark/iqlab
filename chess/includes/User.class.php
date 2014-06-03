@@ -80,6 +80,8 @@
                 $data[$key] = trim( htmlspecialchars( $value, ENT_QUOTES ) );
             }
 
+            print_r($data);
+         //   DIE();
             try{
 
                 MYSQLDb::save( $data, $this->table_name );
@@ -139,8 +141,8 @@
             $sql = implode(' AND ',$fields);
             
          //   echo $sql;
-          //  print_r($data);
-          //  DIE();
+        //    print_r($data);
+       //    DIE();
             
             try{
 

@@ -8,16 +8,6 @@
 include 'includes/functions.php';
 
 
-    if( $session->is_logged_in() && $session->role == 'admin'  ){
-
-        header( 'Location: admin/index.php' );
-    }
-    elseif( $session->is_logged_in() && $session->role == 'user' ){
-
-       header( 'Location: home.php' );
- 
-        }
-
     if( isset( $_POST['singIn'] ) && !empty( $_POST['loginName']) && !empty( $_POST['password']) ){ // START Cheking if Button was Sabmit
 
         $login_name      = trim( htmlspecialchars( $_POST['loginName'], ENT_QUOTES ) )            ?: null;
@@ -54,6 +44,8 @@ include 'includes/functions.php';
     include 'html/header.inc';
     
 ?>
+<div class="container-content">
+
 
 
 <form action="login.php" method="POST" class="form" >
@@ -77,6 +69,4 @@ include 'includes/functions.php';
     </fieldset>
 </form>
 
-</body>
-</html>
-
+</div>

@@ -13,7 +13,7 @@
         $new_password = $_SESSION['new_password'];
         session_unset();
     }
-    else{   session_unset();  header( 'Location: login.php' );  }
+    else{   session_unset();  header( 'Location: '. URL .'?mod=signIn' );  }
  ?>
  
    <div class="container-content">

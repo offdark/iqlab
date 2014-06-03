@@ -16,13 +16,16 @@
             
                 $_SESSION['id'] = $user->id;
                 $_SESSION['fileName'] = fileName();
-                header( 'Location: secretQ.php' );
+                header( 'Location: '. URL .' secretQ.php' );
           }
 }
 else
- 
+
     include 'html/header.inc';
 ?>
+
+<div class="container-content">
+
 
 <form action="recPass_email.php" method="POST" class="form" >
     <fieldset>
@@ -32,3 +35,5 @@ else
 
     </fieldset>
 </form>
+
+</div>
