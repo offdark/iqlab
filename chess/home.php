@@ -5,25 +5,27 @@
  * @copyright 2014
  */
 
-    include '../includes/functions.php';
+    include 'includes/functions.php';
+
 
 
 
     if( !$session->is_logged_in() || $session->role != 'user'  ){
 
-        header( 'Location: http://localhost/test/chess/index.php' );
-    }else 
-             switch ( $session->status ):
-            case 'blocked':   
-                break;
-            case 'deleted':            
-                break;
-            case 'inactive':
-                 header( 'Location: http://localhost/test/chess/secretQ.php' );
-                 break;
-             case 'active':
-                
-            endswitch;  
+          header( 'Location: index.php' );
+      }else 
+               switch ( $session->status ):
+              case 'blocked':   
+                  break;
+              case 'deleted':            
+                  break;
+              case 'inactive':
+                   header( 'Location: secretQ.php' );
+                   break;
+               case 'active':
+                  
+              endswitch;  
+ 
             
            
     
@@ -35,9 +37,9 @@
     }else
 
 
-        echo "you sign in like admin ";
+        echo "you sign in like user ";
 
 
 ?>
 
-<a href="index.php?session=delete"> logout </a>
+<a href="home.php?session=delete"> logout </a>
