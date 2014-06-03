@@ -45,6 +45,10 @@
                 }            
                 $sql .= implode(', ',$fields); // comma_separated
 
+        //    echo $sql;
+         //   print_r($data);
+          //  DIE();
+
             try{                     
                     self::getDBH()->beginTransaction();
                     $STH = self::getDBH()->prepare( $sql );
@@ -57,14 +61,14 @@
             catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
         }
         
-        public static function update( $object, $table_name, $where_str ){
+        public static function update( $object, $table_name, $where_mixed ){
 
             $sql = "UPDATE " .$table_name. " SET ";  // generating sql string
+            $data = array(); // creating data to placeholder
 
             if( !empty($object) && is_array($object) ){
 
                 $fields = array(); // key -> value in sql string
-                $data = array(); // creating data to placeholder
 
                 foreach( $object as $key => $value ){
 
@@ -73,18 +77,29 @@
                 }
                 $sql .= implode(', ',$fields); // comma_separated
             }
-            else{  $sql .= " WHERE ". $value_mixed;  }
+            else{  $sql .= $object;  }
 
+            
+            if( !empty($where_mixed) && is_array($where_mixed) ){
 
-            if( !empty($where_str) ){
+                $fields = array(); // key -> value in sql string
 
-                $sql .= $object;
+                foreach( $where_mixed as $key => $value ){
+    
+                    $fields[] = $key." = ?";
+                    $data[]   = $value;
+                }
+                $sql .= " WHERE ". implode(', ',$fields); // comma_separated;           
             }
+            else{  $sql .= " WHERE ". $where_mixed;  }
 
+      //      print_r($data);
+       //     echo $sql;
+        //    DIE();
             try{
                     self::getDBH()->beginTransaction();
                     $STH = self::getDBH()->prepare( $sql );
-                    $STH->execute( $data );
+                    ( !empty($data) ) ? $STH->execute( $data ) : $STH->execute();   
                     $lastInsertId = self::getDBH()->lastInsertId();
                     self::getDBH()->commit();
 
@@ -105,7 +120,7 @@
 
         public static function select( $mixed, $table_name, $value_mixed = '' ){
             
-            $data = array();
+            $data = array(); // creating data to placeholder
             $sql  = "SELECT ";  // generating sql string  
             $sql .= is_array( $mixed )? implode(', ',$mixed) : $mixed;              
             $sql .= " FROM " .$table_name;
@@ -113,7 +128,6 @@
             if( !empty($value_mixed) && is_array($value_mixed) ){
 
                 $fields = array(); // key -> value in sql string
-                $data = array(); // creating data to placeholder
 
                 foreach( $value_mixed as $key => $value ){
     
@@ -124,9 +138,9 @@
             }
             else{  $sql .= " WHERE ". $value_mixed;  }
 
-             //   echo $sql;
-             //   print_r($data);
-             //   DIE();
+            //    echo $sql;
+            //    print_r($data);
+            //    DIE();
             try{
                 
                 $STH = self::getDBH()->prepare( $sql );
