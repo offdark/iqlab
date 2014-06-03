@@ -37,3 +37,10 @@ define( 'URL', "http://localhost/test/chess/" );
                                   
         if( $id == 1 ){  return $secretQuastions1;   }elseif( $id == 2 ){    return $secretQuastions2;   }
     }
+    
+    function fileName(){
+        
+        return basename( $_SERVER['REQUEST_URI'], '?'. $_SERVER['QUERY_STRING'] );
+    }
+    
+    
