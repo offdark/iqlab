@@ -109,9 +109,8 @@
     display: table;
     list-style: none outside none;
     margin: auto;
-
     text-align: center;
-    width: 90%;
+   /*width: 90%;*/
 }
 
 #nav li {
@@ -209,11 +208,135 @@
 
 /* LogIn form START */
 
+/* welcome block START */
+.blocks-hold .white-block {
+    min-height: 201px;
+}
+.white-block {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px;
+    padding: 5px 0 20px;
+    position: relative;
+}
 
-.container-footer {
+.blocks-hold .content-heading {
+    margin: 0 0 18px;
+}
+.content-heading {
+    border-bottom: 1px solid #E5E5E5;
+    margin: 0 0 27px;
+    overflow: hidden;
+    padding: 8px 25px 12px;
+}
+
+.content-heading h2, .content-heading h1 {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 36px;
+    margin: 0 20px 0 0;
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+}
+h1 {
+    color: #000000;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 46px;
+    margin: 0 0 14px;
+}
+
+.link-signIn {
+    border: 2px solid #00BEC5;
+    border-radius: 25px;
+    color: #00BEC5;
+    padding: 5px 14px;
+     display: table;
+    margin: 0 auto;
+    text-align: center;
+
+}
+a {
+    color: #00BEC5;
+    outline: medium none;
+    text-decoration: none;
+    transition: all 300ms ease 0s;
+}
+
+.link-signIn:hover {
+    background: none repeat scroll 0 0 #00BEC5;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+/* welcome block START */
+
+#footer {
+    overflow: hidden;
+    margin-top:20px;
+}
+header, nav, section, article, aside, footer, figure, menu, dialog {
+    display: block;
+}
+
+.footer-top {
+    background-color: #6E94C5;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
     width: 90%;
-    height: 100px;
-    background: aquamarine;
+}
 
-    margin: 10px auto;
+.footer-nav {
+    float: right;
+    font-size: 12px;
+    padding: 9px 0 0;
+    width: 607px;
+}
+
+.footer-nav ul {
+    float: left;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    width: 181px;
+}
+
+.footer-nav li:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.footer-nav li {
+    color: #3B4755;
+    padding: 0 0 6px;
+}
+
+a {
+    color: black;
+    outline: medium none;
+    text-decoration: none;
+    transition: all 300ms ease 0s;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #1FECFF;
+}
+
+.footer-bottom {
+    background: none repeat scroll 0 0 #1C272D;
+    color: #717F87;
+    font-size: 12px;
+    line-height: 18px;
+    overflow: hidden;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+    padding-top:15px;
+    
 }
