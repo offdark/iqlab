@@ -18,61 +18,15 @@
                 unset($_POST['password']);
                 $user = new User();
 
-                if( $user->add( $_POST ) ){
-                   
-                    $_SESSION['id'] = $user->lastInsertId;
-                    $_SESSION['fileName'] = $fileName;
-                    header( 'Location:'. URL .'secretQ.php' );
-                }
-                else{
-                    
-                    echo "ups... such email or login alread taken ";
-                }
-             
-           }
-           else{
-                include 'html/header.inc';
-               echo "password not same";
-           }
-}
-else
+                    if( $user->add( $_POST ) ){
 
-    include 'html/header.inc';
-?>
-<div class="container-content">
+                        $_SESSION['id'] = $user->lastInsertId;
+                        $_SESSION['fileName'] = $fileName;
+                        header( 'Location:'. URL .'secretQ.php' );
+                    }
+                    else{   $_SESSION['error'] = true; header( 'Location: '. URL .'?mod=signUp' );  }
+      }
+      else{  $_SESSION['pas_error'] = true; header( 'Location: '. URL .'?mod=signUp' );    }
+    }
+    else{   header( 'Location: '. URL .'?mod=signUp' );  }
 
-    content
-
-
-<form action="add.php" method="POST" class="form" >
-    <fieldset>
-
-        <label>Login <span class="mark-red">*</span>
-        <input id="Username" class="input" type="text" name="login" required /><br />
-        </label>
-
-        <label>E-mail <span class="mark-red">*</span>
-        <input id="Password" class="input" type="email" name="email" required /><br />
-        </label>
-
-        <label>Name <span class="mark-red">*</span>
-        <input id="Username" class="input" type="text" name="realName" required /><br />
-        </label>
-
-        <label>Password <span class="mark-red">*</span>
-        <input id="Password" class="input" type="password" name="password" required /><br />
-        </label>
-
-        <label>Repeat Password <span class="mark-red">*</span>
-        <input id="Password" class="input" type="password" name="re_password" required /><br />
-        </label>
-
-        <input type="submit" name="singUp" class="btn-form" value="Sign Up" />
-
-    </fieldset>
-</form>
-
-</div>
-
-</body>
-</html>
