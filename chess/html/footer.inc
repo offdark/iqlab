@@ -1,15 +1,15 @@
-<footer id="footer">
+п»ї<footer id="footer">
 		<div class="footer-top">
 				<div class="footer-nav">
 					 <ul>
-                        <li><a  class="active" href="index.php">Головна</a></li>
-                        <li><a  href="">Мої результати</a></li>
-                        <li><a  href="">Мої активні партії</a></li>
+                        <li><a  class="active" href="index.php">Р“РѕР»РѕРІРЅР°</a></li>
+                        <li><a  href="">РњРѕС— СЂРµР·СѓР»СЊС‚Р°С‚Рё</a></li>
+                        <li><a  href="">РњРѕС— Р°РєС‚РёРІРЅС– РїР°СЂС‚С–С—</a></li>
 
                     </ul>
 					<ul>
-                        <li><a  href="">Гра</a></li>
-                        <li><a  href="">Всі результати</a></li>
+                        <li><a  href="">Р“СЂР°</a></li>
+                        <li><a  href="">Р’СЃС– СЂРµР·СѓР»СЊС‚Р°С‚Рё</a></li>
 					</ul>
 					<ul>
 						<li>
