@@ -80,13 +80,12 @@
                 $data[$key] = trim( htmlspecialchars( $value, ENT_QUOTES ) );
             }
 
-            print_r($data);
+        //    print_r($data);
          //   DIE();
             try{
 
                 MYSQLDb::save( $data, $this->table_name );
-                    $this->updateStatus( $data['user_id'] );
-  
+                if( $this->updateStatus( $data['user_id'] ) != null ){ return true;  }else{ return false; }
             }
             catch ( PDOException $e ) {  echo '<br> cant save secretQuestions to  _DB: '. $e->getMessage(); DIE(); }
         }
@@ -99,7 +98,7 @@
 
             try{
 
-                MYSQLDb::save( $set, 'user', $sql );
+               return MYSQLDb::save( $set, 'user', $sql );
             }
             catch ( PDOException $e ) {  echo '<br> cant updateStatus  _DB: '. $e->getMessage(); DIE(); }
         }
