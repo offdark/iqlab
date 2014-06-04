@@ -31,7 +31,7 @@
                      echo " <span>Sign In</span>";
                  }
                  else{
-                     echo '<a class="sign-in" href="/?mod=del">';
+                     echo '<a class="sign-in" href="'. URL .'?mod=logOut">';
                      echo " <span>Log out</span>";
                  }  ?>
                     </a>

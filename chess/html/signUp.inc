@@ -1,8 +1,5 @@
 <div class="container-content">
 
-    content
-
-
     <form action="add.php" method="POST" class="form" >
         <fieldset>
 

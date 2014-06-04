@@ -4,7 +4,8 @@
 
     <form action="login.php" method="POST" class="form" >
         <fieldset>
-
+            <?php if( isset($_SESSION['error'])){  echo '<span class="mark-red"> Username &/or Password wrong </span>'; unset($_SESSION['error']);  } ?>
+       <br />
             <label>Username <span class="mark-red">*</span>
                 <input id="Username" class="input" type="text" name="loginName" required />
             </label>
