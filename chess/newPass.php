@@ -13,28 +13,7 @@
         $new_password = $_SESSION['new_password'];
         session_unset();
     }
-    else{   session_unset();  header( 'Location: '. URL .'?mod=signIn' );  }
- ?>
- 
-   <div class="container-content">
-
-            <?php echo "your new password is: ". $new_password;
-                    echo "<br> now you can log in using your new password =) "; ?>
-       </div>
-
-        <div class="container-footer">
-
-            footer
-
-        </div>
-
-    </div>
-
-
-
-
-
-</body>
-</html>
-
- 
+    else{   session_unset();  header( 'Location: '. URL .'?mod=signIn' );  } 
+    
+ include 'html/newPassword.inc';
+ include 'html/footer.inc';

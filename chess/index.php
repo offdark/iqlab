@@ -9,15 +9,17 @@ include 'includes/functions.php';
 $login = false;
 include'html/header.inc';
 
-if( $session->is_logged_in() && $session->role == 'admin'  ){
+/**
+ * if( $session->is_logged_in() && $session->role == 'admin'  ){
 
-    header( 'Location: admin/index.php' );
-}
-elseif( $session->is_logged_in() && $session->role == 'user' ){
+ *     header( 'Location: admin/index.php' );
+ * }
+ * elseif( $session->is_logged_in() && $session->role == 'user' ){
 
-    header( 'Location: home.php' );
+ *     header( 'Location: home.php' );
 
-}
+ * }
+ */
 
     if( isset( $_GET['mod'] ) && $_GET['mod'] == 'signUp' ){
         include 'html/signUp.inc';
@@ -28,28 +30,12 @@ elseif( $session->is_logged_in() && $session->role == 'user' ){
     }
 
     if( isset( $_GET['mod'] ) && $_GET['mod'] == 'recPass' ){
-        header( 'Location:'. URL .'recPass_email.php' );
+        include 'html/emailValidation.inc';
+    }
+    
+    if( isset( $_GET['mod'] ) && $_GET['mod'] == 'logOut' ){
+       $session->logout();
     }
 
-?>
+include'html/footer.inc';
 
-
-        <div class="container-content">
-
-            content
-       </div>
-
-        <div class="container-footer">
-
-            footer
-
-        </div>
-
-    </div>
-
-
-
-
-
-</body>
-</html>

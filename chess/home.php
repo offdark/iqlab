@@ -7,12 +7,9 @@
 
     include 'includes/functions.php';
 
-
-
-
     if( !$session->is_logged_in() || $session->role != 'user'  ){
 
-          header( 'Location: index.php' );
+          header( 'Location: '. URL );
       }else 
                switch ( $session->status ):
               case 'blocked':   
@@ -20,21 +17,16 @@
               case 'deleted':            
                   break;
               case 'inactive':
-                   header( 'Location: secretQ.php' );
+                   $_SESSION['fileName'] = fileName();
+                   header( 'Location: '. URL .'secretQ.php' );
                    break;
                case 'active':
 
               endswitch;
     $login = true;
    include 'html/header.inc';
+   include 'html/footer.inc';
            
-    
-
-
-    if( isset($_GET['mod']) == 'del' ){
-
-        $session->logout();
-    }
-
+   
 
 

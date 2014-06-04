@@ -16,24 +16,8 @@
             
                 $_SESSION['id'] = $user->id;
                 $_SESSION['fileName'] = fileName();
-                header( 'Location: '. URL .' secretQ.php' );
+                header( 'Location: '. URL .'secretQ.php' );
           }
-}
-else
-
-    include 'html/header.inc';
-?>
-
-<div class="container-content">
-
-
-<form action="recPass_email.php" method="POST" class="form" >
-    <fieldset>
-        
-        <label>Enter your Email <span class="mark-red">* </span><input type="email" name="email" class="input"  required /></label>
-        <input type="submit" name="submit" class="btn-form" value="Submit" />
-
-    </fieldset>
-</form>
-
-</div>
+          else{ $_SESSION['error'] = true; header( 'Location: '. URL .'?mod=recPass' ); }
+    }
+    else{   header( 'Location: '. URL .'?mod=recPass' );  }
