@@ -2,14 +2,14 @@
 
 <form action="secretQ.php" method="POST" class="form">
       <fieldset>
-       <?php if( isset($_SESSION['error'])){  echo '<span class="mark-red"> Your question or answer didnt match!!! Please try again </span>'; unset($_SESSION['error']);  } ?>
+       <?php if( isset($_SESSION['error'])): ?> <span class="mark-red"> Your question or answer didnt match!!! Please try again </span><?php unset($_SESSION['error']); endif; ?>
        <br /><br />
         <label>Security question 1: 
         <select name="secretQ1" size="1">
         <?php $secretQuestions1 = secretQ( $id = 1 );
-                foreach( $secretQuestions1 as $value ){       
-                    echo '<option value="' .htmlspecialchars($value). '" >' .$value. '</option>';   
-                } ?>
+                foreach( $secretQuestions1 as $value ): ?>       
+                    <option value="<?php echo htmlspecialchars($value); ?>" > <?php echo $value; ?></option>   
+                <?php endforeach; ?>
         </select>
         </label>
         
@@ -19,10 +19,10 @@
          
         <label>Security question 2:  
         <select name="secretQ2" size="1">
-        <?php  $secretQuestions2 = secretQ( $id = 2 );
-                foreach( $secretQuestions2 as $value ){       
-                    echo '<option value="' .htmlspecialchars($value). '" >' .$value. '</option>';   
-                } ?>
+               <?php $secretQuestions2 = secretQ( $id = 2 );
+                foreach( $secretQuestions2 as $value ): ?>       
+                    <option value="<?php echo htmlspecialchars($value); ?>" > <?php echo $value; ?></option>   
+                <?php endforeach; ?>
         </select>
         </label>
         

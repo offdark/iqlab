@@ -1,26 +1,23 @@
 ﻿<ul class="user-link">
 
 <li>
-    <?php  if( !$login ){
-        echo '<a class="sign-up" href="'. URL .'?mod=signUp">';
-        echo "<span>Sign Up</span>";
-    }
-    else{
-        echo '<a class="sign-up" href="">';
-        echo "<span>Account</span>";
-    }  ?>
+    <?php  if( !$login ): ?>
+        <a class="sign-up" href="<?php echo URL; ?>?mod=signUp">
+        <span>Sign Up</span>   
+    <?php else: ?>
+        <a class="sign-up" href="">
+        <span>Account</span>
+    <?php endif; ?>
     </a>
 </li>
 <li>
-
-    <?php  if( !$login ){
-        echo '<a class="sign-in" href="'. URL .'?mod=signIn">';
-        echo " <span>Sign In</span>";
-    }
-    else{
-        echo '<a class="sign-in" href="'. URL .'?mod=logOut">';
-        echo " <span>Log out</span>";
-    }  ?>
+      <?php  if( !$login ): ?>
+        <a class="sign-in" href="<?php echo URL; ?>?mod=signIn">
+        <span>Sign In</span> 
+     <?php else: ?>
+        <a class="sign-in" href="<?php echo URL; ?>?mod=logOut">
+        <span>Log out</span>
+    <?php endif; ?>
     </a>
 </li>
 
