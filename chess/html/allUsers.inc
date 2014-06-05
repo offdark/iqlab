@@ -8,16 +8,16 @@
 
                 <tr bgcolor="#C9D3DC">
 
-                    <?php foreach( $admin->allUsers() as $key => $values  ): ?>
+                    <?php   foreach( $list[0]  as $key => $values  ): ?>
                         <th><?php echo $key; ?> </th>
 
+                    <?php   endforeach;    ?>
 
-
-
+                    <th colspan="2">Edit</th>
                 </tr>
                 <form method="POST" action="">
                     <tr>
-                    <?php foreach( $values as $value  ): ?>
+                    <?php foreach( $list[0] as $value  ): ?>
 
                             <td align="center"><?php echo $value; ?> </td>
 
@@ -29,7 +29,7 @@
                         <td align="center">
                             <a href="admin.php?id=<?php ?>" onclick="return deleletconfig()"> Delete </a>
                         </td>
-                        <?php   endforeach;    ?>
+
 
                     </tr>
                 </form>

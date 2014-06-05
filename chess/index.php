@@ -28,6 +28,7 @@ include'html/header.inc';
     endswitch;
 
       $admin = new Admin();
+      $list = $admin->allUsers();
       include'html/allUsers.inc';
   }
 
