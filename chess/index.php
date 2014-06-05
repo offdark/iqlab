@@ -26,8 +26,9 @@ include'html/header.inc';
             break;
         case 'active':
     endswitch;
-                
-    include'html/indexLoginContent.inc';
+
+      $admin = new Admin();
+      include'html/allUsers.inc';
   }
 
   

@@ -25,16 +25,13 @@
 
 
         public function login( $login, $hashed_password ){
-            
-            //Getting all information from DB if user exists 
-            try{            
-                 $STH = MYSQLDb::getDBH()->prepare( "SELECT * FROM user WHERE login = ?  AND hashed_password = ?" );
 
-                 $data = array( $login, $hashed_password ); //creating query to placeholder
-                 $STH->execute( $data );  
-                 $STH->setFetchMode( PDO::FETCH_OBJ ); // FetchMODE Object
+            $sql = "login = '". $login ."'  AND hashed_password = '". $hashed_password ."'"; //creating query to placeholder
+            //Getting all information from DB if user exists
+            try{
+                 $STH = MYSQLDb::select( '*', $this->table_name, $sql);
+                 $STH->setFetchMode( PDO::FETCH_OBJ ); // FetchMODE Array
 
-                     // writing result to User class
                      foreach( $STH->fetch() as $key => $value){
                         
                         $this->$key = $value;

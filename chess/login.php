@@ -12,7 +12,6 @@ include 'includes/functions.php';
 
         $login_name      = trim( htmlspecialchars( $_POST['loginName'], ENT_QUOTES ) )            ?: null;
         $hashed_password = sha1(sha1(trim( htmlspecialchars( $_POST['password'], ENT_QUOTES ) ))) ?: null;
-
         $user = new User();
         $user->login( $login_name, $hashed_password );
 
