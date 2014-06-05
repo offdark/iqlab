@@ -125,7 +125,7 @@
             $sql .= is_array( $mixed )? implode(', ',$mixed) : $mixed;              
             $sql .= " FROM " .$table_name;
 
-            if( !empty($value_mixed) && is_array($value_mixed) ){
+             if( is_array($value_mixed) ){
 
                 $fields = array(); // key -> value in sql string
 
@@ -136,11 +136,11 @@
                 }
                 $sql .= " WHERE ". implode(', ',$fields); // comma_separated;           
             }
-            else{  $sql .= " WHERE ". $value_mixed;  }
+            !empty($value_mixed) ? $sql .= " WHERE ". $value_mixed : $sql .= '' ;
 
             //    echo $sql;
-            //    print_r($data);
-            //    DIE();
+           //     print_r($data);
+         //       DIE();
             try{
                 
                 $STH = self::getDBH()->prepare( $sql );
