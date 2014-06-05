@@ -6,36 +6,53 @@
  */
 
 include 'includes/functions.php';
-$login = false;
 include'html/header.inc';
 
-/**
- * if( $session->is_logged_in() && $session->role == 'admin'  ){
 
- *     header( 'Location: admin/index.php' );
- * }
- * elseif( $session->is_logged_in() && $session->role == 'user' ){
+  if( $session->is_logged_in() && $session->role == 'admin'  ){
 
- *     header( 'Location: home.php' );
+      header( 'Location: admin/index.php' );
+  }
+  elseif( $session->is_logged_in() && $session->role == 'user' ){
 
- * }
- */
+    switch ( $session->status ):
+        case 'blocked':   
+            break;
+        case 'deleted':            
+            break;
+        case 'inactive':
+            $_SESSION['fileName'] = fileName();
+            header( 'Location: '. URL .'secretQ.php' );
+            break;
+        case 'active':
+    endswitch;
+                
+    include'html/indexLoginContent.inc';
+  }
 
-    if( isset( $_GET['mod'] ) && $_GET['mod'] == 'signUp' ){
-        include 'html/signUp.inc';
-    }
-
-    if( isset( $_GET['mod'] ) && $_GET['mod'] == 'signIn' ){
-        include 'html/signIn.inc';
-    }
-
-    if( isset( $_GET['mod'] ) && $_GET['mod'] == 'recPass' ){
-        include 'html/emailValidation.inc';
-    }
+  
+  if( isset( $_GET['mod'] ) ){
+    switch($_GET['mod']):
     
-    if( isset( $_GET['mod'] ) && $_GET['mod'] == 'logOut' ){
-       $session->logout();
+        case 'signUp':
+            include 'html/signUp.inc';
+            break;
+            
+        case 'signIn':
+            include 'html/signIn.inc';
+            break;
+            
+        case 'recPass':
+            include 'html/emailValidation.inc';
+            break;
+            
+        case 'logOut':
+            $session->logout();
+            break;
+         
+    endswitch;
     }
+    else{  include'html/indexContent.inc';  }
+
 
 include'html/footer.inc';
-
