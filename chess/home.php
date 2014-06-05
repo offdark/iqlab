@@ -23,7 +23,7 @@
                case 'active':
 
               endswitch;
-    $login = true;
+   
    include 'html/header.inc';
    include 'html/footer.inc';
            

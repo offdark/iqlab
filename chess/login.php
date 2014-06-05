@@ -31,7 +31,7 @@ include 'includes/functions.php';
                    ){
                     
                         $session->logged_in($user);
-                        header( 'Location: home.php' );
+                        header( 'Location: index.php' );
             }
             else{
                 $_SESSION['error'] = true;

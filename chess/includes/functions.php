@@ -5,7 +5,7 @@
  * Date: 5/21/14
  * Time: 5:04 PM
  */
-
+define( 'URL', "http://localhost/iqlab/chess/" );
 include 'Session.class.php';
 
     function my_autoloader( $class_name ) {
@@ -13,7 +13,7 @@ include 'Session.class.php';
     }  
     spl_autoload_register('my_autoloader');
 
-define( 'URL', "http://localhost/iqlab/chess/" );
+
 
     function secretQ( $id ){
         
