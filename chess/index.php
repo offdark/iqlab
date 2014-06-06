@@ -11,7 +11,26 @@ include'html/header.inc';
 
   if( $session->is_logged_in() && $session->role == 'admin'  ){
 
-      header( 'Location: admin/index.php' );
+      $admin = new Admin();
+
+      if( isset($_GET['id']) && $_GET['action'] == 'edit' ){
+
+          $user = $admin->getUserById($_GET['id']);
+          include'html/editUser.inc';
+
+      }elseif( isset($_GET['id']) &&  $_GET['action'] == 'save' ){
+
+      }
+      elseif( isset($_GET['id']) &&  $_GET['action'] == 'del') {
+          echo 'delete';
+      }
+      elseif( isset($_GET['mod']) && $_GET['mod'] == 'logOut' ){
+            $session->logout();
+      }
+      else{
+          $list = $admin->allUsers();
+          include'html/allUsers.inc';
+      }
   }
   elseif( $session->is_logged_in() && $session->role == 'user' ){
 
@@ -27,12 +46,12 @@ include'html/header.inc';
         case 'active':
     endswitch;
 
-      $admin = new Admin();
-      $list = $admin->allUsers();
-      include'html/allUsers.inc';
   }
 
-  
+
+
+
+
   if( isset( $_GET['mod'] ) ){
     switch($_GET['mod']):
     

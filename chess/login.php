@@ -22,7 +22,7 @@ include 'includes/functions.php';
               ){
                 
                     $session->logged_in($user);
-                    header( 'Location: admin/index.php' );
+                    header( 'Location: index.php' );
             }
             elseif( $user->login == $login_name &&
                     $user->role  == 'user' &&

@@ -80,7 +80,7 @@
             else{  $sql .= $object;  }
 
             
-            if( !empty($where_mixed) && is_array($where_mixed) ){
+            if( is_array($where_mixed) ){
 
                 $fields = array(); // key -> value in sql string
 
@@ -91,7 +91,8 @@
                 }
                 $sql .= " WHERE ". implode(', ',$fields); // comma_separated;           
             }
-            else{  $sql .= " WHERE ". $where_mixed;  }
+            else{   !empty($where_mixed) ? $sql .= " WHERE ". $where_mixed : $sql .= '' ; }
+
 
       //      print_r($data);
        //     echo $sql;
@@ -136,10 +137,11 @@
                 }
                 $sql .= " WHERE ". implode(', ',$fields); // comma_separated;           
             }
-            !empty($value_mixed) ? $sql .= " WHERE ". $value_mixed : $sql .= '' ;
+            else { !empty($value_mixed) ? $sql .= " WHERE ". $value_mixed : $sql .= '' ; }
 
-            //    echo $sql;
-           //     print_r($data);
+
+           //     echo $sql;
+        //        print_r($data);
          //       DIE();
             try{
                 
