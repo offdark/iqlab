@@ -3,8 +3,8 @@
         <div class="content-heading">
 
             <h1> List off all users </h1>
-
-            <table border="0" > <!-- START of TABLE -->
+         
+            <table border="0" width="100%" > <!-- START of TABLE -->
 
                 <tr bgcolor="#C9D3DC">
 
@@ -15,7 +15,6 @@
 
                     <th colspan="2">Edit</th>
                 </tr>
-                <form method="POST" action="">
                     <?php   foreach( $list  as $key => $values  ): ?>
                     <tr>
 
@@ -24,6 +23,7 @@
                             <td align="center"><?php echo $value; ?> </td>
 
                     <?php   endforeach;    ?>
+
                          <td align="center">
                         <a href="admin.php?reset_id=<?php  ?>" onclick="return counter_reset()"> Edit </a>
                     </td>
@@ -38,6 +38,15 @@
 
         </tr>
                 </form>
+                        <td align="center">
+                            <a href="index.php?id=<?php echo $values['id']; ?>&action=edit" >Edit</a>
+                        </td>
+                        <td align="center">
+                            <a href="index.php?id=<?php echo $values['id']; ?>&action=del" >Delete</a>
+                        </td>
+
+
+                    </tr>
             </table> <!-- START of TABLE-->
         </div>
     </div>
