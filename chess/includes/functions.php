@@ -32,7 +32,7 @@ include 'Session.class.php';
                                     'What is the first name of the boy or girl that you first kissed?',
                                     'What was the last name of your third grade teacher?',
                                     'In what city does your nearest sibling live?',
-                                    'What is your oldest brother�s birthday month and year? (e.g., January 1900)' 
+                                    'What car do you have ?' 
                                   );
                                   
         if( $id == 1 ){  return $secretQuastions1;   }elseif( $id == 2 ){    return $secretQuastions2;   }

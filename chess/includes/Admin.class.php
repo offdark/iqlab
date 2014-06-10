@@ -10,14 +10,15 @@ class Admin extends User {
     
     public $data = array();
 
+    
     public function allUsers(){
-
+              
         try{
             $STH = MYSQLDb::select( '*', $this->table_name );
             $STH->setFetchMode( PDO::FETCH_ASSOC ); // FetchMODE Array
             
             foreach( $STH->fetchAll() as $key => $value){
-
+                
                 $this->data[$key] = $value;
             }
         }
@@ -27,9 +28,12 @@ class Admin extends User {
     }
 
     public function getUserById( $id_int ){
+        
         $sql = array( 'id' => $id_int );
+        $select = array( 'id', 'email', 'login', 'status', 'realName', 'points', 'created', 'edited', 'role' );
+        
         try{
-            $STH = MYSQLDb::select( '*', $this->table_name, $sql );
+            $STH = MYSQLDb::select( $select, $this->table_name, $sql );
             $STH->setFetchMode( PDO::FETCH_ASSOC ); // FetchMODE Array
 
             foreach( $STH->fetch() as $key => $value){
