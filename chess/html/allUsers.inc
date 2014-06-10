@@ -3,41 +3,28 @@
         <div class="content-heading">
 
             <h1> List off all users </h1>
-         
+
             <table border="0" width="100%" > <!-- START of TABLE -->
 
                 <tr bgcolor="#C9D3DC">
 
-                    <?php   foreach( $list[0]  as $key => $values  ): ?>
+                    <?php foreach( $list[0] as $key => $values ): ?>
                         <th><?php echo $key; ?> </th>
 
-                    <?php   endforeach;    ?>
+                    <?php endforeach; ?>
 
                     <th colspan="2">Edit</th>
                 </tr>
-                    <?php   foreach( $list  as $key => $values  ): ?>
+                    <?php foreach( $list as $key => $values ): ?>
                     <tr>
 
-                    <?php foreach( $values as $value  ): ?>
+                    <?php foreach( $values as $value ): ?>
 
                             <td align="center"><?php echo $value; ?> </td>
 
-                    <?php   endforeach;    ?>
 
-                         <td align="center">
-                        <a href="admin.php?reset_id=<?php  ?>" onclick="return counter_reset()"> Edit </a>
-                    </td>
-                    <td align="center">
-                        <a href="admin.php?id=<?php ?>" onclick="return deleletconfig()"> Delete </a>
-                    </td>
-                        
-                   <?php   endforeach;    ?>
+                    <?php endforeach; ?>
 
-                    </tr>
-                   
-
-        </tr>
-                </form>
                         <td align="center">
                             <a href="index.php?id=<?php echo $values['id']; ?>&action=edit" >Edit</a>
                         </td>
@@ -45,6 +32,7 @@
                             <a href="index.php?id=<?php echo $values['id']; ?>&action=del" >Delete</a>
                         </td>
 
+                   <?php endforeach; ?>
 
                     </tr>
             </table> <!-- START of TABLE-->

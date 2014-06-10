@@ -25,5 +25,6 @@
 				<div class="copy">&copy; 2014 Offdark. All Rights Reserved =)</div>
 		</div>
 	</footer>
+ </div>
 </body>
 </html>

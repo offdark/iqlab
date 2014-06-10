@@ -18,7 +18,7 @@
                         <a class="sign-up" href="<?php echo URL; ?>?mod=signUp">
                         <span>Sign Up</span>   
                     <?php else: ?>
-                        <a class="sign-up" href="">
+                        <a class="sign-up" href="<?php echo URL; ?>">
                         <span>Account</span>
                     <?php endif; ?>
                     </a>
