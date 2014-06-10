@@ -280,8 +280,223 @@ a {
     text-decoration: none;
 }
 
+/* left Users all START*/
 
-/* welcome block START */
+#sidebar {
+    float: left;
+    width: 200px;
+}
+
+.side-list {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.side-list {
+    list-style: none outside none;
+}
+
+
+.side-list li:first-child a {
+    border-radius: 5px 5px 0 0;
+}
+.side-list li a {
+    display: table-cell;
+    height: 51px;
+    padding: 5px 25px 4px 16px;
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 300px;
+}
+
+
+.side-list li .text {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+}
+
+
+.side-list li.active a, .side-list li a:hover {
+    background: no-repeat scroll 223px 50% #00BEC5;
+    color: #FFFFFF;
+}
+.side-list li a:hover {
+    text-decoration: none;
+}
+
+.admin-blocks {
+    background-color: #EBF1F3;
+    padding: 10px 10px 10px 10px;
+    float: right;
+    width: 98%;
+}
+
+.editUser-block {
+    background: white;
+    width: 77%;
+    float: right;
+    padding-bottom: 10px;
+}
+
+
+
+.users-block {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px;
+    padding: 5px 5px 20px;
+    float: left;
+    margin-left:50px;
+}
+
+.games-block {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px;
+    padding: 5px 0 20px;
+    position: relative;
+     float: right;
+
+}
+
+.pass-block {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px;
+    padding: 5px 0 20px;
+    position: relative;
+     float: right;
+     margin-top:10px;
+}
+
+.secret-block {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px;
+    padding: 5px 0 20px;
+    position: relative;
+     float: left;
+     margin-top:10px;
+     margin-left:26px;
+     width: 475px;
+     
+}
+
+.list {
+    
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding-left: 0;
+    width: 395px;
+}
+
+
+.creatUser-block {
+     background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px;
+    padding: 5px 5px 20px;
+    float: left;
+    margin-left:50px;
+      margin-top:10px;
+      width: 300px;
+
+}
+
+.creatGame-block {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px;
+    padding: 5px 0 20px;
+    position: relative;
+     float: right;
+      margin-top:10px;
+
+}
+
+.content-heading {
+    border-bottom: 1px solid #E5E5E5;
+    margin: 0 0 27px;
+    overflow: hidden;
+    padding: 8px 25px 12px;
+}
+
+.content-heading h2, .content-heading h1 {
+    float: left;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 36px;
+    margin: 0 20px 0 0;
+}
+
+.white-block .inner-content:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.white-block .inner-content {
+    padding: 0 24px 0 27px;
+}
+
+.scroll-pane-hold:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+element.style {
+    overflow: hidden;
+    padding: 0;
+    width: 340px;
+}
+.scroll-pane {
+    height: 170px;
+    overflow: auto;
+    position: relative;
+    width: 300px;
+    border-bottom: 1px solid #E5E5E5;
+        
+}
+
+	::-webkit-scrollbar { width: 5px; height: 3px;}
+	::-webkit-scrollbar-thumb { height: 50px; background-color: #EBF1F3; border-radius: 3px; }
+
+
+.general-table .col01 {
+    width: 180px;
+}
+.general-table td {
+    padding: 0 5px 6px 4px;
+    vertical-align: top;
+}
+
+.general-table .col02 {
+    text-align: right;
+}
+
+.del-but:hover {
+    
+    color: red;
+}
+
+
+.row-bottom {
+    
+    float: right;
+    padding: 0px 5px 5px 5px; 
+    margin-top:20px;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+
+.change_pass {
+    
+    width: 290px;
+    margin: 7px 7px;
+}
+/* welcome block END */
 
 #footer {
     overflow: hidden;
