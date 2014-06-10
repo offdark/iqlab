@@ -30,6 +30,9 @@ include'html/header.inc';
       elseif( isset($_GET['action']) == 'create'){
              include'html/creatUserAdmin.inc';
       }
+      elseif( isset($_GET['action']) == 'createNewUser' ){
+
+      }
       else{
           $list = $admin->allUsers();
           include'html/usersList.inc';
@@ -51,6 +54,8 @@ include'html/header.inc';
             break;
         case 'active':
     endswitch;
+
+      include 'html/chess.inc';
 
   }
 

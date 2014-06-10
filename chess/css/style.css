@@ -380,8 +380,8 @@ a {
     position: relative;
      float: left;
      margin-top:10px;
-     margin-left:26px;
-     width: 475px;
+     margin-left:50px;
+     width: 450px;
      
 }
 
@@ -498,6 +498,11 @@ element.style {
 }
 /* welcome block END */
 
+.a2 {
+
+    background: url('../chess_img/1.png');
+}
+
 #footer {
     overflow: hidden;
     margin-top:20px;
@@ -566,3 +571,4 @@ a:hover {
     padding-top:15px;
     
 }
+

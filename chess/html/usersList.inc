@@ -153,7 +153,7 @@
 																									</tbody>
 											</table>
                                              <div class="row-bottom">
-											<span class="date"> <a href="index.php?id=<?php echo $user['id']; ?>&action=save" >Save</a>
+											<span class="date"> <a href="index.php?action=createNewUser" >Save</a>
                        </span>
 										
                     </div>
