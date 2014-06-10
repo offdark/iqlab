@@ -27,10 +27,16 @@ include'html/header.inc';
       elseif( isset($_GET['mod']) && $_GET['mod'] == 'logOut' ){
             $session->logout();
       }
+      elseif( isset($_GET['action']) == 'create'){
+             include'html/creatUserAdmin.inc';
+      }
       else{
           $list = $admin->allUsers();
-          include'html/allUsers.inc';
+          include'html/usersList.inc';
       }
+      
+      
+      
   }
   elseif( $session->is_logged_in() && $session->role == 'user' ){
 
@@ -73,7 +79,7 @@ include'html/header.inc';
          
     endswitch;
     }
-    else{  include'html/indexContent.inc';  }
+    else{    }
 
 
 include'html/footer.inc';
