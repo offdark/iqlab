@@ -2,6 +2,7 @@
 <html>
 <head>
 <link href="<?php echo URL; ?>css/style.css" media="all" rel="stylesheet" type="text/css">
+    <link href="<?php echo URL; ?>css/chess.css" media="all" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 </head>
 <body>
