@@ -42,14 +42,13 @@ include 'Session.class.php';
     function figures(){
 
         return $figures = array (
-                     'king',
-                     'queen',
-                     'rooks',
-                     'bishops',
-                     'knights',
-                     'pawns'
-        );
-
+                                     'king',
+                                     'queen',
+                                     'rooks',
+                                     'bishops',
+                                     'knights',
+                                     'pawns'
+                                );
     }
 
 

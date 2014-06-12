@@ -46,7 +46,7 @@
                 <li><a  class="active" href="index.php">Головна</a></li>
                 <li><a  href="">Мої результати</a></li>
                 <li><a  href="">Мої активні партії</a></li>
-                <li><a  href="">Гра</a></li>
+                <li><a  href="<?php echo URL; ?>?mod=newGame">Гра</a></li>
                 <li><a  href="">Всі результати</a></li>
             </ul>
         </div>

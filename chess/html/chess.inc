@@ -1,80 +1,44 @@
 <div class="container-content" >
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">
-        function changeIt(_src){
-            alert(_src);
-        }
+
+
+        $(function(){
+            $('td').click(function(){
+
+                alert( $(this).attr('id') );
+                alert( $(this).text() );
+
+        });
+        });
+
+
+
      </script>
-    <table border="1">
-    <?php
-
-        for( $x = 1, $a = 'a'; $x <= 8; $x++, $a++  ){
-
-            echo '<tr>';
-
-            for( $y = 1; $y <= 8; $y++ ){
-
-               $color =  ( ($x + $y) % 2 ) ? "D18B47" : "FFCE9E";
-
-                echo "<td class='$a$y' bgcolor='". $color ."' height='50' width='50'><img src='chess_img/rook-w.png'  onclick='changeIt(this.src)'  height='42' width='42' > </td>";
-
-            }
-
-            echo '</tr>';
-        }
-
-    ?>
-    </table>
-</br>
-
-    <form action="" method="POST" class="form">
-        <fieldset>
-            <label>Figure:
-                <select name="figure" size="1">
-                    <?php $figures = figures();
-                    foreach( $figures as $value ): ?>
-                        <option value="<?php echo htmlspecialchars($value); ?>" > <?php echo $value; ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
-
-            <label>Move:
-                <select name="secretQ2" size="1">
-                    <?php $secretQuestions2 = secretQ( $id = 2 );
-                    foreach( $secretQuestions2 as $value ): ?>
-                        <option value="<?php echo htmlspecialchars($value); ?>" > <?php echo $value; ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
-
-            <input type="submit" name="submit" class="btn-form" value="Go" />
-
-        </fieldset>
-    </form>
 
 
-    </br>
 
     <table id="chess_board" cellpadding="0" cellspacing="0">
         <tr>
-            <td id="A8"><a href="#" class="rook black">&#9820;</a></td>
-            <td id="B8"><a href="#" class="night black">&#9822;</a></td>
-            <td id="C8"><a href="#" class="bishop black">&#9821;</a></td>
-            <td id="D8"><a href="#" class="king black">&#9819;</a></td>
-            <td id="E8"><a href="#" class="queen black">&#9818;</a></td>
-            <td id="F8"><a href="#" class="bishop black">&#9821;</a></td>
-            <td id="G8"><a href="#" class="night black">&#9822;</a></td>
-            <td id="H8"><a href="#" class="rook black">&#9820;</a></td>
+            <td id="A8"><a href="#" class="main">&#9820;</a></td>
+            <td id="B8"><a href="#" class="main">&#9822;</a></td>
+            <td id="C8"><a href="#" class="main">&#9821;</a></td>
+            <td id="D8"><a href="#" class="main">&#9819;</a></td>
+            <td id="E8"><a href="#" class="main">&#9818;</a></td>
+            <td id="F8"><a href="#" class="main">&#9821;</a></td>
+            <td id="G8"><a href="#" class="main">&#9822;</a></td>
+            <td id="H8"><a href="#" class="main">&#9820;</a></td>
         </tr>
         <tr>
-            <td id="A7"><a href="#" class="pawn black">&#9823;</a></td>
-            <td id="B7"><a href="#" class="pawn black">&#9823;</a></td>
-            <td id="C7"><a href="#" class="pawn black">&#9823;</a></td>
-            <td id="D7"><a href="#" class="pawn black">&#9823;</a></td>
-            <td id="E7"><a href="#" class="pawn black">&#9823;</a></td>
-            <td id="F7"><a href="#" class="pawn black">&#9823;</a></td>
-            <td id="G7"><a href="#" class="pawn black">&#9823;</a></td>
-            <td id="H7"><a href="#" class="pawn black">&#9823;</a></td>
+            <td id="A7"><a href="#" class="main">&#9823;</a></td>
+            <td id="B7"><a href="#" class="main">&#9823;</a></td>
+            <td id="C7"><a href="#" class="main">&#9823;</a></td>
+            <td id="D7"><a href="#" class="main">&#9823;</a></td>
+            <td id="E7"><a href="#" class="main">&#9823;</a></td>
+            <td id="F7"><a href="#" class="main">&#9823;</a></td>
+            <td id="G7"><a href="#" class="main">&#9823;</a></td>
+            <td id="H7"><a href="#" class="main">&#9823;</a></td>
         </tr>
         <tr>
             <td id="A6"></td>
@@ -138,5 +102,30 @@
         </tr>
     </table>
 
+    </br>
 
+    <form action="" method="POST" class="form">
+        <fieldset>
+            <label>Figure:
+                <select name="figure" size="1">
+                    <?php $figures = figures();
+                    foreach( $figures as $value ): ?>
+                        <option value="<?php echo htmlspecialchars($value); ?>" > <?php echo $value; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </label>
+
+            <label>Move:
+                <select name="secretQ2" size="1">
+                    <?php $secretQuestions2 = secretQ( $id = 2 );
+                    foreach( $secretQuestions2 as $value ): ?>
+                        <option value="<?php echo htmlspecialchars($value); ?>" > <?php echo $value; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </label>
+
+            <input type="submit" name="submit" class="btn-form" value="Go" />
+
+        </fieldset>
+    </form>
  </div>
