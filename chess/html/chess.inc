@@ -102,11 +102,10 @@
         </tr>
     </table>
 
-<<<<<<< HEAD
     
     </div>
     
-=======
+
     </br>
 
     <form action="" method="POST" class="form">
@@ -133,5 +132,4 @@
 
         </fieldset>
     </form>
->>>>>>> 0784e98b12e71ff66fff5c1dccf3cd26280ad797
  </div>
