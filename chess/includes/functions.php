@@ -39,17 +39,126 @@ include 'Session.class.php';
     }
 
 
-    function figures(){
 
-        return $figures = array (
-                                     'king',
-                                     'queen',
-                                     'rooks',
-                                     'bishops',
-                                     'knights',
-                                     'pawns'
+    function htmlHesh(){
+
+        $figuresHash = array(
+
+                             'A1' => '&#9814',
+                             'B1' => '&#9816',
+                             'C1' => '&#9815',
+                             'D1' => '&#9812',
+                             'E1' => '&#9813',
+                             'F1' => '&#9815',
+                             'G1' => '&#9816',
+                             'H1' => '&#9814',
+
+                             'A2' => '&#9817;',
+                             'B2' => '&#9817;',
+                             'C2' => '&#9817;',
+                             'D2' => '&#9817;',
+                             'E2' => '&#9817;',
+                             'F2' => '&#9817;',
+                             'G2' => '&#9817;',
+                             'H2' => '&#9817;',
+
+                             'A8' => '&#9820;',
+                             'B8' => '&#9822;',
+                             'C8' => '&#9821;',
+                             'D8' => '&#9828;',
+                             'E8' => '&#9819;',
+                             'F8' => '&#9821;',
+                             'G8' => '&#9822;',
+                             'H8' => '&#9820;',
+
+                             'A7' => '&#9823;',
+                             'B7' => '&#9823;',
+                             'C7' => '&#9823;',
+                             'D7' => '&#9823;',
+                             'E7' => '&#9823;',
+                             'F7' => '&#9823;',
+                             'G7' => '&#9823;',
+                             'H7' => '&#9823;',
+
                                 );
+        return $figuresHash;
     }
+
+  function find  (){
+
+      public $start_positions = array(
+
+          'rook-w_l'   => 'A1',
+          'knight-w_l' => 'B1',
+          'bishop-w_l' => 'C1',
+          'queen-w_1'  => 'D1',
+          'king-w_1'   => 'E1',
+          'bishop-w_r' => 'F1',
+          'knight-w_r' => 'G1',
+          'rook-w_r'   => 'H1',
+
+          'pawn-w_1' => 'A2',
+          'pawn-w_2' => 'B2',
+          'pawn-w_3' => 'C2',
+          'pawn-w_4' => 'D2',
+          'pawn-w_5' => 'E2',
+          'pawn-w_6' => 'F2',
+          'pawn-w_7' => 'G2',
+          'pawn-w_8' => 'H2',
+
+          'rook-b_l'   => 'A8',
+          'knight-b_l' => 'B8',
+          'bishop-b_l' => 'C8',
+          'queen-b_1'  => 'D8',
+          'king-b_1'   => 'E8',
+          'bishop-b_r' => 'F8',
+          'knight-b_r' => 'G8',
+          'rook-b_r'   => 'H8',
+
+          'pawn-b_1' => 'A7',
+          'pawn-b_2' => 'B7',
+          'pawn-b_3' => 'C7',
+          'pawn-b_4' => 'D7',
+          'pawn-b_5' => 'E7',
+          'pawn-b_6' => 'F7',
+          'pawn-b_7' => 'G7',
+          'pawn-b_8' => 'H7'
+
+      );
+
+      return $start_positions;
+  }
+
+
+    function chessboard(){
+
+        $table = null;
+
+        for( $x = 8, $hash = 0; $x >= 1; $x--, $hash++ ){
+
+            $table .= "<tr>";
+
+            for( $number = 1, $letter = 'A'; $number <= 8; $number++, $letter++ ){
+
+                $table .= '<td id="'. $letter.$number .'" >"'. putFiguresChessBoard( $letter.$number ) .'"</td>';
+            }
+            $table .= "</tr>";
+        }
+        return $table;
+    }
+
+    function putFiguresChessBoard( $value ){
+
+
+
+
+        foreach( htmlHesh() as $value){
+
+            echo '<a href="#" >'. $value .'</a>';
+        }
+
+    }
+
 
 
     function fileName(){
