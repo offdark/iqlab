@@ -55,8 +55,11 @@ include'html/header.inc';
         case 'active':
     endswitch;
 
-      include 'html/chess.inc';
-
+      
+    
+    if( isset($_GET['mod']) == 'newGame' ){
+        include 'html/chess.inc';
+      }
   }
 
 

@@ -9,10 +9,11 @@
 
                 alert( $(this).attr('id') );
                 alert( $(this).text() );
+                 alert( $("a").attr('title') );
 
         });
+               
         });
-
 
 
      </script>
@@ -20,25 +21,30 @@
 
 
     <table id="chess_board" cellpadding="0" cellspacing="0">
+        
+        <tr >
+            <img src="chess_img/letters.png" />
+        </tr>
+        
         <tr>
-            <td id="A8"><a href="#" class="main">&#9820;</a></td>
-            <td id="B8"><a href="#" class="main">&#9822;</a></td>
-            <td id="C8"><a href="#" class="main">&#9821;</a></td>
-            <td id="D8"><a href="#" class="main">&#9819;</a></td>
-            <td id="E8"><a href="#" class="main">&#9818;</a></td>
-            <td id="F8"><a href="#" class="main">&#9821;</a></td>
-            <td id="G8"><a href="#" class="main">&#9822;</a></td>
-            <td id="H8"><a href="#" class="main">&#9820;</a></td>
+            <td id="A8"><a href="#" title="left" >&#9820;</a></td>
+            <td id="B8"><a href="#" >&#9822;</a></td>
+            <td id="C8"><a href="#" >&#9821;</a></td>
+            <td id="D8"><a href="#" >&#9819;</a></td>
+            <td id="E8"><a href="#" >&#9818;</a></td>
+            <td id="F8"><a href="#" >&#9821;</a></td>
+            <td id="G8"><a href="#" >&#9822;</a></td>
+            <td id="H8"><a href="#" >&#9820;</a></td>
         </tr>
         <tr>
-            <td id="A7"><a href="#" class="main">&#9823;</a></td>
-            <td id="B7"><a href="#" class="main">&#9823;</a></td>
-            <td id="C7"><a href="#" class="main">&#9823;</a></td>
-            <td id="D7"><a href="#" class="main">&#9823;</a></td>
-            <td id="E7"><a href="#" class="main">&#9823;</a></td>
-            <td id="F7"><a href="#" class="main">&#9823;</a></td>
-            <td id="G7"><a href="#" class="main">&#9823;</a></td>
-            <td id="H7"><a href="#" class="main">&#9823;</a></td>
+            <td id="A7"><a href="#" >&#9823;</a></td>
+            <td id="B7"><a href="#" >&#9823;</a></td>
+            <td id="C7"><a href="#" >&#9823;</a></td>
+            <td id="D7"><a href="#" >&#9823;</a></td>
+            <td id="E7"><a href="#" >&#9823;</a></td>
+            <td id="F7"><a href="#" >&#9823;</a></td>
+            <td id="G7"><a href="#" >&#9823;</a></td>
+            <td id="H7"><a href="#" >&#9823;</a></td>
         </tr>
         <tr>
             <td id="A6"></td>
@@ -81,27 +87,30 @@
             <td id="H3"></td>
         </tr>
         <tr>
-            <td id="A2"><a href="#" class="pawn white">&#9817;</a></td>
-            <td id="B2"><a href="#" class="pawn white">&#9817;</a></td>
-            <td id="C2"><a href="#" class="pawn white">&#9817;</a></td>
-            <td id="D2"><a href="#" class="pawn white">&#9817;</a></td>
-            <td id="E2"><a href="#" class="pawn white">&#9817;</a></td>
-            <td id="F2"><a href="#" class="pawn white">&#9817;</a></td>
-            <td id="G2"><a href="#" class="pawn white">&#9817;</a></td>
-            <td id="H2"><a href="#" class="pawn white">&#9817;</a></td>
+            <td id="A2"><a href="#" >&#9817;</a></td>
+            <td id="B2"><a href="#" >&#9817;</a></td>
+            <td id="C2"><a href="#" >&#9817;</a></td>
+            <td id="D2"><a href="#" >&#9817;</a></td>
+            <td id="E2"><a href="#" >&#9817;</a></td>
+            <td id="F2"><a href="#" >&#9817;</a></td>
+            <td id="G2"><a href="#" >&#9817;</a></td>
+            <td id="H2"><a href="#" >&#9817;</a></td>
         </tr>
         <tr>
-            <td id="A1"><a href="#" class="rook white">&#9814;</a></td>
-            <td id="B1"><a href="#" class="night white">&#9816;</a></td>
-            <td id="C1"><a href="#" class="bishop white">&#9815;</a></td>
-            <td id="D1"><a href="#" class="king white">&#9813;</a></td>
-            <td id="E1"><a href="#" class="wife white">&#9812;</a></td>
-            <td id="F1"><a href="#" class="bishop white">&#9815;</a></td>
-            <td id="G1"><a href="#" class="night white">&#9816;</a></td>
-            <td id="H1"><a href="#" class="rook white">&#9814;</a></td>
+            <td id="A1"><a href="#" >&#9814;</a></td>
+            <td id="B1"><a href="#" >&#9816;</a></td>
+            <td id="C1"><a href="#" >&#9815;</a></td>
+            <td id="D1"><a href="#" >&#9813;</a></td>
+            <td id="E1"><a href="#" >&#9812;</a></td>
+            <td id="F1"><a href="#" >&#9815;</a></td>
+            <td id="G1"><a href="#" >&#9816;</a></td>
+            <td id="H1"><a href="#" >&#9814;</a></td>
         </tr>
+    
     </table>
-
+    <tr >
+        <img src="chess_img/letters.png" />
+        </tr>
     
     </div>
     
