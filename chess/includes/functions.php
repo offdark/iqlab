@@ -37,7 +37,21 @@ include 'Session.class.php';
                                   
         if( $id == 1 ){  return $secretQuastions1;   }elseif( $id == 2 ){    return $secretQuastions2;   }
     }
-    
+
+
+    function figures(){
+
+        return $figures = array (
+                                     'king',
+                                     'queen',
+                                     'rooks',
+                                     'bishops',
+                                     'knights',
+                                     'pawns'
+                                );
+    }
+
+
     function fileName(){
         
         return basename( $_SERVER['REQUEST_URI'], '?'. $_SERVER['QUERY_STRING'] );
