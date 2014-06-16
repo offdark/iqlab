@@ -60,6 +60,9 @@ include'html/header.inc';
     if( isset($_GET['mod']) == 'newGame' ){
         include 'html/chess.inc';
       }
+
+
+
   }
 
 

@@ -1,53 +1,31 @@
 <div class="container-content" >
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript">
 
         <script type="text/javascript">
+
         var start_possition = null;
+        var start_figure = null;
         var end_possition = null;
-        var curent_side = null;
+
 
         $(function(){
             $('td').click(function(){
 
                 alert( $(this).attr('id') );
-                var c_id = $(this).attr('id');
-                var c_name = $(this).data('cr_name');
-                var c_side = $(this).data('cr_side');
+                start_possition = $(this).attr('id');
+                start_figure    =  $(this).text()
+                alert( $(this).text() );
 
-                //define state
-                if( from === null ){
+                if( start_possition != null && start_figure != null ){
 
-                    //check clicked figure
-
-                    // is mine
-                    if(c_side != curent_side){
-                        return ;
-                    }
-
-                    //if empty
-                    if(c_name.length == 0){
-                        return;
-                    }
-                    // set start coordinate
-                    from = c_id;
+                    end_possition = $(this).attr('id');
+                   
                 }
-                else{
-                    // start is defined
-                    if( from == c_id ){
-                        return;
-                    }else if(  ){
 
-                    }
-                    // check move
-                    to = c_id;
-
-
-                }
-                //do some action
             });
         });
+
 
 
     </script>
@@ -58,9 +36,7 @@
         <tr >
             <img src="chess_img/letters.png" />
         </tr>
-
-        <?php  echo chessboard(); putFiguresChessBoard();?>
-
+        <?php  echo chessboard(); ?>
 
     </table>
     <tr >
