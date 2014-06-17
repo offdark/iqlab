@@ -47,7 +47,7 @@
                                 <td class="col01"><?php echo $values['login']; ?> </td>
 
                         <td class="col02">
-                            <a class="edit-but" href="index.php?login=<?php echo $values['login']; ?>&action=startGame" >Start Game</a>
+                            <a class="edit-but" href="index.php?login=<?php echo $values['login']; ?>&action=startGame" >Send request</a>
                          </td>
 
                    <?php endforeach; ?>
