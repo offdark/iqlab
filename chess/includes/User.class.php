@@ -179,6 +179,25 @@
             }
             catch ( PDOException $e ) {  echo '<br> cant save secretQuestions to  _DB: '. $e->getMessage(); DIE(); }
         }
+        
+        
+        public function allActiveUsers(){
+              
+            $sql = "status = 'active' AND role = 'user'";
+            
+        try{
+            $STH = MYSQLDb::select( 'login', $this->table_name, $sql );
+            $STH->setFetchMode( PDO::FETCH_ASSOC ); // FetchMODE Array
+            
+            foreach( $STH->fetchAll() as $key => $value){
+                
+                $this->data[$key] = $value;
+            }
+        }
+        catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
+
+        return $this->data; //return user ID
+    }
     
     
     }
