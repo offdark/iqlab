@@ -181,12 +181,12 @@
         }
         
         
-        public function allActiveUsers(){
+        public function allActiveUsers( $id ){
               
-            $sql = "status = 'active' AND role = 'user'";
+            $sql = "status = 'active' AND role = 'user' AND id <>" . "'$id'";
             
         try{
-            $STH = MYSQLDb::select( 'login', $this->table_name, $sql );
+            $STH = MYSQLDb::select( 'login, id', $this->table_name, $sql );
             $STH->setFetchMode( PDO::FETCH_ASSOC ); // FetchMODE Array
             
             foreach( $STH->fetchAll() as $key => $value){
@@ -198,7 +198,7 @@
 
         return $this->data; //return user ID
     }
-    
+
     
     }
 
