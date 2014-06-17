@@ -140,9 +140,9 @@
             else { !empty($value_mixed) ? $sql .= " WHERE ". $value_mixed : $sql .= '' ; }
 
 
-             //   echo $sql;
-           //    print_r($data);
-         //       DIE();
+              //  echo $sql;
+             //  print_r($data);
+             //   DIE();
             try{
                 
                 $STH = self::getDBH()->prepare( $sql );

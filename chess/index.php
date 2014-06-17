@@ -54,11 +54,13 @@ include'html/header.inc';
             break;
         case 'active':
     endswitch;
-
+    
+    $user = new User();
       
     
     if( isset($_GET['mod']) == 'newGame' ){
-        include 'html/chess.inc';
+        $list = $user->allActiveUsers();
+        include 'html/startGame.inc';
       }
 
 
