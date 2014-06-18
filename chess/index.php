@@ -63,19 +63,27 @@ include'html/header.inc';
 
         $list = $user->allActiveUsers( $from_user_id );
         $data = $game_invitation->invitationList( $from_user_id );
+        $outcome_list = $game_invitation->outcomeInvitations( $from_user_id );
         include 'html/startGame.inc';
+
+
       }
       elseif( isset( $_GET['id'] ) && $_GET['action'] == 'startGame' ){
 
           echo "back";
 
           $to_user_id = $_GET['id'];
-
-
           $game_invitation->sendInvitation( $from_user_id, $to_user_id, $_SESSION['login'] );
-
-
       }
+      elseif( isset( $_GET['id'] ) && $_GET['action'] == 'decline' ){
+
+          $game_invitation->invitationCancel( $_GET['id'] );
+          header( 'Location: '. URL .'?mod=newGame' );
+      }
+     elseif( isset( $_GET['id'] ) && $_GET['action'] == 'accept' ){
+
+        echo "accept";
+    }
 
   }
 

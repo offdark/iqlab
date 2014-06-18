@@ -30,8 +30,8 @@
       <column name="created" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
       <column name="from_user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="to_user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="result" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
-      <column name="game_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="result" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" def="J2ZhbHNlJw=="/>
+      <column name="from_user_login" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="main_menu" schema="" catalog="chess" type="TABLE">

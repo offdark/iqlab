@@ -32,14 +32,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="startGame.inc" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="startGame.inc" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/startGame.inc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="45" selection-start="1739" selection-end="1739" vertical-scroll-proportion="-11.153846" vertical-offset="509" max-vertical-offset="1292">
+            <state line="54" column="100" selection-start="2130" selection-end="2130" vertical-scroll-proportion="0.6255507" vertical-offset="492" max-vertical-offset="2040">
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <marker date="1403022767655" expanded="true" signature="806:893" placeholder="..." />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <marker date="1403109451265" expanded="true" signature="806:893" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -48,25 +49,16 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="3" selection-start="1484" selection-end="1484" vertical-scroll-proportion="-11.653846" vertical-offset="717" max-vertical-offset="1921">
+            <state line="67" column="0" selection-start="1721" selection-end="1721" vertical-scroll-proportion="-13.076923" vertical-offset="748" max-vertical-offset="2057">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.class.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="User.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/User.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="182" column="8" selection-start="5725" selection-end="5725" vertical-scroll-proportion="0.42584434" vertical-offset="2753" max-vertical-offset="3536">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recPass_email.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/recPass_email.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="86" selection-start="506" selection-end="577" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="425">
+            <state line="137" column="6" selection-start="3944" selection-end="3944" vertical-scroll-proportion="21.538462" vertical-offset="2838" max-vertical-offset="3570">
               <folding />
             </state>
           </provider>
@@ -75,7 +67,7 @@
       <file leaf-file-name="GameInvitation.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/GameInvitation.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="943" selection-end="943" vertical-scroll-proportion="-21.461538" vertical-offset="54" max-vertical-offset="1139">
+            <state line="97" column="0" selection-start="2635" selection-end="2635" vertical-scroll-proportion="-28.653847" vertical-offset="904" max-vertical-offset="1751">
               <folding>
                 <element signature="e#6#84#0" expanded="true" />
               </folding>
@@ -86,7 +78,7 @@
       <file leaf-file-name="MYSQLDb.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/MYSQLDb.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="0" selection-start="4769" selection-end="4769" vertical-scroll-proportion="-22.115385" vertical-offset="1822" max-vertical-offset="2873">
+            <state line="51" column="19" selection-start="1516" selection-end="1516" vertical-scroll-proportion="1.9615384" vertical-offset="918" max-vertical-offset="2873">
               <folding>
                 <element signature="e#8#53#0" expanded="true" />
               </folding>
@@ -129,11 +121,11 @@
         <option value="$PROJECT_DIR$/includes/functions.php" />
         <option value="$PROJECT_DIR$/includes/buffer.php" />
         <option value="$PROJECT_DIR$/html/chess.inc" />
+        <option value="$PROJECT_DIR$/includes/MYSQLDb.class.php" />
+        <option value="$PROJECT_DIR$/includes/User.class.php" />
+        <option value="$PROJECT_DIR$/includes/GameInvitation.class.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/html/startGame.inc" />
-        <option value="$PROJECT_DIR$/includes/GameInvitation.class.php" />
-        <option value="$PROJECT_DIR$/includes/User.class.php" />
-        <option value="$PROJECT_DIR$/includes/MYSQLDb.class.php" />
       </list>
     </option>
   </component>
@@ -309,7 +301,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1448" height="864" extended-state="1" />
+    <frame x="-4" y="-4" width="1448" height="864" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -367,40 +359,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="29" />
+      <option name="time" value="30" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/secretQ.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="2" selection-start="1290" selection-end="1290" vertical-scroll-proportion="0.8040346" vertical-offset="105" max-vertical-offset="799">
-          <folding>
-            <element signature="e#7#52#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/a33abfd1/40d6be93-c73b-4dd9-b4b6-771ae1a76d95/chess..password_reset">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../phpMyAdmin/sql.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="288" selection-end="288" vertical-scroll-proportion="0.5249406" vertical-offset="0" max-vertical-offset="29682">
-          <folding>
-            <marker date="1383585901000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1383585901000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1383585901000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/indexLoginContent.inc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="148" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="204">
@@ -634,9 +596,7 @@
     <entry file="file://$PROJECT_DIR$/html/chess.inc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="19" selection-start="231" selection-end="231" vertical-scroll-proportion="0.42437592" vertical-offset="0" max-vertical-offset="1309">
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -651,7 +611,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="206" column="43" selection-start="5241" selection-end="5241" vertical-scroll-proportion="1.3429395" vertical-offset="2570" max-vertical-offset="4216">
           <folding>
-            <element signature="e#6#85#0" expanded="true" />
+            <element signature="e#6#85#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -680,20 +640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/recPass_email.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="86" selection-start="506" selection-end="577" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="0" selection-start="2920" selection-end="2920" vertical-scroll-proportion="14.5" vertical-offset="2332" max-vertical-offset="3026">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/usersList.inc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="156" column="30" selection-start="6335" selection-end="6335" vertical-scroll-proportion="1.8378788" vertical-offset="1439" max-vertical-offset="3264">
@@ -715,36 +661,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/startGame.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="45" selection-start="1739" selection-end="1739" vertical-scroll-proportion="-11.153846" vertical-offset="509" max-vertical-offset="1292">
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <marker date="1403022767655" expanded="true" signature="806:893" placeholder="..." />
-          </folding>
+    <entry file="dbDummy://dbtable:/a33abfd1/40d6be93-c73b-4dd9-b4b6-771ae1a76d95/chess..game_invitation">
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/GameInvitation.class.php">
+    <entry file="file://$PROJECT_DIR$/newPass.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="943" selection-end="943" vertical-scroll-proportion="-21.461538" vertical-offset="54" max-vertical-offset="1139">
-          <folding>
-            <element signature="e#6#84#0" expanded="true" />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/secretQ.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="3" selection-start="1484" selection-end="1484" vertical-scroll-proportion="-11.653846" vertical-offset="717" max-vertical-offset="1921">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recPass_email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="87" selection-start="534" selection-end="578" vertical-scroll-proportion="0.4164265" vertical-offset="0" max-vertical-offset="694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="0" selection-start="2920" selection-end="2920" vertical-scroll-proportion="14.5" vertical-offset="2332" max-vertical-offset="3026">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/MYSQLDb.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="0" selection-start="4769" selection-end="4769" vertical-scroll-proportion="-22.115385" vertical-offset="1822" max-vertical-offset="2873">
+        <state line="51" column="19" selection-start="1516" selection-end="1516" vertical-scroll-proportion="1.9615384" vertical-offset="918" max-vertical-offset="2873">
           <folding>
             <element signature="e#8#53#0" expanded="true" />
           </folding>
@@ -753,8 +710,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/User.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="8" selection-start="5725" selection-end="5725" vertical-scroll-proportion="0.42584434" vertical-offset="2753" max-vertical-offset="3536">
+        <state line="137" column="6" selection-start="3944" selection-end="3944" vertical-scroll-proportion="21.538462" vertical-offset="2838" max-vertical-offset="3570">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/GameInvitation.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="0" selection-start="2635" selection-end="2635" vertical-scroll-proportion="-28.653847" vertical-offset="904" max-vertical-offset="1751">
+          <folding>
+            <element signature="e#6#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="0" selection-start="1721" selection-end="1721" vertical-scroll-proportion="-13.076923" vertical-offset="748" max-vertical-offset="2057">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/startGame.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="100" selection-start="2130" selection-end="2130" vertical-scroll-proportion="0.6255507" vertical-offset="492" max-vertical-offset="2040">
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <marker date="1403109451265" expanded="true" signature="806:893" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
