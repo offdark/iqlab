@@ -182,7 +182,8 @@
         
         
         public function allActiveUsers( $id ){
-              
+
+            $data = array();
             settype( $id, "integer" );
             $sql = "status = 'active' AND role = 'user' AND id <>" . "'$id'";
             
@@ -192,12 +193,12 @@
             
             foreach( $STH->fetchAll() as $key => $value){
                 
-                $this->data[$key] = $value;
+                $data[$key] = $value;
             }
         }
         catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
 
-        return $this->data; //return user ID
+        return $data; //return user ID
     }
 
     
