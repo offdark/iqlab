@@ -459,8 +459,26 @@ element.style {
         
 }
 
+.scroll-pane-invitations {
+    height: 170px;
+    overflow: auto;
+    position: relative;
+    width: 390px;
+    border-bottom: 1px solid #E5E5E5;
+        
+}
+
 	::-webkit-scrollbar { width: 5px; height: 3px;}
 	::-webkit-scrollbar-thumb { height: 50px; background-color: #EBF1F3; border-radius: 3px; }
+
+.general-table .invitations {
+    width: 250px;
+}
+.general-table td {
+    padding: 0 5px 6px 4px;
+    vertical-align: top;
+}
+
 
 
 .general-table .col01 {

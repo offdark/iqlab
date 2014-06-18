@@ -183,6 +183,7 @@
         
         public function allActiveUsers( $id ){
               
+            settype( $id, "integer" );
             $sql = "status = 'active' AND role = 'user' AND id <>" . "'$id'";
             
         try{

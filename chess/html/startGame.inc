@@ -41,26 +41,31 @@
         </div>
         <div class="inner-content">
             <div class="scroll-pane-hold">
-                <div class="scroll-pane">
+                <div class="scroll-pane-invitations">
                     <table class="general-table">
                         <tbody>
 
-                        <?php foreach( $array as $key => $values ): ?>
+                        <?php foreach( $data as $key => $values ): ?>
+                        <td class="invitations">User: <?php echo $values['from_user_login']; ?> </td>
+
                         <tr>
 
-                            <td class="col01"><?php echo $values['login']; ?> </td>
+                            <td class="invitations">Message: <?php echo $values['text'];?> <hr /></td>
+
 
                             <td class="col02">
                                 <a class="edit-but" href="index.php?id=<?php echo $values['id']; ?>&action=accept" > Accept </a>
-                                <a class="edit-but" href="index.php?id=<?php echo $values['id']; ?>&action=decline" > Decline </a>
+                                <a class="del-but" href="index.php?id=<?php echo $values['id']; ?>&action=decline" > Decline </a>
+                            <hr />
                             </td>
-
+                            
                             <?php endforeach; ?>
-
+                        
                         </tr>
-
+                    
                         </tbody>
                     </table>
+                    
                 </div>
 
             </div>

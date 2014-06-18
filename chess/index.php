@@ -62,7 +62,7 @@ include'html/header.inc';
     if( isset($_GET['mod'] ) == 'newGame' ){
 
         $list = $user->allActiveUsers( $from_user_id );
-    //    $array = $game_invitation->invitationList( $from_user_id );
+        $data = $game_invitation->invitationList( $from_user_id );
         include 'html/startGame.inc';
       }
       elseif( isset( $_GET['id'] ) && $_GET['action'] == 'startGame' ){
@@ -72,7 +72,7 @@ include'html/header.inc';
           $to_user_id = $_GET['id'];
 
 
-          $game_invitation->sendInvitation( $from_user_id, $to_user_id );
+          $game_invitation->sendInvitation( $from_user_id, $to_user_id, $_SESSION['login'] );
 
 
       }

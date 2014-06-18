@@ -11,7 +11,7 @@
         <div class="container-center">
         
             <div class="header-top">
-                
+                <?php echo $_SESSION['id']; ?>
            <ul class="user-link">
 
                 <li>
