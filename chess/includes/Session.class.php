@@ -20,7 +20,8 @@
         private $created;
         private $edited;
         public $role;
-          
+
+
         function __construct(){
             session_start();      
             $this->check_logged_in();

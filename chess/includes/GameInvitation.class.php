@@ -12,7 +12,7 @@ class GameInvitation {
     public $table_name = 'game_invitation';
 
 
-    public function sendInvitation( $from_user_str, $to_user_str ){
+    public function send( $from_user_str, $to_user_str ){
 
         $sql_arr = array(
                            'text'            => $this->text,
@@ -30,7 +30,7 @@ class GameInvitation {
     }
 
 
-    public function invitationList( $to_user_str ){
+    public function listing( $to_user_str ){
         
         $data = array();
         trim( htmlspecialchars( $to_user_str ) );
@@ -54,7 +54,7 @@ class GameInvitation {
     }
 
 
-    public function invitationCancel( $id_int ){
+    public function cancel( $id_int ){
 
         $data = array();
         $sql_arr = array( 'status' => 'canceled');
@@ -69,7 +69,7 @@ class GameInvitation {
         catch ( PDOException $e ) {  echo '<br> cant save secretQuestions to  _DB: '. $e->getMessage(); DIE(); }
     }
 
-    public function outcomeInvitations( $id ){
+    public function outcome( $id ){
 
         $data = array();
         $sql_arr = array( 'from_user_login' => $id );
