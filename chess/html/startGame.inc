@@ -18,7 +18,7 @@
                                 <td class="col01"><?php echo $values['login']; ?> </td>
 
                         <td class="col02">
-                            <a class="edit-but" href="index.php?id=<?php echo $values['id']; ?>&action=startGame" >Send request</a>
+                            <a class="edit-but" href="index.php?login=<?php echo $values['login']; ?>&action=startGame" >Send request</a>
                          </td>
 
                    <?php endforeach; ?>
@@ -52,7 +52,7 @@
                         <tr>
 
 
-                            <td class="invitations">Created: <?php echo $values['created']; ?><hr /></td>
+                            <td class="invitations">Received: <?php echo $values['created']; ?><hr /></td>
 
                             <td class="col02">
                                 <a class="edit-but" href="index.php?id=<?php echo $values['id']; ?>&action=accept" > Accept </a>
@@ -88,11 +88,11 @@
 
                         <?php foreach( $outcome_list as $key => $values ): ?>
                         <tr>
-                            <td class="invitations">User:   </td>
+                            <td class="invitations">User: <?php echo $values['to_user_login']; ?>   </td>
                         </tr>
 
                         <tr>
-                            <td class="invitations">Created: <?php echo $values['created']; ?> <hr /></td>
+                            <td class="invitations">Sended: <?php echo $values['created']; ?> <hr /></td>
                             <td class="col02">
                                 Status: <?php echo $values['status']; ?>
                                 <hr />

@@ -12,13 +12,12 @@ class GameInvitation {
     public $table_name = 'game_invitation';
 
 
-    public function sendInvitation( $from_user_id_int, $to_user_id_int, $from_user_login ){
+    public function sendInvitation( $from_user_str, $to_user_str ){
 
         $sql_arr = array(
                            'text'            => $this->text,
-                           'from_user_id'    => $from_user_id_int,
-                           'to_user_id'      => $to_user_id_int,
-                           'from_user_login' => $from_user_login,
+                           'from_user_login'    => $from_user_str,
+                           'to_user_login'      => $to_user_str,
                         );
 
         try{
@@ -31,11 +30,11 @@ class GameInvitation {
     }
 
 
-    public function invitationList( $to_user_id_int ){
+    public function invitationList( $to_user_str ){
         
         $data = array();
-        settype( $to_user_id_int, "integer" );
-        $sql = "to_user_id = '$to_user_id_int' AND status = 'progress' "; // generating query
+        trim( htmlspecialchars( $to_user_str ) );
+        $sql = "to_user_login = '$to_user_str' AND status = 'progress' "; // generating query
         
         try{
             $STH = MYSQLDb::select( '*', $this->table_name, $sql );
@@ -58,7 +57,6 @@ class GameInvitation {
     public function invitationCancel( $id_int ){
 
         $data = array();
-        settype( $id_int, "integer" );
         $sql_arr = array( 'status' => 'canceled');
         $id_arr = array( 'id' => $id_int );
 
@@ -74,8 +72,7 @@ class GameInvitation {
     public function outcomeInvitations( $id ){
 
         $data = array();
-        settype( $id, "integer" );
-        $sql_arr = array( 'from_user_id' => $id );
+        $sql_arr = array( 'from_user_login' => $id );
 
         try{
             $STH = MYSQLDb::select( '*', $this->table_name, $sql_arr );

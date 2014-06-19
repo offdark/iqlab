@@ -460,13 +460,14 @@ element.style {
 }
 
 .scroll-pane-invitations {
-    height: 170px;
+    height: 200px;
     overflow: auto;
     position: relative;
     width: 390px;
     border-bottom: 1px solid #E5E5E5;
         
 }
+
 
 	::-webkit-scrollbar { width: 5px; height: 3px;}
 	::-webkit-scrollbar-thumb { height: 50px; background-color: #EBF1F3; border-radius: 3px; }

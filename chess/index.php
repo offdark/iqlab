@@ -57,23 +57,23 @@ include'html/header.inc';
     
     $user = new User();
     $game_invitation = new GameInvitation();
-    $from_user_id =  $_SESSION['id'];
+    $from_user =  $_SESSION['login'];
     
     if( isset($_GET['mod'] ) == 'newGame' ){
 
-        $list = $user->allActiveUsers( $from_user_id );
-        $data = $game_invitation->invitationList( $from_user_id );
-        $outcome_list = $game_invitation->outcomeInvitations( $from_user_id );
+        $list = $user->allActiveUsers( $from_user );
+        $data = $game_invitation->invitationList( $from_user );
+        $outcome_list = $game_invitation->outcomeInvitations( $from_user );
         include 'html/startGame.inc';
 
 
       }
-      elseif( isset( $_GET['id'] ) && $_GET['action'] == 'startGame' ){
+      elseif( isset( $_GET['login'] ) && $_GET['action'] == 'startGame' ){
 
           echo "back";
 
-          $to_user_id = $_GET['id'];
-          $game_invitation->sendInvitation( $from_user_id, $to_user_id, $_SESSION['login'] );
+          $to_user = $_GET['login'];
+          $game_invitation->sendInvitation( $from_user, $to_user );
       }
       elseif( isset( $_GET['id'] ) && $_GET['action'] == 'decline' ){
 

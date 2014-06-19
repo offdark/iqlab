@@ -181,11 +181,11 @@
         }
         
         
-        public function allActiveUsers( $id ){
+        public function allActiveUsers( $login ){
 
             $data = array();
-            settype( $id, "integer" );
-            $sql = "status = 'active' AND role = 'user' AND id <>" . "'$id'";
+            trim( htmlspecialchars( $login ) );
+            $sql = "status = 'active' AND role = 'user' AND login <>" . "'$login'";
             
         try{
             $STH = MYSQLDb::select( 'login, id', $this->table_name, $sql );
