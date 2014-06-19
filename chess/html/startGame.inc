@@ -88,7 +88,7 @@
 
                         <?php foreach( $outcome_list as $key => $values ): ?>
                         <tr>
-                            <td class="invitations">User: <?php echo $values['to_user_login']; ?>   </td>
+                            <td class="invitations">User: <?php echo $values['from_user_login']; ?>   </td>
                         </tr>
 
                         <tr>
