@@ -58,12 +58,17 @@ include'html/header.inc';
     $user = new User();
     $game_invitation = new GameInvitation();
     $from_user =  $_SESSION['login'];
-    
-    if( isset($_GET['mod'] ) == 'newGame' ){
+
+    $createGame = new NewGame();
+
+
+
+
+    if( isset($_GET['mod'] ) && $_GET['mod'] == 'newGame' ){
 
         $list = $user->allActiveUsers( $from_user );
-        $data = $game_invitation->invitationList( $from_user );
-        $outcome_list = $game_invitation->outcomeInvitations( $from_user );
+        $data = $game_invitation->listing( $from_user );
+        $outcome_list = $game_invitation->outcome( $from_user );
         include 'html/startGame.inc';
 
 
@@ -73,21 +78,27 @@ include'html/header.inc';
           echo "back";
 
           $to_user = $_GET['login'];
-          $game_invitation->sendInvitation( $from_user, $to_user );
+          $game_invitation->send( $from_user, $to_user );
       }
       elseif( isset( $_GET['id'] ) && $_GET['action'] == 'decline' ){
 
-          $game_invitation->invitationCancel( $_GET['id'] );
+          $game_invitation->cancel( $_GET['id'] );
           header( 'Location: '. URL .'?mod=newGame' );
       }
      elseif( isset( $_GET['id'] ) && $_GET['action'] == 'accept' ){
 
-        echo "accept";
+
+         include'html/chess.inc';
     }
+    elseif(  isset($_GET['mod'] ) && $_GET['mod'] == 'activeGames' ){
+
+
+          echo "active games";
+        include'html/activeGames.inc';
+      }
+
 
   }
-
-
 
 
 
