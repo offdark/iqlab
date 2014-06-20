@@ -1,13 +1,18 @@
 <div class="container-content" >
+<div class="game-List">
 
 
 
-        <?php   echo $createGame->chessboard( ); ?>
 
-        <?php   echo $createGame->chessboard( ); ?>
 
-        <?php   echo $createGame->chessboard( ); ?>
+        <?php   echo $createBoard->chessboard( ); ?>
 
+        <?php   echo $createBoard->chessboard( ); ?>
+
+        <?php   echo $createBoard->chessboard( ); ?>
+
+     </div>
+     
      </div>
 
 </div>

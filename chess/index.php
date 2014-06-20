@@ -59,7 +59,7 @@ include'html/header.inc';
     $game_invitation = new GameInvitation();
     $from_user =  $_SESSION['login'];
 
-    $createGame = new NewGame();
+    $createBoard = new NewGame();
 
 
 
@@ -87,7 +87,7 @@ include'html/header.inc';
       }
      elseif( isset( $_GET['id'] ) && $_GET['action'] == 'accept' ){
 
-
+         $createGame = new NewGame( $_GET['id']);
          include'html/chess.inc';
     }
     elseif(  isset($_GET['mod'] ) && $_GET['mod'] == 'activeGames' ){
