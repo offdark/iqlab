@@ -49,17 +49,40 @@ class NewGame {
 
                                          );
 
-    function __construct(){
-
+    function __construct( $invitationId_int = null ){
         
-        $this->check_logged_in();
+        if( $invitationId_int != null ){
+
+            $id = array( 'id' => $invitationId_int );
+            
+            try{
+                $STH = MYSQLDb::select( 'from_user_login, to_user_login', 'game_invitation', $id );
+                $STH->setFetchMode( PDO::FETCH_ASSOC ); // FetchMODE Array
+                
+                foreach( $STH->fetch() as $value){
+                    
+                    $data[] = $value;
+                  
+                }
+                $chessFigures = serialize( $this->figuresStartPosition );
+                
+                $assoc_data = array( 'author_user_login' => $data[0], 'partner_user_login' => $data[1], 'table_state' => $chessFigures );
+                $this->create( $assoc_data );
+             //   print_r($assoc_data);
+                DIE();
+    
+            }
+            catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
+
+        }
+        
     }
 
 
-    public function create( ){
+    public function create( $usersLogin_arr ){
 
         try{
-            if( MYSQLDb::save( $sql_arr, $this->table_name  ) != null ){
+            if( MYSQLDb::save( $usersLogin_arr, $this->table_name  ) != null ){
               return true;
             }
             else{   return false;  }
