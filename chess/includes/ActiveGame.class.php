@@ -58,7 +58,7 @@
                          
                     $this->figuresPosition = unserialize( $values['table_state'] );
                     
-                  return  $this->chessboard( $this->figuresPosition, true );
+                  return $this->chessboard( $this->figuresPosition, true );
                        
                     }
                  
