@@ -85,9 +85,9 @@ include'html/header.inc';
           $game_invitation->cancel( $_GET['id'] );
           header( 'Location: '. URL .'?mod=newGame' );
       }
-     elseif( isset( $_GET['id'] ) && $_GET['action'] == 'accept' ){
+     elseif( isset( $_GET['gameId'] ) && $_GET['action'] == 'accept' ){
 
-         $createGame = new NewGame( $_GET['id']);
+         $createGame = new NewGame( $_GET['gameId']);
          include'html/chess.inc';
     }
     elseif(  isset($_GET['mod'] ) && $_GET['mod'] == 'activeGames' ){

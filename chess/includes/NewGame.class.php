@@ -6,7 +6,7 @@
  * Time: 6:05 PM
  */
 
-class NewGame {
+class NewGame  {
 
     public $table_name = 'game';
     public  $figuresStartPosition = array(
@@ -49,11 +49,8 @@ class NewGame {
 
                                          );
 
-<<<<<<< HEAD
-   // function __construct(){
-=======
     function __construct( $invitationId_int = null ){
-        
+
         if( $invitationId_int != null ){
 
             $id = array( 'id' => $invitationId_int );
@@ -65,44 +62,44 @@ class NewGame {
                 foreach( $STH->fetch() as $value){
                     
                     $data[] = $value;
-                  
                 }
-                $chessFigures = serialize( $this->figuresStartPosition );
                 
-                $assoc_data = array( 'author_user_login' => $data[0], 'partner_user_login' => $data[1], 'table_state' => $chessFigures );
-                $this->create( $assoc_data );
+                $assoc_data = array( 'author_user_login' => $data[0], 'partner_user_login' => $data[1], 'table_state' => $this->arraySerialize( $this->figuresStartPosition ) );
+
+            //TODO create PDO transaction !!!!
+
+                try{
+                    if( MYSQLDb::save( $assoc_data, $this->table_name  ) != null ){
+
+                        $updateStatus = new GameInvitation();
+
+                        if( $updateStatus->update( $invitationId_int ) == true ){
+
+                            return true;
+                        }
+                        else { return false; }
+
+                    }
+                    else{   return false;  }
+                }
+                catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
+             //   echo "<br>";
              //   print_r($assoc_data);
-                DIE();
-    
+             //   DIE();
+
             }
             catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
->>>>>>> ba3db14c1d4a8d3811a66eca86236cb7dc29b55c
+
 
         }
-        
-<<<<<<< HEAD
-    //    $this->check_logged_in();
-   // }
-=======
+
     }
->>>>>>> ba3db14c1d4a8d3811a66eca86236cb7dc29b55c
 
-
-    public function create( $usersLogin_arr ){
-
-        try{
-            if( MYSQLDb::save( $usersLogin_arr, $this->table_name  ) != null ){
-              return true;
-            }
-            else{   return false;  }
-        }
-        catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
-    }
 
 
    public function chessboard( $Fpossition, $amount = false ){
         // Creating chessboard
-        
+
         ( $amount == true ) ? $table = '<table id="chess_board_small" ' : $table =  '<table id="chess_board" ';
 
        $table .= 'cellpadding="0" cellspacing="0">';
@@ -121,16 +118,6 @@ class NewGame {
     }
 
 
-<<<<<<< HEAD
-   public function putFiguresChessBoard( $value_str, $coordinates_arr  = null ){
-        // Putting figures to chessBoard
-
-       ( $coordinates_arr != null ) ? $coordinates = $coordinates_arr : $coordinates = $this->figuresStartPosition;
-
-        $result = null;
-
-        foreach( $coordinates as $key => $value ){
-=======
    public function putFiguresChessBoard( $value_str, $Fpossition_arr = 'new' ){
         // Putting figures to chessBoard
         
@@ -138,7 +125,6 @@ class NewGame {
         $result = null;
 
         foreach( $htmlFigures as $key => $value ){
->>>>>>> ba3db14c1d4a8d3811a66eca86236cb7dc29b55c
 
             if( $value_str == $key ){
 
@@ -149,57 +135,22 @@ class NewGame {
     }
 
 
-<<<<<<< HEAD
-    public function figuresHtmlHash(){
-        //TODO  connect to DB and take moves from there
+        public function arraySerialize( $array ){
+
+            $chessFigures = serialize( $array );
+
+            return $chessFigures;
+        }
 
 
+    public function strUnserialize( $string ){
 
-        $figuresHash = array(
+        $chessFigures = unserialize( $string );
 
-            'A1' => '&#9814',
-            'B1' => '&#9816',
-            'C1' => '&#9815',
-            'D1' => '&#9812',
-            'E1' => '&#9813',
-            'F1' => '&#9815',
-            'G1' => '&#9816',
-            'H1' => '&#9814',
-
-            'A2' => '&#9817;',
-            'B2' => '&#9817;',
-            'C2' => '&#9817;',
-            'D2' => '&#9817;',
-            'E2' => '&#9817;',
-            'F2' => '&#9817;',
-            'G2' => '&#9817;',
-            'H2' => '&#9817;',
-
-            'A8' => '&#9820;',
-            'B8' => '&#9822;',
-            'C8' => '&#9821;',
-            'D8' => '&#9818;',
-            'E8' => '&#9819;',
-            'F8' => '&#9821;',
-            'G8' => '&#9822;',
-            'H8' => '&#9820;',
-
-            'A7' => '&#9823;',
-            'B7' => '&#9823;',
-            'C7' => '&#9823;',
-            'D7' => '&#9823;',
-            'E7' => '&#9823;',
-            'F7' => '&#9823;',
-            'G7' => '&#9823;',
-            'H7' => '&#9823;'
-
-        );
-        //   echo serialize($figuresHash);
-        //    DIE();
-        return $figuresHash;
+        return $chessFigures;
     }
 
-=======
->>>>>>> ba3db14c1d4a8d3811a66eca86236cb7dc29b55c
+
+
 }
 
