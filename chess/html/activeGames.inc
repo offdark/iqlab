@@ -5,11 +5,8 @@
 
 
 
-        <?php   echo $createBoard->chessboard( ); ?>
+        <?php    echo $activeGame->selectAll( $from_user );  ?>
 
-        <?php   echo $createBoard->chessboard( ); ?>
-
-        <?php   echo $createBoard->chessboard( ); ?>
 
      </div>
      

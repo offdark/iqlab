@@ -92,7 +92,10 @@ include'html/header.inc';
     }
     elseif(  isset($_GET['mod'] ) && $_GET['mod'] == 'activeGames' ){
 
-
+        
+        $activeGame = new ActiveGame();
+        
+        
           echo "active games";
         include'html/activeGames.inc';
       }

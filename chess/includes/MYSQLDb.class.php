@@ -104,15 +104,15 @@
        //     echo $sql;
         //    DIE();
             try{
-                    self::getDBH()->beginTransaction();
+                 //   self::getDBH()->beginTransaction();
                     $STH = self::getDBH()->prepare( $sql );
                     ( !empty($data) ) ? $STH->execute( $data ) : $STH->execute();   
                     $lastInsertId = self::getDBH()->lastInsertId();
-                    self::getDBH()->commit();
+                  //  self::getDBH()->commit();
 
                 return $lastInsertId;
             }
-            catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
+            catch ( PDOException $e ){   return $e->getMessage(); DIE(); self::getDBH()->rollBack();  }
         }
 
 
