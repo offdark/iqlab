@@ -49,11 +49,11 @@ class NewGame {
 
                                          );
 
-    function __construct(){
+   // function __construct(){
 
         
-        $this->check_logged_in();
-    }
+    //    $this->check_logged_in();
+   // }
 
 
     public function create( ){
@@ -89,12 +89,14 @@ class NewGame {
     }
 
 
-   public function putFiguresChessBoard( $value_str ){
+   public function putFiguresChessBoard( $value_str, $coordinates_arr  = null ){
         // Putting figures to chessBoard
+
+       ( $coordinates_arr != null ) ? $coordinates = $coordinates_arr : $coordinates = $this->figuresStartPosition;
 
         $result = null;
 
-        foreach( $this->figuresHtmlHash() as $key => $value ){
+        foreach( $coordinates as $key => $value ){
 
             if( $value_str == $key ){
 
@@ -107,6 +109,7 @@ class NewGame {
 
     public function figuresHtmlHash(){
         //TODO  connect to DB and take moves from there
+
 
 
         $figuresHash = array(
