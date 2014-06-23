@@ -1,13 +1,15 @@
 <div class="container-content" >
+<div class="game-List">
 
 
 
-        <?php   echo $createGame->chessboard( ); ?>
 
-        <?php   echo $createGame->chessboard( ); ?>
 
-        <?php   echo $createGame->chessboard( ); ?>
+        <?php    echo $activeGame->selectAll( $from_user );  ?>
 
+
+     </div>
+     
      </div>
 
 </div>

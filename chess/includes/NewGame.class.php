@@ -49,17 +49,49 @@ class NewGame {
 
                                          );
 
+<<<<<<< HEAD
    // function __construct(){
-
+=======
+    function __construct( $invitationId_int = null ){
         
+        if( $invitationId_int != null ){
+
+            $id = array( 'id' => $invitationId_int );
+            
+            try{
+                $STH = MYSQLDb::select( 'from_user_login, to_user_login', 'game_invitation', $id );
+                $STH->setFetchMode( PDO::FETCH_ASSOC ); // FetchMODE Array
+                
+                foreach( $STH->fetch() as $value){
+                    
+                    $data[] = $value;
+                  
+                }
+                $chessFigures = serialize( $this->figuresStartPosition );
+                
+                $assoc_data = array( 'author_user_login' => $data[0], 'partner_user_login' => $data[1], 'table_state' => $chessFigures );
+                $this->create( $assoc_data );
+             //   print_r($assoc_data);
+                DIE();
+    
+            }
+            catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
+>>>>>>> ba3db14c1d4a8d3811a66eca86236cb7dc29b55c
+
+        }
+        
+<<<<<<< HEAD
     //    $this->check_logged_in();
    // }
+=======
+    }
+>>>>>>> ba3db14c1d4a8d3811a66eca86236cb7dc29b55c
 
 
-    public function create( ){
+    public function create( $usersLogin_arr ){
 
         try{
-            if( MYSQLDb::save( $sql_arr, $this->table_name  ) != null ){
+            if( MYSQLDb::save( $usersLogin_arr, $this->table_name  ) != null ){
               return true;
             }
             else{   return false;  }
@@ -68,9 +100,9 @@ class NewGame {
     }
 
 
-   public function chessboard( $amount = true ){
+   public function chessboard( $Fpossition, $amount = false ){
         // Creating chessboard
-
+        
         ( $amount == true ) ? $table = '<table id="chess_board_small" ' : $table =  '<table id="chess_board" ';
 
        $table .= 'cellpadding="0" cellspacing="0">';
@@ -81,7 +113,7 @@ class NewGame {
 
                 for( $x = 1, $letter = 'A'; $x <= 8; $x++, $letter++ ){
 
-                    $table .= '<td id="'. $letter.$number .'" >'. $this->putFiguresChessBoard( $letter.$number ) .'</td>';
+                    $table .= '<td id="'. $letter.$number .'" >'. $this->putFiguresChessBoard( $letter.$number, $Fpossition ) .'</td>';
                 }
                 $table .= "</tr>";
             }
@@ -89,6 +121,7 @@ class NewGame {
     }
 
 
+<<<<<<< HEAD
    public function putFiguresChessBoard( $value_str, $coordinates_arr  = null ){
         // Putting figures to chessBoard
 
@@ -97,6 +130,15 @@ class NewGame {
         $result = null;
 
         foreach( $coordinates as $key => $value ){
+=======
+   public function putFiguresChessBoard( $value_str, $Fpossition_arr = 'new' ){
+        // Putting figures to chessBoard
+        
+        $htmlFigures = ( $Fpossition_arr == 'new' ) ? $this->figuresStartPosition : $Fpossition_arr;
+        $result = null;
+
+        foreach( $htmlFigures as $key => $value ){
+>>>>>>> ba3db14c1d4a8d3811a66eca86236cb7dc29b55c
 
             if( $value_str == $key ){
 
@@ -107,6 +149,7 @@ class NewGame {
     }
 
 
+<<<<<<< HEAD
     public function figuresHtmlHash(){
         //TODO  connect to DB and take moves from there
 
@@ -156,5 +199,7 @@ class NewGame {
         return $figuresHash;
     }
 
+=======
+>>>>>>> ba3db14c1d4a8d3811a66eca86236cb7dc29b55c
 }
 

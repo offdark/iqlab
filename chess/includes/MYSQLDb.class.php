@@ -34,25 +34,31 @@
         public static function insert( $object, $table_name ){
             
             $sql = "INSERT INTO " .$table_name. " SET ";  // generating sql string
-                
-            $fields = array(); // key -> value in sql string
             $data = array(); // creating data to placeholder 
+            
+            if( is_array($object) ){
                 
-                foreach( $object as $key => $value ){
+                $fields = array(); // key -> value in sql string
+                
                     
-                    $fields[] = $key." = ?";
-                    $data[]   = $value;
-                }            
-                $sql .= implode(', ',$fields); // comma_separated
-
-        //    echo $sql;
-       //     print_r($data);
-       //     DIE();
+                    foreach( $object as $key => $value ){
+                        
+                        $fields[] = $key." = ?";
+                        $data[]   = $value;
+                    }            
+                    $sql .= implode(', ',$fields); // comma_separated
+            }
+            else { $sql .= $object; }
+            
+            echo $sql;
+            print_r($data);
+          //      print_r($object);  
+        //   DIE();
 
             try{                     
                     self::getDBH()->beginTransaction();
                     $STH = self::getDBH()->prepare( $sql );
-                    $STH->execute( $data );
+                    ( !empty($data) ) ? $STH->execute( $data ) : $STH->execute();   
                     $lastInsertId = self::getDBH()->lastInsertId();
                     self::getDBH()->commit();
                     
@@ -98,15 +104,15 @@
        //     echo $sql;
         //    DIE();
             try{
-                    self::getDBH()->beginTransaction();
+                 //   self::getDBH()->beginTransaction();
                     $STH = self::getDBH()->prepare( $sql );
                     ( !empty($data) ) ? $STH->execute( $data ) : $STH->execute();   
                     $lastInsertId = self::getDBH()->lastInsertId();
-                    self::getDBH()->commit();
+                  //  self::getDBH()->commit();
 
                 return $lastInsertId;
             }
-            catch ( PDOException $e ){  self::getDBH()->rollBack(); return $e->getMessage(); DIE();  }
+            catch ( PDOException $e ){   return $e->getMessage(); DIE(); self::getDBH()->rollBack();  }
         }
 
 

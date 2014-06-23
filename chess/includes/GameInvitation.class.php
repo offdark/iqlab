@@ -69,10 +69,10 @@ class GameInvitation {
         catch ( PDOException $e ) {  echo '<br> cant save secretQuestions to  _DB: '. $e->getMessage(); DIE(); }
     }
 
-    public function outcome( $id ){
+    public function outcome( $login_str ){
 
         $data = array();
-        $sql_arr = array( 'from_user_login' => $id );
+        $sql_arr = array( 'from_user_login' => $login_str );
 
         try{
             $STH = MYSQLDb::select( '*', $this->table_name, $sql_arr );
