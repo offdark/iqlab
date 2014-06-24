@@ -6,10 +6,8 @@
         public  $figuresPosition = array();
         
          
-         function __construct(  ){
-
-        
-    }
+       function __construct(  ){
+       }
     
     
     public function selectAll( $author_user_login_str ){
@@ -32,6 +30,33 @@
             }
             catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }       
     }
-        
-        
+
+
+    public function select( $gameId_int ){
+
+        $id = array( 'id' => $gameId_int );
+        $data = array();
+
+        try{
+            $STH = MYSQLDb::select( '*', $this->table_name, $id );
+            $STH->setFetchMode( PDO::FETCH_ASSOC ); // FetchMODE Array
+
+            foreach( $STH->fetch() as $key => $value){
+
+                if( $key == 'table_state' ){
+
+                    $this->figuresPosition = unserialize( $value );
+                }
+                else{  $data[$key] = $value;  }
+            }
+
+           echo  $this->chessboard( $this->figuresPosition );
+       //         echo "<br><br>";
+        //   print_r($data);
+            return $data;
+        }
+        catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
     }
+
+        
+}

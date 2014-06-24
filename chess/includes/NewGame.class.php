@@ -10,7 +10,6 @@ class NewGame  {
 
     public $table_name = 'game';
     public  $figuresStartPosition = array(
-
                                             'A1' => '&#9814',
                                             'B1' => '&#9816',
                                             'C1' => '&#9815',
@@ -46,7 +45,6 @@ class NewGame  {
                                             'F7' => '&#9823;',
                                             'G7' => '&#9823;',
                                             'H7' => '&#9823;'
-
                                          );
 
     function __construct( $invitationId_int = null ){
@@ -119,13 +117,16 @@ class NewGame  {
             //    $table .= "<table>";
                 $table .= "<tr class='border_top'>  <td bgcolor='#FFFFFF' colspan='8'> Created: ". $values_arr['created'] ."</td></tr>";
                 $table .= "<td bgcolor='#FFFFFF'colspan='8'> Author: ". $values_arr['author_user_login'] ."</td>";
-                $table .= "<tr > <td bgcolor='#FFFFFF' colspan='8'> <a href=''> Play</a></td></tr>";
-           //     $table .= "</table>";
+                $table .= "<tr > <td bgcolor='#FFFFFF' colspan='8'>My color: ". $color = ( $values_arr['author_user_login'] != $_SESSION['login'] ) ? 'black' : 'white' ."</td></tr>";
+                $table .= "<tr > <td bgcolor='#FFFFFF' colspan='8'> <a href='". URL ."?mod=". htmlspecialchars($values_arr['id']) ."&action=play'> Play</a></td></tr>";
+
+                  //     $table .= "</table>";
             
              }
              
         return     $table .= '</table>';
     }
+
 
 
    public function putFiguresChessBoard( $value_str, $Fpossition_arr = 'new' ){
@@ -144,6 +145,10 @@ class NewGame  {
         return $result;
     }
 
+    public function firstMove(){
+
+        
+    }
 
 }
 
