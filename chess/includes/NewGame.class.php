@@ -64,7 +64,7 @@ class NewGame  {
                     $data[] = $value;
                 }
                 
-                $assoc_data = array( 'author_user_login' => $data[0], 'partner_user_login' => $data[1], 'table_state' => $this->arraySerialize( $this->figuresStartPosition ) );
+                $assoc_data = array( 'author_user_login' => $data[0], 'partner_user_login' => $data[1], 'table_state' => serialize( $this->figuresStartPosition ) );
 
             //TODO create PDO transaction !!!!
 
@@ -80,7 +80,7 @@ class NewGame  {
                         else { return false; }
 
                     }
-                    else{   return false;  }
+                    else{  return false;  }
                 }
                 catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
              //   echo "<br>";
@@ -97,10 +97,10 @@ class NewGame  {
 
 
 
-   public function chessboard( $Fpossition, $amount = false ){
+   public function chessboard( $Fpossition, $values_arr = null ){
         // Creating chessboard
 
-        ( $amount == true ) ? $table = '<table id="chess_board_small" ' : $table =  '<table id="chess_board" ';
+        ( !empty($values_arr) ) ? $table = '<table id="chess_board_small" ' : $table =  '<table id="chess_board" ';
 
        $table .= 'cellpadding="0" cellspacing="0">';
 
@@ -114,7 +114,17 @@ class NewGame  {
                 }
                 $table .= "</tr>";
             }
-        return $table .= '</table>';
+            
+              if ( !empty($values_arr) ){
+            //    $table .= "<table>";
+                $table .= "<tr class='border_top'>  <td bgcolor='#FFFFFF' colspan='8'> Created: ". $values_arr['created'] ."</td></tr>";
+                $table .= "<td bgcolor='#FFFFFF'colspan='8'> Author: ". $values_arr['author_user_login'] ."</td>";
+                $table .= "<tr > <td bgcolor='#FFFFFF' colspan='8'> <a href=''> Play</a></td></tr>";
+           //     $table .= "</table>";
+            
+             }
+             
+        return     $table .= '</table>';
     }
 
 
@@ -133,23 +143,6 @@ class NewGame  {
         }
         return $result;
     }
-
-
-        public function arraySerialize( $array ){
-
-            $chessFigures = serialize( $array );
-
-            return $chessFigures;
-        }
-
-
-    public function strUnserialize( $string ){
-
-        $chessFigures = unserialize( $string );
-
-        return $chessFigures;
-    }
-
 
 
 }

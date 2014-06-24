@@ -15,7 +15,7 @@ class GameInvitation {
     public function send( $from_user_str, $to_user_str ){
 
         $sql_arr = array(
-                           'text'            => $this->text,
+                           'text'               => $this->text,
                            'from_user_login'    => $from_user_str,
                            'to_user_login'      => $to_user_str,
                         );
