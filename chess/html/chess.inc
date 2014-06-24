@@ -1,7 +1,7 @@
 <div class="container-content" >
     
 
-        <?php  $createGame->chessboard( 'new', false ); ?>
+        <?php  $data = $continueGame->select($_GET['mod']); ?>
 
 
 

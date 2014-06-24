@@ -2,4 +2,13 @@
 <?xml-stylesheet type="text/xsl" ?>
 <files>
 
-<item id="base/CV_Toroniy.doc"><counter>1</counter></item><item id="base/IHNATSI.pdf"><counter>0</counter></item><item id="base/bank.jpg"><counter>0</counter></item></files>
+    <item id="base/CV_Toroniy.doc">
+        <counter>1</counter>
+    </item>
+
+    <item id="base/IHNATSI.pdf">
+        <counter>0</counter>
+    </item>
+
+
+</files>

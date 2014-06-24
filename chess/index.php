@@ -88,7 +88,7 @@ include'html/header.inc';
      elseif( isset( $_GET['gameId'] ) && $_GET['action'] == 'accept' ){
 
          $createGame = new NewGame( $_GET['gameId']);
-         include'html/chess.inc';
+
     }
     elseif(  isset($_GET['mod'] ) && $_GET['mod'] == 'activeGames' ){
 
@@ -99,6 +99,11 @@ include'html/header.inc';
           echo "active games";
         include'html/activeGames.inc';
       }
+     elseif(  isset($_GET['mod'] ) && $_GET['action'] == 'play' ){
+
+         $continueGame = new ActiveGame();
+         include'html/chess.inc';
+     }
 
 
   }
