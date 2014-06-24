@@ -1,7 +1,7 @@
 <div class="container-content" >
     
 
-        <?php  echo $createGame->chessboard( 'new', false ); ?>
+        <?php  $createGame->chessboard( 'new', false ); ?>
 
 
 

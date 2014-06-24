@@ -1,12 +1,7 @@
 <div class="container-content" >
 <div class="game-List">
 
-
-
-
-
-        <?php    echo $activeGame->selectAll( $from_user );  ?>
-
+        <?php  $activeGame->selectAll( $from_user );  ?>
 
      </div>
      
