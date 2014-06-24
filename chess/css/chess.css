@@ -57,10 +57,10 @@
 }
 
 
-#chess_board_small { border:3px solid #333; float:left; margin-left:  40px; margin-top: 20px;  }
+#chess_board_small { border:0px solid #333; float:left; margin-left:  40px; margin-top: 20px;  }
 #chess_board_small td {
     background:#fff;
-    background:-moz-linear-gradient(top, #fff, #eee);
+  /*  background:-moz-linear-gradient(top, #fff, #eee); */
     background:-webkit-gradient(linear,0 0, 0 100%, from(#fff), to(#eee));
     box-shadow:inset 0 0 0 1px #fff;
     -moz-box-shadow:inset 0 0 0 1px #fff;
@@ -90,3 +90,9 @@
     margin: auto;
     width: 90%;
 }
+
+
+.border_top td {
+  border-top:2pt solid black;
+}
+
