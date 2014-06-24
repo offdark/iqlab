@@ -21,6 +21,10 @@
                             <a class="edit-but" href="index.php?login=<?php echo $values['login']; ?>&action=startGame" >Send request</a>
                          </td>
 
+                        <td class="col02">
+                            <a class="del-but" href="index.php?login=<?php echo $values['login']; ?>&action=blockUser" >Block</a>
+                        </td>
+
                    <?php endforeach; ?>
 
                     </tr>
@@ -55,8 +59,8 @@
                             <td class="invitations">Received: <?php echo $values['created']; ?><hr /></td>
 
                             <td class="col02">
-                                <a class="edit-but" href="index.php?id=<?php echo $values['id']; ?>&action=accept" > Accept </a>
-                                <a class="del-but" href="index.php?id=<?php echo $values['id']; ?>&action=decline" > Decline </a>
+                                <a class="edit-but" href="index.php?gameId=<?php echo $values['id']; ?>&action=accept" > Accept </a>
+                                <a class="del-but" href="index.php?gameId=<?php echo $values['id']; ?>&action=decline" > Decline </a>
                             <hr />
 
                             </td>

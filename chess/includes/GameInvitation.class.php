@@ -56,7 +56,6 @@ class GameInvitation {
 
     public function cancel( $id_int ){
 
-        $data = array();
         $sql_arr = array( 'status' => 'canceled');
         $id_arr = array( 'id' => $id_int );
 
@@ -86,6 +85,21 @@ class GameInvitation {
         catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
 
         return $data; //return user ID
+    }
+
+    public function update( $invitationId_int ){
+
+        $sql_arr = array( 'status' => 'accepted');
+        $id_arr = array( 'id' => $invitationId_int );
+
+        try{
+            if( MYSQLDb::save( $sql_arr, $this->table_name, $id_arr ) != null ){
+                return true;
+            }
+            else{  return false;  }
+        }
+        catch ( PDOException $e ) {  echo '<br> cant save secretQuestions to  _DB: '. $e->getMessage(); DIE(); }
+
     }
 
 

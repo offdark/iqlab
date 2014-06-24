@@ -100,9 +100,9 @@
             else{   !empty($where_mixed) ? $sql .= " WHERE ". $where_mixed : $sql .= '' ; }
 
 
-      //      print_r($data);
-       //     echo $sql;
-        //    DIE();
+            print_r($data);
+            echo $sql;
+       //     DIE();
             try{
                  //   self::getDBH()->beginTransaction();
                     $STH = self::getDBH()->prepare( $sql );

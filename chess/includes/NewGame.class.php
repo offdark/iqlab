@@ -6,7 +6,7 @@
  * Time: 6:05 PM
  */
 
-class NewGame {
+class NewGame  {
 
     public $table_name = 'game';
     public  $figuresStartPosition = array(
@@ -50,7 +50,7 @@ class NewGame {
                                          );
 
     function __construct( $invitationId_int = null ){
-        
+
         if( $invitationId_int != null ){
 
             $id = array( 'id' => $invitationId_int );
@@ -62,38 +62,44 @@ class NewGame {
                 foreach( $STH->fetch() as $value){
                     
                     $data[] = $value;
-                  
                 }
-                $chessFigures = serialize( $this->figuresStartPosition );
                 
-                $assoc_data = array( 'author_user_login' => $data[0], 'partner_user_login' => $data[1], 'table_state' => $chessFigures );
-                $this->create( $assoc_data );
+                $assoc_data = array( 'author_user_login' => $data[0], 'partner_user_login' => $data[1], 'table_state' => $this->arraySerialize( $this->figuresStartPosition ) );
+
+            //TODO create PDO transaction !!!!
+
+                try{
+                    if( MYSQLDb::save( $assoc_data, $this->table_name  ) != null ){
+
+                        $updateStatus = new GameInvitation();
+
+                        if( $updateStatus->update( $invitationId_int ) == true ){
+
+                            return true;
+                        }
+                        else { return false; }
+
+                    }
+                    else{   return false;  }
+                }
+                catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
+             //   echo "<br>";
              //   print_r($assoc_data);
-                DIE();
-    
+             //   DIE();
+
             }
             catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
 
+
         }
-        
+
     }
 
-
-    public function create( $usersLogin_arr ){
-
-        try{
-            if( MYSQLDb::save( $usersLogin_arr, $this->table_name  ) != null ){
-              return true;
-            }
-            else{   return false;  }
-        }
-        catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
-    }
 
 
    public function chessboard( $Fpossition, $amount = false ){
         // Creating chessboard
-        
+
         ( $amount == true ) ? $table = '<table id="chess_board_small" ' : $table =  '<table id="chess_board" ';
 
        $table .= 'cellpadding="0" cellspacing="0">';
@@ -127,6 +133,23 @@ class NewGame {
         }
         return $result;
     }
+
+
+        public function arraySerialize( $array ){
+
+            $chessFigures = serialize( $array );
+
+            return $chessFigures;
+        }
+
+
+    public function strUnserialize( $string ){
+
+        $chessFigures = unserialize( $string );
+
+        return $chessFigures;
+    }
+
 
 
 }

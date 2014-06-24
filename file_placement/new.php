@@ -13,7 +13,7 @@
     $size    = isset( $_FILES['userfile']['size'] )    ? $_FILES['userfile']['size']                    : null;
     //$user_id = isset( $_FILES['userfile']['user_id'] ) ? htmlentities( $_FILES['userfile']['user_id'] ) : 0;
  
-    $user_id = 'test';
+    $user_id = 'ppp';
 
     if( $size > $limit_size ){
 
@@ -31,6 +31,8 @@
 
              thumbnail(save_img($user_id),$uploadfile,60);
              thumbnail(save_img($user_id),$uploadfile,160);
+             thumbnail(save_img($user_id),$uploadfile,80);
+             thumbnail(save_img($user_id),$uploadfile,30);
 
         }else{
 
