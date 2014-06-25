@@ -58,5 +58,11 @@
         catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
     }
 
+    
+    public function nextMove(){
+        
+        
+        
+    }
         
 }
