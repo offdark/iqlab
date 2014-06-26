@@ -16,6 +16,7 @@
     class ActiveGame extends NewGame {
         
         public  $figuresPosition = array();
+        public  $data = array();
         
          
        /**
@@ -72,7 +73,6 @@
     public function select( $gameId_int ){
 
         $id = array( 'id' => $gameId_int );
-        $data = array();
 
         try{
             
@@ -84,13 +84,13 @@
 
                     $this->figuresPosition = unserialize( $value );
                 }
-                else{  $data[$key] = $value;  }
+                else{  $this->data[$key] = $value;  }
             }
 
            echo  $this->chessboard( $this->figuresPosition );
        //         echo "<br><br>";
         //   print_r($data);
-            return $data;
+            return $this->data;
         }
         catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
     }
@@ -101,64 +101,32 @@
      * @return
      */
     public function nextMove(){
-        
-        
-        
+
     }
     
 
-    public function save( $game_arr = null ){
-        
-        $game_arr = array(
-                                            'A1' => '&#9814',
-                                            'B1' => '&#9816',
-                                            'C1' => '&#9815',
-                                            'D1' => '&#9812',
-                                            'E1' => '&#9813',
-                                            'F1' => '&#9815',
-                                            'G1' => '&#9816',
-                                            'H1' => '',
+    public function moveFigure( $newPosition_arr, $oldPosition = null ){
 
-                                            'A2' => '&#9817;',
-                                            'B2' => '&#9817;',
-                                            'C2' => '&#9817;',
-                                            'D2' => '&#9817;',
-                                            'E2' => '&#9817;',
-                                            'F2' => '&#9817;',
-                                            'G2' => '&#9817;',
-                                            'H2' => '&#9817;',
+        $this->figuresPosition = array_replace( $this->figuresPosition, $newPosition_arr );
 
-                                            'A8' => '&#9820;',
-                                            'B8' => '&#9822;',
-                                            'C8' => '&#9821;',
-                                            'D8' => '&#9818;',
-                                            'E8' => '&#9819;',
-                                            'F8' => '&#9821;',
-                                            'G8' => '&#9822;',
-                                            'H8' => '&#9820;',
+        if( empty( $oldPosition ) ){  unset( $this->figuresPosition['$oldPosition'] );  }
 
-                                            'A7' => '&#9823;',
-                                            'B7' => '&#9823;',
-                                            'C7' => '&#9823;',
-                                            'D7' => '&#9823;',
-                                            'E7' => '&#9823;',
-                                            'F7' => '&#9823;',
-                                            'G7' => '&#9823;',
-                                            'H7' => '&#9823;'
-                                         );
-        
-        
-        echo "beffore replaysment: ";
-        print_r($this->figuresPosition);
-        echo count($this->figuresPosition);
-        echo "<br> after: ";
-        $this->figuresPosition = array_replace( $this->figuresPosition, $game_arr );
-        print_r($this->figuresPosition);
-           echo count($this->figuresPosition);
-        
+      // ( !empty( $oldPosition) ) ?: unset( $this->figuresPosition['$oldPosition'] );
+        $next_go = ( $this->data['next_go'] == 'whiteFirstMove' || $this->data['next_go'] == 'white' ) ? 'black' : 'white';
+
+        $gameId = array( 'id' => $this->data['id'] );
+
+        $assoc_data = array(
+                            'edited'             => time(),
+                            'next_go'            => $next_go,
+                            'table_state'        => serialize( $this->figuresPosition )
+                            );
+
+    //    print_r($assoc_data);
+       // DIE();
+
         try{
-                
-                
+             if( MYSQLDb::save( $assoc_data, $this->table_name, $gameId  ) != 0 ){ return true; } else{ return false; }
            }
             catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }  
     }
