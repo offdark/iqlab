@@ -138,8 +138,8 @@ class NewGame  {
         foreach( $htmlFigures as $key => $value ){
 
             if( $value_str == $key ){
-
-                $result = "<a href='#' >". $value ."</a>";
+ 
+                $result = ( $value != '' )? "<a href='#' >". $value. "</a>" : '';
             }
         }
         return $result;
