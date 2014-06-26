@@ -2,6 +2,7 @@
     
 
         <?php  $data = $continueGame->select($_GET['mod']); ?>
+        <?php  $continueGame->save(); ?>
 
 
 
