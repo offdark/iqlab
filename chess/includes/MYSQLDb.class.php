@@ -95,14 +95,14 @@
                     $fields[] = $key." = ?";
                     $data[]   = $value;
                 }
-                $sql .= " WHERE ". implode(', ',$fields); // comma_separated;           
+                $sql .= " WHERE ". implode(', ',$fields); // comma_separated;
             }
-            else{   !empty($where_mixed) ? $sql .= " WHERE ". $where_mixed : $sql .= '' ; }
+            else{  $sql .= " WHERE ". $where_mixed; }
 
 
             print_r($data);
-            echo $sql;
-       //     DIE();
+          //  echo $sql;
+          //  DIE();
             try{
                  //   self::getDBH()->beginTransaction();
                     $STH = self::getDBH()->prepare( $sql );
@@ -146,8 +146,8 @@
             else { !empty($value_mixed) ? $sql .= " WHERE ". $value_mixed : $sql .= '' ; }
 
 
-                echo $sql;
-              print_r($data);
+            //    echo $sql;
+           //   print_r($data);
            //    DIE();
             try{
                 
