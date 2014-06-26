@@ -4,7 +4,10 @@
  * User: user
  * Date: 6/5/14
  * Time: 6:05 PM
+ * GameInvitation
+ * @access public
  */
+
 
 class GameInvitation {
 
@@ -12,6 +15,13 @@ class GameInvitation {
     public $table_name = 'game_invitation';
 
 
+    /**
+     * GameInvitation::send()
+     * 
+     * @param mixed $from_user_str
+     * @param mixed $to_user_str
+     * @return
+     */
     public function send( $from_user_str, $to_user_str ){
 
         $sql_arr = array(
@@ -30,6 +40,12 @@ class GameInvitation {
     }
 
 
+    /**
+     * GameInvitation::listing()
+     * 
+     * @param mixed $to_user_str
+     * @return
+     */
     public function listing( $to_user_str ){
         
         $data = array();
@@ -54,6 +70,12 @@ class GameInvitation {
     }
 
 
+    /**
+     * GameInvitation::cancel()
+     * 
+     * @param mixed $id_int
+     * @return
+     */
     public function cancel( $id_int ){
 
         $sql_arr = array( 'status' => 'canceled');
@@ -68,6 +90,12 @@ class GameInvitation {
         catch ( PDOException $e ) {  echo '<br> cant save secretQuestions to  _DB: '. $e->getMessage(); DIE(); }
     }
 
+    /**
+     * GameInvitation::outcome()
+     * 
+     * @param mixed $login_str
+     * @return
+     */
     public function outcome( $login_str ){
 
         $data = array();
@@ -87,6 +115,12 @@ class GameInvitation {
         return $data; //return user ID
     }
 
+    /**
+     * GameInvitation::update()
+     * 
+     * @param mixed $invitationId_int
+     * @return
+     */
     public function update( $invitationId_int ){
 
         $sql_arr = array( 'status' => 'accepted');
