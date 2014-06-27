@@ -107,26 +107,34 @@
 
     public function moveFigure( $newPosition_arr, $oldPosition = null ){
 
+
+    //    echo "element to remove:  {$oldPosition} <br>";
+    //    echo "before <br>";
+    //    print_r($this->figuresPosition);
+
         $this->figuresPosition = array_replace( $this->figuresPosition, $newPosition_arr );
 
-        if( empty( $oldPosition ) ){  unset( $this->figuresPosition['$oldPosition'] );  }
+        if( !empty( $oldPosition ) ){  unset( $this->figuresPosition[$oldPosition] );  }
 
-      // ( !empty( $oldPosition) ) ?: unset( $this->figuresPosition['$oldPosition'] );
         $next_go = ( $this->data['next_go'] == 'whiteFirstMove' || $this->data['next_go'] == 'white' ) ? 'black' : 'white';
 
         $gameId = array( 'id' => $this->data['id'] );
 
         $assoc_data = array(
-                            'edited'             => time(),
-                            'next_go'            => $next_go,
-                            'table_state'        => serialize( $this->figuresPosition )
+                            'edited'       => date('Y-m-d H:i:s'),
+                            'next_go'      => $next_go,
+                            'table_state'  => serialize( $this->figuresPosition )
                             );
 
-    //    print_r($assoc_data);
-       // DIE();
+    //    Test::update($assoc_data, $this->table_name, $this->figuresPosition);
+   //     echo "<br> after remove & move <br>";
+   //     print_r($this->figuresPosition);
+   //     DIE();
 
         try{
-             if( MYSQLDb::save( $assoc_data, $this->table_name, $gameId  ) != 0 ){ return true; } else{ return false; }
+             if( MYSQLDb::save( $assoc_data, $this->table_name, $gameId  ) != 0 ){ $this->select($this->data['id']); } else{
+                 //TODO <javascript> response
+                 return false; }
            }
             catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }  
     }
