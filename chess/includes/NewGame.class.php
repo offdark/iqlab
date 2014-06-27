@@ -117,11 +117,11 @@ class NewGame  {
             //    $table .= "<table>";
                 $table .= "<tr class='border_top'>  <td bgcolor='#FFFFFF' colspan='8'> Created: ". $values_arr['created'] ."</td></tr>";
                 $table .= "<td bgcolor='#FFFFFF'colspan='8'> Author: ". $values_arr['author_user_login'] ."</td>";
-                $table .= "<tr > <td bgcolor='#FFFFFF' colspan='8'>My color: ". $color = ( $values_arr['author_user_login'] != $_SESSION['login'] ) ? 'black' : 'white' ."</td></tr>";
-                $table .= "<tr > <td bgcolor='#FFFFFF' colspan='8'>". $nextMove = ( $values_arr['next_go'] == 'whiteFirstMove' && $color == 'black' ) ? " <a href='". URL ."?mod=". htmlspecialchars($values_arr['id']) ."&action=play'> Play</a></td></tr>" : "Waite for a partner first move </td></tr>" ;
+                $table .= "<tr > <td bgcolor='#FFFFFF' colspan='8'>My color: ". $color= $this->getUserColor( $values_arr['author_user_login'] ) ."</td></tr>";
+                $table .= "<tr > <td bgcolor='#FFFFFF' colspan='8'>". $nextMove = ( $values_arr['next_go'] == 'white' && $color == 'black' || $values_arr['next_go'] == 'black' ) ? " <a href='". URL ."?mod=". htmlspecialchars($values_arr['id']) ."&action=play'> Play</a></td></tr>" : "Waite for a partner first move </td></tr>" ;
              //   echo $values_arr['next_go'];
                   //     $table .= "</table>";
-            
+
              }
              
         return     $table .= '</table>';
@@ -146,6 +146,12 @@ class NewGame  {
     }
 
 
+    public function getUserColor( $userID_str ){
+
+        $userColor = ( $userID_str != $_SESSION['login'] ) ? 'black' : 'white';
+
+     return $userColor;
+    }
 
 }
 
