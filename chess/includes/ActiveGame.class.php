@@ -25,6 +25,7 @@
         * @return
         */
        function __construct(  ){
+
        }
     
     
@@ -90,27 +91,15 @@
            echo  $this->chessboard( $this->figuresPosition );
        //         echo "<br><br>";
         //   print_r($data);
+            $_SESSION['myColor'] = $this->getUserColor($this->data['author_user_login']);
+
             return $this->data;
         }
         catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }
     }
-    
-    /**
-     * ActiveGame::nextMove()
-     * 
-     * @return
-     */
-    public function nextMove(){
 
-    }
-    
 
     public function moveFigure( $newPosition_arr, $oldPosition = null ){
-
-
-    //    echo "element to remove:  {$oldPosition} <br>";
-    //    echo "before <br>";
-    //    print_r($this->figuresPosition);
 
         $this->figuresPosition = array_replace( $this->figuresPosition, $newPosition_arr );
 
@@ -126,17 +115,15 @@
                             'table_state'  => serialize( $this->figuresPosition )
                             );
 
-    //    Test::update($assoc_data, $this->table_name, $this->figuresPosition);
-   //     echo "<br> after remove & move <br>";
-   //     print_r($this->figuresPosition);
-   //     DIE();
-
         try{
-             if( MYSQLDb::save( $assoc_data, $this->table_name, $gameId  ) != 0 ){ $this->select($this->data['id']); } else{
+             if( MYSQLDb::save( $assoc_data, $this->table_name, $gameId  ) != 0 ){ /* $this->select($this->data['id']); */return true; } else{
                  //TODO <javascript> response
                  return false; }
            }
             catch ( PDOException $e ) { echo  $e->getMessage(); DIE(); }  
     }
-        
+
+
+
+
 }
