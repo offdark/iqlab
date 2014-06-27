@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="<?php echo URL; ?>css/style.css" media="all" rel="stylesheet" type="text/css">
+    <link href="<?php echo URL; ?>css/style.css" media="all" rel="stylesheet" type="text/css">
     <link href="<?php echo URL; ?>css/chess.css" media="all" rel="stylesheet" type="text/css">
-<meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
 </head>
 <body>
     <div id="main">

@@ -1,5 +1,14 @@
 <div class="container-content" >
-    
+    <script>
+        var myColor = "<?php echo $_SESSION['myColor']; ?>";
+
+        $(document).ready(function(){
+            $("table").click(function(){
+                alert("yahooo");
+            });
+        });
+    </script>
+
 
         <?php  $continueGame->select($_GET['mod']); ?>
         <?php $game_arr = array(
@@ -35,11 +44,10 @@
             'G7' => '&#9823;',
             'H7' => '&#9823;'
         );
-        $remove = 'H2';
-        $gameMove = array('B6' => '&#9823;' );
+        $remove = 'F2';
+        $gameMove = array('D2' => '&#9816;' );
 
-   //     $continueGame->moveFigure( $gameMove, $remove ); ?>
-
+    //    $continueGame->moveFigure( $gameMove, $remove); ?>
 
 
 
