@@ -26,7 +26,7 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="42" selection-start="2602" selection-end="2602" vertical-scroll-proportion="-0.0" vertical-offset="1751" max-vertical-offset="2431">
+            <state line="103" column="42" selection-start="2602" selection-end="2602" vertical-scroll-proportion="-20.884615" vertical-offset="1157" max-vertical-offset="2380">
               <folding />
             </state>
           </provider>
@@ -35,7 +35,7 @@
       <file leaf-file-name="allUsers.inc" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/allUsers.inc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="25" selection-start="1179" selection-end="1179" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="799">
+            <state line="36" column="25" selection-start="1179" selection-end="1179" vertical-scroll-proportion="-23.538462" vertical-offset="0" max-vertical-offset="799">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,7 @@
       <file leaf-file-name="chess.inc" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/chess.inc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="4" selection-start="37" selection-end="37" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1751">
+            <state line="2" column="60" selection-start="106" selection-end="106" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="1887">
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
@@ -52,21 +52,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewGame.class.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="NewGame.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/NewGame.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="108" selection-start="4976" selection-end="4976" vertical-scroll-proportion="0.5405405" vertical-offset="1635" max-vertical-offset="2584">
+            <state line="50" column="0" selection-start="2289" selection-end="2289" vertical-scroll-proportion="47.615383" vertical-offset="2003" max-vertical-offset="2686">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActiveGame.class.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ActiveGame.class.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/includes/ActiveGame.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="45" selection-start="3914" selection-end="3914" vertical-scroll-proportion="-17.428572" vertical-offset="1807" max-vertical-offset="2499">
+            <state line="127" column="0" selection-start="3716" selection-end="3716" vertical-scroll-proportion="1.3484627" vertical-offset="1102" max-vertical-offset="2142">
               <folding>
-                <element signature="e#12#158#0" expanded="true" />
+                <marker date="1403884789205" expanded="true" signature="3575:3713" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -75,7 +75,7 @@
       <file leaf-file-name="MYSQLDb.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/MYSQLDb.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="207" selection-end="207" vertical-scroll-proportion="82.65385" vertical-offset="2319" max-vertical-offset="2924">
+            <state line="13" column="0" selection-start="207" selection-end="207" vertical-scroll-proportion="37.26923" vertical-offset="1139" max-vertical-offset="2924">
               <folding />
             </state>
           </provider>
@@ -84,7 +84,7 @@
       <file leaf-file-name="Test.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/Test.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="117" selection-end="117" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="1122">
+            <state line="9" column="0" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1122">
               <folding />
             </state>
           </provider>
@@ -121,7 +121,6 @@
         <option value="$PROJECT_DIR$/includes/GameStart.class.php" />
         <option value="$PROJECT_DIR$/includes/buffer.php" />
         <option value="$PROJECT_DIR$/html/activeGames.inc.php" />
-        <option value="$PROJECT_DIR$/html/header.inc" />
         <option value="$PROJECT_DIR$/includes/Session.class.php" />
         <option value="$PROJECT_DIR$/includes/CreatNewGame.class.php" />
         <option value="$PROJECT_DIR$/includes/functions.php" />
@@ -133,13 +132,14 @@
         <option value="$PROJECT_DIR$/html/startGame.inc" />
         <option value="$PROJECT_DIR$/includes/GameInvitation.class.php" />
         <option value="$PROJECT_DIR$/html/activeGames.inc" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/../count_files/counter.xml" />
         <option value="$PROJECT_DIR$/css/chess.css" />
         <option value="$PROJECT_DIR$/includes/test.php" />
-        <option value="$PROJECT_DIR$/includes/NewGame.class.php" />
         <option value="$PROJECT_DIR$/includes/MYSQLDb.class.php" />
         <option value="$PROJECT_DIR$/includes/Test.class.php" />
+        <option value="$PROJECT_DIR$/html/header.inc" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/includes/NewGame.class.php" />
         <option value="$PROJECT_DIR$/includes/ActiveGame.class.php" />
         <option value="$PROJECT_DIR$/html/chess.inc" />
       </list>
@@ -152,10 +152,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1296" />
-    <option name="height" value="786" />
+    <option name="x" value="-4" />
+    <option name="y" value="-4" />
+    <option name="width" value="1448" />
+    <option name="height" value="864" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -183,7 +183,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -226,12 +225,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chess" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chess" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -261,10 +275,10 @@
     <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application">
       <method />
     </configuration>
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
+    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
       <method />
     </configuration>
-    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -334,47 +348,47 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="786" extended-state="6" />
+    <frame x="-4" y="-4" width="1448" height="864" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13731825" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13662376" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13893376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.304414" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14020029" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30347595" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15379113" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27941176" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13662376" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.304414" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328877" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13948497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14091559" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -392,10 +406,24 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="50" />
+      <option name="time" value="61" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/includes/MYSQLDb.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="2975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Test.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1122">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="103" column="42" selection-start="2602" selection-end="2602" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2431">
@@ -430,7 +458,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="127" column="12" selection-start="3564" selection-end="3564" vertical-scroll-proportion="0.0" vertical-offset="1667" max-vertical-offset="2363">
           <folding>
-            <element signature="e#12#158#0" expanded="true" />
+            <marker date="1403884789205" expanded="true" signature="3575:3713" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -490,11 +518,6 @@
     <entry file="file://$PROJECT_DIR$/recPass_email.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="87" selection-start="534" selection-end="578" vertical-scroll-proportion="0.4164265" vertical-offset="0" max-vertical-offset="694" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/header.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="501" selection-end="501" vertical-scroll-proportion="-0.060921248" vertical-offset="313" max-vertical-offset="986" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/Session.class.php">
@@ -595,38 +618,24 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/a33abfd1/40d6be93-c73b-4dd9-b4b6-771ae1a76d95/chess..game">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340" />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="42" selection-start="2602" selection-end="2602" vertical-scroll-proportion="-0.0" vertical-offset="1751" max-vertical-offset="2431">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/a33abfd1/40d6be93-c73b-4dd9-b4b6-771ae1a76d95/chess..game_invitation">
       <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
         <state />
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/a33abfd1/40d6be93-c73b-4dd9-b4b6-771ae1a76d95/chess..game_invitation">
       <provider editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102" />
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/chess.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="57" selection-start="294" selection-end="294" vertical-scroll-proportion="0.4238227" vertical-offset="0" max-vertical-offset="1768" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/allUsers.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="25" selection-start="1179" selection-end="1179" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="799">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/User.class.php">
@@ -636,54 +645,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../xampp/phpinfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.046195652" vertical-offset="0" max-vertical-offset="368">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.046195652" vertical-offset="0" max-vertical-offset="368" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Test.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1122">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/header.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="6" selection-start="29" selection-end="29" vertical-scroll-proportion="0.048850574" vertical-offset="0" max-vertical-offset="1003">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../phpMyAdmin/sql.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="288" selection-end="288" vertical-scroll-proportion="0.5185185" vertical-offset="11" max-vertical-offset="3485">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/Test.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="117" selection-end="117" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="1122">
-          <folding />
+        <state line="13" column="0" selection-start="288" selection-end="288" vertical-scroll-proportion="0.48464912" vertical-offset="0" max-vertical-offset="29682">
+          <folding>
+            <marker date="1383585901000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1383585901000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1383585901000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/MYSQLDb.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="207" selection-end="207" vertical-scroll-proportion="82.65385" vertical-offset="2319" max-vertical-offset="2924">
+        <state line="13" column="0" selection-start="207" selection-end="207" vertical-scroll-proportion="37.26923" vertical-offset="1139" max-vertical-offset="2924">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/allUsers.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="25" selection-start="1179" selection-end="1179" vertical-scroll-proportion="-23.538462" vertical-offset="0" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="42" selection-start="2602" selection-end="2602" vertical-scroll-proportion="-20.884615" vertical-offset="1157" max-vertical-offset="2380">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/chess.inc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="4" selection-start="37" selection-end="37" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1751">
+        <state line="2" column="60" selection-start="106" selection-end="106" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="1887">
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/ActiveGame.class.php">
+    <entry file="file://$PROJECT_DIR$/includes/NewGame.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="45" selection-start="3914" selection-end="3914" vertical-scroll-proportion="-17.428572" vertical-offset="1807" max-vertical-offset="2499">
-          <folding>
-            <element signature="e#12#158#0" expanded="true" />
-          </folding>
+        <state line="50" column="0" selection-start="2289" selection-end="2289" vertical-scroll-proportion="47.615383" vertical-offset="2003" max-vertical-offset="2686">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/NewGame.class.php">
+    <entry file="file://$PROJECT_DIR$/includes/ActiveGame.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="108" selection-start="4976" selection-end="4976" vertical-scroll-proportion="0.5405405" vertical-offset="1635" max-vertical-offset="2584">
-          <folding />
+        <state line="127" column="0" selection-start="3716" selection-end="3716" vertical-scroll-proportion="1.3484627" vertical-offset="1102" max-vertical-offset="2142">
+          <folding>
+            <marker date="1403884789205" expanded="true" signature="3575:3713" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
