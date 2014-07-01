@@ -1,11 +1,73 @@
 <div class="container-content" >
     <script>
+
         var myColor = "<?php echo $_SESSION['myColor']; ?>";
+        var whiteFigures = [ "&#9812;", "&#9813;", "&#9814;", "&#9815;", "&#9816;", "&#9817;" ];
+        var blackFigures = [ "&#9818;", "&#9819;", "&#9820;", "&#9821;", "&#9822;", "&#9823;" ];
+        var color = ( myColor == 'white' )  ? whiteFigures : blackFigures;
+        var figure = '';
+        var fromFigurePosition = '';
+        var toFigurePossition = '';
+
+        function isValueInArray( arr, val ) {
+            inArray = false;
+            for ( i = 0; i < arr.length; i++ )
+                if ( val == arr[i] )
+                    inArray = true;
+            return inArray;
+        }
+
 
         $(document).ready(function(){
-            $("table").click(function(){
-                alert("yahooo");
+
+
+            $("td").click(function(){
+
+                if ( figure != '' && fromFigurePosition != ''  ) {
+
+
+                   //     alert( $(this).attr('id') );
+                 //         toFigurePosition =  $(this).attr('id');
+                    alert(figure);
+                    alert(fromFigurePosition);
+
+                }
+                else {
+                  //    alert( $(this).attr('id') );
+                    //  alert( $(this).text() );
+                  //  var value = fruits.indexOf("bbb", 4);
+                  //  $.inArray( $(this).text(), color ) != -1
+                 //   color.indexOf( $(this).text() ) >= 0
+                //    alert($(this).text());
+                   var ppp =  isValueInArray( color, $(this).text());
+
+                 //   alert(ppp);
+                    var aaa = $(this).text();
+                //    alert(aaa);
+                //    alert(myColor);
+
+                    $.each(color, function( index, value ) {
+
+                      //  alert( index + ": " + value );
+                    });
+
+                    if(  $(this).text() != '' ){
+                        figure = $(this).text();
+                     //   alert(figure);
+
+                        if( $.inArray( $(this).text(), color ) >= 0  ){
+
+                            fromFigurePosition =  $(this).attr('id');
+                            figure = $(this).text();
+                        }
+                        else{  alert("please choose your color");  }
+
+                    }else { alert("choose figure to go"); }
+
+                }
+
             });
+
         });
     </script>
 
@@ -75,18 +137,15 @@
 
                     <tr>
 
-                    <?php foreach( $user as $value  ): ?>
+
 
                         <td align="center">
-                        <?php  if( $value != $user['id'] ): ?>
 
-                             <input name="<?php echo $key; ?>" class="inputUser" type="text" required value="<?php echo htmlspecialchars($value); ?>">
-                        <?php else: ?>
-                             <?php echo htmlspecialchars($value); ?>
 
-                       <?php endif;?>
+                             <input name="<?php  ?>" class="inputUser" type="text" required value="<?php ?>">
+
                         </td>
-                    <?php   endforeach;    ?>
+
 
         </tr>
 
@@ -94,9 +153,9 @@
                 	</table>
                     
                     <div class="row-bottom">
-											<span class="date"> <a href="index.php?id=<?php echo $user['id']; ?>&action=save" >Save</a>
+											<span class="date"> <a href="index.php?id=<?php  ?>&action=save" >Save</a>
                        </span>
-											<span class="info"><a class="del-but" href="index.php?id=<?php echo $user['id']; ?>&action=del" >Delete</a>
+											<span class="info"><a class="del-but" href="index.php?id=<?php  ?>&action=del" >Delete</a>
                        </span>
                     </div>
                     
