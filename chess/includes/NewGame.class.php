@@ -118,7 +118,7 @@ class NewGame  {
                 $table .= "<tr class='border_top'>  <td bgcolor='#FFFFFF' colspan='8'> Created: ". $values_arr['created'] ."</td></tr>";
                 $table .= "<td bgcolor='#FFFFFF'colspan='8'> Author: ". $values_arr['author_user_login'] ."</td>";
                 $table .= "<tr > <td bgcolor='#FFFFFF' colspan='8'>My color: ". $color= $this->getUserColor( $values_arr['author_user_login'] ) ."</td></tr>";
-                $table .= "<tr > <td bgcolor='#FFFFFF' colspan='8'>". $nextMove = ( $values_arr['next_go'] == 'whiteFirstMove' ) ? " <a href='". URL ."?mod=". htmlspecialchars($values_arr['id']) ."&action=play'> Play</a></td></tr>" : "Waite for a partner first move </td></tr>" ;
+                $table .= "<tr > <td bgcolor='#FFFFFF' colspan='8'>". $nextMove = ( true ) ? " <a href='". URL ."?mod=". htmlspecialchars($values_arr['id']) ."&action=play'> Play</a></td></tr>" : "Waite for a partner first move </td></tr>" ;
              //   echo $values_arr['next_go'];
                   //     $table .= "</table>";
 

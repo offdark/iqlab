@@ -89,6 +89,10 @@
     text-decoration: none;
 }
 
+.user-link li a:active{
+    color:#00BEC5;
+}
+
 /*Login, Register menu END */
 
 

@@ -2,12 +2,13 @@
     <script>
 
         var myColor = "<?php echo $_SESSION['myColor']; ?>";
-        var whiteFigures = [ "&#9812;", "&#9813;", "&#9814;", "&#9815;", "&#9816;", "&#9817;" ];
-        var blackFigures = [ "&#9818;", "&#9819;", "&#9820;", "&#9821;", "&#9822;", "&#9823;" ];
+        var whiteFigures = [ "♖", "♘", "♗", "♔", "♕", "♙" ];
+        var blackFigures = [ "♜", "♞", "♝", "♚", "♛", "♟" ];
         var color = ( myColor == 'white' )  ? whiteFigures : blackFigures;
         var figure = '';
         var fromFigurePosition = '';
-        var toFigurePossition = '';
+        var toFigurePosition = '';
+
 
         function isValueInArray( arr, val ) {
             inArray = false;
@@ -17,43 +18,34 @@
             return inArray;
         }
 
+        function htmlEncode(value){
+            if (value) {
+                return jQuery('<div />').text(value).html();
+            } else {
+                return '';
+            }
+        }
+
+
 
         $(document).ready(function(){
-
 
             $("td").click(function(){
 
                 if ( figure != '' && fromFigurePosition != ''  ) {
 
+                        if( $.inArray( $(this).text(), color ) < 0  ){
 
-                   //     alert( $(this).attr('id') );
-                 //         toFigurePosition =  $(this).attr('id');
-                    alert(figure);
-                    alert(fromFigurePosition);
-
+                            toFigurePosition =  $(this).attr('id');
+                            alert(figure);
+                            alert(fromFigurePosition);
+                            alert(toFigurePosition);
+                        }
+                        else{  alert("you can't make move on your figures");  }
                 }
-                else {
-                  //    alert( $(this).attr('id') );
-                    //  alert( $(this).text() );
-                  //  var value = fruits.indexOf("bbb", 4);
-                  //  $.inArray( $(this).text(), color ) != -1
-                 //   color.indexOf( $(this).text() ) >= 0
-                //    alert($(this).text());
-                   var ppp =  isValueInArray( color, $(this).text());
-
-                 //   alert(ppp);
-                    var aaa = $(this).text();
-                //    alert(aaa);
-                //    alert(myColor);
-
-                    $.each(color, function( index, value ) {
-
-                      //  alert( index + ": " + value );
-                    });
+                else{
 
                     if(  $(this).text() != '' ){
-                        figure = $(this).text();
-                     //   alert(figure);
 
                         if( $.inArray( $(this).text(), color ) >= 0  ){
 
@@ -61,14 +53,14 @@
                             figure = $(this).text();
                         }
                         else{  alert("please choose your color");  }
-
-                    }else { alert("choose figure to go"); }
-
+                    }
+                    else { alert("choose figure to go"); }
                 }
 
             });
 
         });
+
     </script>
 
 
@@ -107,14 +99,14 @@
             'H7' => '&#9823;'
         );
         $remove = 'F2';
-        $gameMove = array('D2' => '&#9816;' );
+        $gameMove = array('D2' => '♛' );
 
-    //    $continueGame->moveFigure( $gameMove, $remove); ?>
+    //    $continueGame->moveFigure( $gameMove ); ?>9
 
 
 
 </div>
-
+<?php echo $_SESSION['myColor']; ?>
 </div>                  <div class="editUser-block">
 								<div class="content-heading">
 									<h2>Edit user</h2>
